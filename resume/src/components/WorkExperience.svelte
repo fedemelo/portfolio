@@ -60,7 +60,7 @@
         </div>
         {#if experience.achievements && experience.achievements.length > 0}
           <ul>
-            {#each experience.achievements.slice(0, 4) as achievement}
+            {#each experience.achievements as achievement}
               <li>{achievement}</li>
             {/each}
           </ul>
