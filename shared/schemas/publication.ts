@@ -1,8 +1,7 @@
 import { z } from "zod";
 import { HideableSchema } from "./hideable";
 import { LocationSchema } from "./location";
-
-export type Publication = z.infer<typeof PublicationSchema>;
+import { RichLocalizedContentSchema, SimpleLocalizedContentSchema } from "./utils";
 
 export const AuthorSchema = z.object({
   name: z.string(),
@@ -12,11 +11,13 @@ export const AuthorSchema = z.object({
 export const PublicationSchema = z.object({
   ...HideableSchema.shape,
   ...LocationSchema.shape,
-  title: z.string(),
+  title: SimpleLocalizedContentSchema,
   authors: z.array(AuthorSchema),
   year: z.number(),
-  description: z.string(),
+  description: RichLocalizedContentSchema,
   institution: z.string(),
   url: z.string().optional(),
-  linkText: z.string().optional(),
-}); 
+  linkText: SimpleLocalizedContentSchema.optional(),
+});
+
+export type Publication = z.infer<typeof PublicationSchema>; 

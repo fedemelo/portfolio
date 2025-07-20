@@ -1,9 +1,10 @@
 import { z } from "zod";
 import { HideableSchema } from "./hideable";
-
-export type ResearchInterest = z.infer<typeof ResearchInterestSchema>;
+import { RichLocalizedContentSchema } from "./utils";
 
 export const ResearchInterestSchema = z.object({
   ...HideableSchema.shape,
-  text: z.string(),
+  text: RichLocalizedContentSchema,
 });
+
+export type ResearchInterest = z.infer<typeof ResearchInterestSchema>;

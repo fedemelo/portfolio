@@ -1,6 +1,28 @@
 import { z } from "zod";
 import { zodToJsonSchema } from "zod-to-json-schema";
 
+export const RichLocalizedContentSchema = z.object({
+  en: z.object({
+    full: z.string(),
+    short: z.string().optional(),
+  }),
+  es: z.object({
+    full: z.string(),
+    short: z.string().optional(),
+  }),
+});
+
+export const SimpleLocalizedContentSchema = z.object({
+  en: z.string(),
+  es: z.string(),
+});
+
+export type RichLocalizedContent = z.infer<typeof RichLocalizedContentSchema>;
+export type SimpleLocalizedContent = z.infer<typeof SimpleLocalizedContentSchema>;
+
+export type Language = 'en' | 'es';
+export type ContentType = 'full' | 'short';
+
 export const ErrorSchema = z.object({
   error: z.string(),
   message: z.string(),

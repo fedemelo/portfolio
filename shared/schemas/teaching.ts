@@ -2,20 +2,21 @@ import { z } from "zod";
 import { HideableSchema } from "./hideable";
 import { LocationSchema } from "./location";
 import { CourseSchema } from "./course";
-
-export type Teaching = z.infer<typeof TeachingSchema>;
+import { RichLocalizedContentSchema, SimpleLocalizedContentSchema } from "./utils";
 
 export const TeachingSchema = z.object({
   ...HideableSchema.shape,
   ...LocationSchema.shape,
-  title: z.string(),
+  title: SimpleLocalizedContentSchema,
   organization: z.string(),
   course: CourseSchema.optional(),
-  department: z.string().optional(),
+  department: SimpleLocalizedContentSchema.optional(),
   supervisor: z.string().optional(),
   startDate: z.date(),
   endDate: z.date().optional(),
-  description: z.string().optional(),
-  achievements: z.array(z.string()).optional(),
+  description: RichLocalizedContentSchema.optional(),
+  achievements: z.array(RichLocalizedContentSchema).optional(),
   isCurrent: z.boolean().optional(),
 });
+
+export type Teaching = z.infer<typeof TeachingSchema>;

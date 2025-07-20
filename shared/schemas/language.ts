@@ -1,11 +1,10 @@
 import { z } from "zod";
 import { HideableSchema } from "./hideable";
-
-export type Language = z.infer<typeof LanguageSchema>;
+import { SimpleLocalizedContentSchema } from "./utils";
 
 export const CertificationSchema = z.object({
   ...HideableSchema.shape,
-  name: z.string(),
+  name: SimpleLocalizedContentSchema,
   id: z.string(),
   grade: z.string().regex(/^\d+\/\d+$/),
   cefrLevel: z.enum(["A1", "A2", "B1", "B2", "C1", "C2"]),
@@ -14,8 +13,10 @@ export const CertificationSchema = z.object({
 
 export const LanguageSchema = z.object({
   ...HideableSchema.shape,
-  name: z.string(),
-  proficiency: z.string(),
+  name: SimpleLocalizedContentSchema,
+  proficiency: SimpleLocalizedContentSchema,
   certifications: z.array(CertificationSchema).optional(),
 });
+
+export type Language = z.infer<typeof LanguageSchema>;
 

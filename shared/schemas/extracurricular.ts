@@ -1,10 +1,11 @@
 import { z } from "zod";
 import { HideableSchema } from "./hideable";
-
-export type Extracurricular = z.infer<typeof ExtracurricularSchema>;
+import { RichLocalizedContentSchema } from "./utils";
 
 export const ExtracurricularSchema = z.object({
   ...HideableSchema.shape,
-  description: z.string(),
-  events: z.array(z.string()),
+  description: RichLocalizedContentSchema,
+  events: z.array(RichLocalizedContentSchema),
 });
+
+export type Extracurricular = z.infer<typeof ExtracurricularSchema>;
