@@ -62,7 +62,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     achievements: [
       "Designed and built a system (Python, Polars) from scratch to process student data with advanced filters and aggregations. The system ultimately fed 3 distinct university services through a unified REST API (FastAPI)",
       "Extended a web application (TypeScript, React, MUI) with advanced filtering, report generation, dynamic graphing, and role-based access control dashboards, which served 15,000+ students and 600+ faculty and staff",
-      "Enabled the university to discontinue an external student counseling platform through the advanced student analytics system, saving approximately 100M COP (~$25K USD) annually",  // TODO: Verify money
+      "Enabled the university to discontinue an external student counseling platform through the advanced student analytics system, saving approximately 400M COP (~$100K USD) annually",
       "Architected and managed cross-VM communication systems for sensitive data, using air-gapping techniques and network management tools",
       "Designed and co-implemented an academic and personal risk detection system that successfully alerted relevant stakeholders on 1000+ critical cases", // TODO: Verify numbers
     ],
