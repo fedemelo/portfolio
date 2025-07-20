@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Latin+Modern+Roman:wght@400;700&display=swap');
 
 :root {
-  --font-base: 10.5pt;
+  --font-base: 11pt;
   --font-xxl: 24pt;
   --font-family: 'Latin Modern Roman', 'Times New Roman', serif;
 }
