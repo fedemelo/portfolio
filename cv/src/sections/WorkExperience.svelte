@@ -4,7 +4,13 @@
   import Location from "../../../shared/components/Location.svelte";
   import Achievements from "../components/Achievements.svelte";
   import { filterForCV } from "../../../shared/utils/show";
+  import { getLocalizedText } from "../../../shared/utils/localization";
+  import { getContext } from 'svelte';
+  import type { Language } from "../../../shared/schemas/utils";
+  
   export let workExperience: WorkExperience[];
+  
+  const language = getContext<Language>('language');
 </script>
 
 <section>
@@ -23,7 +29,15 @@
         />
       </div>
       <div class="row">
-        <p style="font-style: italic;">{work.title}</p>
+        <p style="font-style: italic;">
+          {getLocalizedText(work.title, language)}
+          {#if work.squad && work.team}
+            <span style="font-style: normal; margin: 0 3pt;">•</span>{getLocalizedText(work.squad, language)}, {getLocalizedText(work.team, language)}
+          {:else if work.team}
+            <span style="font-style: normal; margin: 0 3pt;">•</span>{getLocalizedText(work.team, language)} 
+          {/if}
+          
+        </p>
         <p>
           {getYearRange(work.startDate, work.endDate, work.isCurrent)}
         </p>
