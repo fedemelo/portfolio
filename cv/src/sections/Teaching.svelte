@@ -4,7 +4,13 @@
   import Location from "../../../shared/components/Location.svelte";
   import Achievements from "../components/Achievements.svelte";
   import { filterForCV } from "../../../shared/utils/show";
+  import { getLocalizedText } from "../../../shared/utils/localization";
+  import { getContext } from 'svelte';
+  import type { Language } from "../../../shared/schemas/utils";
+  
   export let teaching: Teaching[];
+  
+  const language = getContext<Language>('language');
 </script>
 
 <section>
@@ -23,7 +29,7 @@
       </div>
       <div class="row">
         <p style="font-style: italic;">
-          {teach.title}{teach.course ? ` - ${teach.course.name}` : ""}
+          {getLocalizedText(teach.title, language)}{teach.course ? ` - ${getLocalizedText(teach.course.name, language)}` : ""}
         </p>
         <p>
           {getPeriodFromDates(teach.startDate, teach.endDate, teach.isCurrent)}
