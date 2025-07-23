@@ -1,7 +1,13 @@
 <script lang="ts">
   import type { Publication } from "../../../shared/schemas/publication";
   import { filterForCV } from "../../../shared/utils/show";
+  import { getLocalizedText, getCVText } from "../../../shared/utils/localization";
+  import { getContext } from 'svelte';
+  import type { Language } from "../../../shared/schemas/utils";
+  
   export let publications: Publication[];
+  
+  const language = getContext<Language>('language');
 </script>
 
 <section>
@@ -20,14 +26,14 @@
         
         ({publication.year}). 
         
-        "{publication.title}". 
+        "{getLocalizedText(publication.title, language)}". 
         
-        <em>{publication.description}</em>. 
+        <em>{getCVText(publication.description, language)}</em>. 
         
         {publication.institution}. 
         
         {#if publication.url && publication.linkText}
-          Available at: <a href={publication.url} target="_blank" rel="noopener noreferrer">{publication.linkText}</a>
+          Available at: <a href={publication.url} target="_blank" rel="noopener noreferrer">{getLocalizedText(publication.linkText, language)}</a>
         {/if}
       </p>
     </div>

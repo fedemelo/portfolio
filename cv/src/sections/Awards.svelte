@@ -2,14 +2,20 @@
   import type { Award } from "../../../shared/schemas/award";
   import { filterForCV } from "../../../shared/utils/show";
   import { getYearRange, getYearSequence } from "../../../shared/utils/year";
+  import { getLocalizedText, getCVText } from "../../../shared/utils/localization";
+  import { getContext } from 'svelte';
+  import type { Language } from "../../../shared/schemas/utils";
+  
   export let awards: Award[];
+  
+  const language = getContext<Language>('language');
 </script>
 
 <section>
   <h2>Awards and Honors</h2>
   {#each filterForCV(awards) as award}
     <div class="no-break-on-print">
-      <h3>{award.title}</h3>
+      <h3>{getLocalizedText(award.title, language)}</h3>
       <div class="row">
         <p>{award.organization}</p>
         {#if award.date}
@@ -19,7 +25,7 @@
         {/if}
       </div>
       <div class="indented-block">
-        <p>{award.description}</p>
+        <p>{getCVText(award.description, language)}</p>
       </div>
     </div>
   {/each}
