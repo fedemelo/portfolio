@@ -5,7 +5,13 @@
   import { getPeriodFromDates } from "../../../shared/utils/period";
   import { filterForResume } from "../../../shared/utils/show";
   import Location from "../../../shared/components/Location.svelte";
+  import { getLocalizedText, getResumeText } from "../../../shared/utils/localization";
+  import { getContext } from 'svelte';
+  import type { Language } from "../../../shared/schemas/utils";
+  
   export let experiences: (WorkExperience | Teaching)[];
+  
+  const language = getContext<Language>('language');
 
   function sortExperiences(experiences: (WorkExperience | Teaching)[]) {
     return experiences.sort((a, b) => {
@@ -25,7 +31,7 @@
     {#each sortedExperiences as experience}
       <div class="no-break-on-print">
         <div class="row">
-          <h3>{experience.title}</h3>
+          <h3>{getLocalizedText(experience.title, language)}</h3>
           <p>
             {#if "workMode" in experience}
               {getYearRange(
@@ -61,7 +67,7 @@
         {#if experience.achievements && experience.achievements.length > 0}
           <ul>
             {#each experience.achievements as achievement}
-              <li>{achievement}</li>
+              <li>{getResumeText(achievement, language)}</li>
             {/each}
           </ul>
         {/if}

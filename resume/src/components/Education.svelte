@@ -3,7 +3,13 @@
   import { getYearRange } from "../../../shared/utils/year";
   import { filterForResume } from "../../../shared/utils/show";
   import Location from "../../../shared/components/Location.svelte";
+  import { getLocalizedText } from "../../../shared/utils/localization";
+  import { getContext } from 'svelte';
+  import type { Language } from "../../../shared/schemas/utils";
+  
   export let education: Education[];
+  
+  const language = getContext<Language>('language');
 </script>
 
 <section>
@@ -23,7 +29,7 @@
         </div>
         <div class="row">
           <p style="font-style: italic;">
-            {edu.degree}{#if edu.honors}, <strong>{edu.honors}</strong>{/if}
+            {getLocalizedText(edu.degree, language)}{#if edu.honors}, <strong>{getLocalizedText(edu.honors, language)}</strong>{/if}
           </p>
           <p>
             {getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate)}
