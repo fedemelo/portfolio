@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/navigation/navigation"
 import { NavigationAnimationProvider } from "@/contexts/navigation-animation-context"
+import { LanguageProvider } from "@/contexts/language-context"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,12 +32,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${josefinSans.variable} font-sans`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <NavigationAnimationProvider>
-            <div className="min-h-screen bg-background">
-              <Navigation />
-              <main className="container mx-auto px-4 py-8">{children}</main>
-            </div>
-          </NavigationAnimationProvider>
+          <LanguageProvider>
+            <NavigationAnimationProvider>
+              <div className="min-h-screen bg-background">
+                <Navigation />
+                <main className="container mx-auto px-4 py-8">{children}</main>
+              </div>
+            </NavigationAnimationProvider>
+          </LanguageProvider>
         </ThemeProvider>
       </body>
     </html>

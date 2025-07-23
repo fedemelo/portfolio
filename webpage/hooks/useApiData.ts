@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { apiClient } from '@/services/api'
+import { useLanguage } from '@/contexts/language-context'
 import type {
   Education,
   WorkExperience,
@@ -12,6 +13,7 @@ import type {
   PersonalInfo,
   Publication,
 } from '@/types'
+import type { Language as LanguageCode } from '../../shared/schemas/utils'
 
 export interface UseApiDataReturn<T> {
   data: T[]
@@ -25,12 +27,13 @@ interface UseApiDataOptions<T> {
 }
 
 export function useApiData<T = any>(
-  serviceFunction: () => Promise<T[]>,
+  serviceFunction: (language: LanguageCode) => Promise<T[]>,
   options: UseApiDataOptions<T> = {}
 ): UseApiDataReturn<T> {
   const [data, setData] = useState<T[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const { language } = useLanguage()
 
   const { transform } = options
 
@@ -38,7 +41,7 @@ export function useApiData<T = any>(
     try {
       setLoading(true)
       setError(null)
-      let result = await serviceFunction()
+      let result = await serviceFunction(language)
 
       if (transform) result = transform(result)
 
@@ -48,7 +51,7 @@ export function useApiData<T = any>(
     } finally {
       setLoading(false)
     }
-  }, [serviceFunction, transform])
+  }, [serviceFunction, transform, language])
 
   useEffect(() => {
     fetchData()
