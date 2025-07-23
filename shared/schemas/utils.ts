@@ -9,12 +9,12 @@ export const RichLocalizedContentSchema = z.object({
   es: z.object({
     full: z.string(),
     short: z.string().optional(),
-  }),
+  }).optional(),
 });
 
 export const SimpleLocalizedContentSchema = z.object({
   en: z.string(),
-  es: z.string(),
+  es: z.string().optional(),
 });
 
 export type RichLocalizedContent = z.infer<typeof RichLocalizedContentSchema>;
