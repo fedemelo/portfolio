@@ -2,33 +2,53 @@ import type { Language } from "../schemas/language";
 
 export const LANGUAGES: Language[] = [
   {
-    name: "Spanish",
-    proficiency: "Native",
+    showInCV: true,
+    showInResume: true,
+    name: {
+      en: "Spanish"
+    },
+    proficiency: {
+      en: "Native"
+    },
   },
   {
-    name: "English",
-    proficiency: "Bilingual",
+    showInCV: true,
+    showInResume: true,
+    name: {
+      en: "English"
+    },
+    proficiency: {
+      en: "Bilingual"
+    },
     certifications: [
       {
-        name: "IELTS",
+        showInCV: false,
+        showInResume: false,
+        name: {
+          en: "IELTS"
+        },
         date: new Date("2019-11-30T12:00:00-05:00"),
         grade: "8.0/9.0",
         cefrLevel: "C1",
         id: "19CO001251MELF015A",
-        showInCV: false,
-        showInResume: false,
       },
       {
-        name: "TOEFL",
+        showInCV: false,
+        showInResume: false,
+        name: {
+          en: "TOEFL"
+        },
         date: new Date("2020-02-02T12:00:00-05:00"),
         grade: "110/120",
         cefrLevel: "C1",
         id: "7824 1022 0180 2567",
-        showInCV: false,
-        showInResume: false,
       },
       {
-        name: "IELTS",
+        showInCV: true,
+        showInResume: true,
+        name: {
+          en: "IELTS"
+        },
         date: new Date("2025-06-07T12:00:00-05:00"),
         grade: "8.5/9.0",
         cefrLevel: "C2",
@@ -37,7 +57,13 @@ export const LANGUAGES: Language[] = [
     ],
   },
   {
-    name: "German",
-    proficiency: "Elementary",
+    showInCV: true,
+    showInResume: true,
+    name: {
+      en: "German"
+    },
+    proficiency: {
+      en: "Elementary"
+    },
   },
 ];
