@@ -84,7 +84,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       en: "Vice Dean's Office of Student Affairs"
     },
     startDate: new Date("2024-02-15T12:00:00-05:00"),
-    endDate: new Date("2025-07-31T12:00:00-05:00"),
+    endDate: new Date("2025-07-31T12:00:00-05:00"),  // TODO: Consider splitting this entry into my time as dev and my time as SW consultant
     description: {
       en: {
         full: "Built a full-stack student data system for the Universidad de los Andes.",
