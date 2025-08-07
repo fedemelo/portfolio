@@ -26,14 +26,13 @@ export const TEACHING: Teaching[] = [
     achievements: [
       {
         en: {
-          full: "Taught the course to ~25 students, covering fundamental procedural programming concepts (variables, control structures, functions, data structures) and matrix operations using Python-specific libraries (matplotlib, pandas)",
+          full: "Taught a 25-student undergraduate course covering core procedural programming concepts: variables, control flow, functions, data structures, and matrix operations using Python libraries (e.g., matplotlib, pandas)",
           short: "Taught fundamental procedural programming in Python to ~25 students, covering pandas and matplotlib"
         },
       },
       {
         en: {
-          full: "Granted exceptional permission to teach the course, which is typically reserved for faculty with graduate degrees",
-          short: "Granted exceptional permission to teach the course, typically reserved for faculty with graduate degrees"
+          full: "Exceptionally selected to teach the course, typically reserved for faculty with graduate degrees",
         },
       },
     ],
