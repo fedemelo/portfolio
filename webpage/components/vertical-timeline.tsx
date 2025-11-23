@@ -9,7 +9,7 @@ export function VerticalTimeline({ children }: VerticalTimelineProps) {
   return (
     <div className="relative">
       <div className="absolute left-7 top-10 bottom-10 w-0.5 bg-border"></div>
-      <div className="space-y-4">
+      <div className="space-y-2">
         {children}
       </div>
     </div>
@@ -18,8 +18,8 @@ export function VerticalTimeline({ children }: VerticalTimelineProps) {
 
 export function TimelineItem({ children, loading, icon }: { children: ReactNode, loading?: boolean, icon?: ReactNode }) {
   return (
-    <div className="relative flex items-center">
-      <div className="relative z-10 flex-shrink-0">
+    <div className="relative flex items-start">
+      <div className="relative z-10 flex-shrink-0 mt-4">
         <div className={`relative w-14 h-14 bg-background rounded-full flex items-center justify-center ${loading ? 'animate-pulse' : ''}`}>
           <div className="absolute inset-0 rounded-full overflow-hidden flex items-center justify-center">
             {icon ? (
@@ -34,7 +34,7 @@ export function TimelineItem({ children, loading, icon }: { children: ReactNode,
         </div>
       </div>
       
-      <div className="ml-2 flex-1 pb-8">
+      <div className="ml-2 flex-1 pb-6">
         {children}
       </div>
     </div>
