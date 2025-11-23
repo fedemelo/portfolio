@@ -4,21 +4,27 @@ import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
 import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
 import { AccordionItem } from "@/components/accordion-item"
+import { generateSlug } from "@/utils/slug"
 import { formatDate } from "@/utils/date"
 
 interface TeachingItemProps {
   teaching: Teaching
+  defaultExpanded?: boolean
 }
 
-export function TeachingItem({ teaching }: TeachingItemProps) {
+export function TeachingItem({ teaching, defaultExpanded }: TeachingItemProps) {
   const displayEndDate = teaching.isCurrent ? undefined : teaching.endDate
 
   const dateRange = displayEndDate 
     ? `${formatDate(teaching.startDate)} - ${formatDate(displayEndDate)}`
     : `${formatDate(teaching.startDate)} - Present`
+  
+  const slug = generateSlug(teaching.title)
 
   return (
     <AccordionItem
+      id={slug}
+      defaultExpanded={defaultExpanded}
       header={
         <div className="space-y-1">
           <HeaderSubheaderWithIcon 
