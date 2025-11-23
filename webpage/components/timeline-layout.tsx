@@ -8,6 +8,7 @@ interface TimelineLayoutProps<T> {
   loading?: boolean
   error?: string | null
   renderItem: (item: T, index: number) => React.ReactNode
+  getIcon?: (item: T, index: number) => React.ReactNode
   LoadingSkeleton: React.ComponentType
   pageName: string
   itemName: string
@@ -18,6 +19,7 @@ export function TimelineLayout<T>({
   loading,
   error,
   renderItem,
+  getIcon,
   LoadingSkeleton,
   pageName,
   itemName,
@@ -42,7 +44,9 @@ export function TimelineLayout<T>({
   return (
     <VerticalTimeline>
       {items.map((item, index) => (
-        <TimelineItem key={index}>{renderItem(item, index)}</TimelineItem>
+        <TimelineItem key={index} icon={getIcon?.(item, index)}>
+          {renderItem(item, index)}
+        </TimelineItem>
       ))}
     </VerticalTimeline>
   )
