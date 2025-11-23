@@ -48,7 +48,7 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering`,
+            full: `Cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering.`,
           },
         },
         date: new Date("2023-11-15T12:00:00-05:00"),
@@ -56,7 +56,7 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Cumulative GPA of 4.91 / 5.00 in Systems and Computing Engineering`,
+            full: `Cumulative GPA of 4.91 / 5.00 in Systems and Computing Engineering.`,
           },
         },
         date: new Date("2024-11-13T12:00:00-05:00"),
@@ -80,7 +80,7 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Semester GPA of 4.90 / 5.00 in Physics`,
+            full: `Semester GPA of 4.90 / 5.00 in Physics.`,
           },
         },
         date: new Date("2021-06-30T12:00:00-05:00"),
@@ -88,7 +88,7 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Semester GPA of 4.86 / 5.00 in Physics`,
+            full: `Semester GPA of 4.86 / 5.00 in Physics.`,
           },
         },
         date: new Date("2021-11-30T12:00:00-05:00"),
@@ -96,11 +96,22 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Semester GPA of 4.97 / 5.00 in Systems and Computing Engineering`,
+            full: `Semester GPA of 4.97 / 5.00 in Systems and Computing Engineering.`,
           },
         },
         date: new Date("2023-11-15T12:00:00-05:00"),
       },
     ],
-  }
+  },
+  // {
+  //   title: {
+  //     en: "Dean's List Awardee",
+  //     es: "Premio a la Lista del Dean"
+  //   },
+  //   description: {
+  //     en: {
+  //       full: `Recognition awarded to the student who achieved the highest GPA in their undergraduate program during the immediately preceding semester.`,
+  //     },
+  //   },
+  // }
 ];
