@@ -2,6 +2,7 @@ import { Trophy } from "lucide-react"
 import type { Award } from "@/types"
 import { ContextInfo } from "@/components/context-info"
 import { AccordionItem } from "@/components/accordion-item"
+import { CredentialGallery } from "@/components/credential-gallery"
 import { formatDate } from "@/utils/date"
 
 interface AwardItemProps {
@@ -37,6 +38,11 @@ export function AwardItem({ award }: AwardItemProps) {
             <p key={index}>{paragraph}</p>
           ))}
         </div>
+        <CredentialGallery
+          type="award"
+          diplomaUrl={award.certificateUrl}
+          images={award.images}
+        />
       </div>
     </AccordionItem>
   )
