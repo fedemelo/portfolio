@@ -17,6 +17,8 @@ export const AwardSchema = z.object({
   organization: OrganizationSchema,
   date: z.date().optional(),
   instances: z.array(AwardInstanceSchema).optional(),
+  certificateUrl: z.string().optional(),
+  images: z.array(z.string()).optional(),
 });
 
 export type Award = z.infer<typeof AwardSchema>;
