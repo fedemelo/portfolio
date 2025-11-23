@@ -1,4 +1,5 @@
 import { UNIANDES } from "./constants";
+import { CANALS_AI, CASEWARE } from "./organizations";
 import type { WorkExperience } from "../schemas/workExperience";
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
@@ -11,8 +12,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     team: {
       en: "Parsing"
     },
-    organization: "Canals AI",
-    icon: "/icons/canals-icon.png",
+    organization: CANALS_AI,
     city: "Coral Gables",
     state: "FL",
     country: "USA",
@@ -146,8 +146,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     title: {
       en: "Software Developer I"
     },
-    organization: "Caseware International Inc.",
-    icon: "/icons/caseware-icon.png",
+    organization: CASEWARE,
     team: {
       en: "Data Analytics"
     },

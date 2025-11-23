@@ -1,4 +1,5 @@
 import { UNIANDES } from "./constants";
+import { COLEGIO_SAN_CARLOS } from "./organizations";
 import type { Education } from "../schemas/education";
 
 export const EDUCATION: Education[] = [
@@ -44,7 +45,7 @@ export const EDUCATION: Education[] = [
     degree: {
       en: "Bachiller Académico"
     },
-    organization: "Colegio San Carlos",
+    organization: COLEGIO_SAN_CARLOS,
     city: "Bogotá",
     country: "Colombia",
     graduationDate: new Date("2020-06-26T12:00:00-05:00"),

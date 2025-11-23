@@ -1,6 +1,7 @@
+import { UNIANDES as UNIANDES_ORG } from "./organizations";
+
 export const UNIANDES = {
-  organization: "Universidad de los Andes",  // Ensure consistency
-  icon: "/icons/uniandes-icon.png",
+  organization: UNIANDES_ORG,
   city: "Bogotá",
   country: "Colombia",
 };
