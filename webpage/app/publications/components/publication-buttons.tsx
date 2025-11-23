@@ -10,7 +10,7 @@ interface PublicationButtonsProps {
 
 export function PublicationButtons({ publication }: PublicationButtonsProps) {
   return (
-    <div className="flex flex-wrap gap-2 pt-2">
+    <div className="flex flex-wrap gap-2 pt-2 justify-end">
       <CiteButton publication={publication} />
       
       {publication.pdfUrl && (

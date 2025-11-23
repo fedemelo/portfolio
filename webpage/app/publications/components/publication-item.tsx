@@ -21,7 +21,7 @@ export function PublicationItem({ publication }: PublicationItemProps) {
         </div>
       }
     >
-      <div className="space-y-3">
+      <div className="space-y-2">
         <p className="text-base leading-relaxed ml-8">
           <span
             dangerouslySetInnerHTML={{
