@@ -7,12 +7,13 @@ interface AccordionItemProps {
   header: ReactNode
   children: ReactNode
   defaultExpanded?: boolean
+  id?: string
 }
 
-export function AccordionItem({ header, children, defaultExpanded = false }: AccordionItemProps) {
+export function AccordionItem({ header, children, defaultExpanded = false, id }: AccordionItemProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
 
-  return (
+  const content = (
     <div className="border rounded-lg overflow-hidden">
       <div 
         className="p-4 cursor-pointer hover:bg-muted/50 transition-colors"
@@ -43,5 +44,16 @@ export function AccordionItem({ header, children, defaultExpanded = false }: Acc
       </div>
     </div>
   )
+
+  // If an ID is provided, wrap in a scroll anchor div
+  if (id) {
+    return (
+      <div id={id} className="scroll-mt-20">
+        {content}
+      </div>
+    )
+  }
+
+  return content
 }
 
