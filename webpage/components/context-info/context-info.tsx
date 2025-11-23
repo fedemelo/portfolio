@@ -1,5 +1,6 @@
 import { Calendar, MapPin, Building2, Users, BookOpen, User } from "lucide-react"
-import type { Location } from "@/types"
+import Link from "next/link"
+import type { Location, Organization } from "@/types"
 import { formatDate } from "@/utils/date"
 
 export function ContextInfo({
@@ -18,7 +19,7 @@ export function ContextInfo({
   period?: string
   endDate?: string | Date | number
   location?: Location
-  organization?: string
+  organization?: Organization
   team?: string
   department?: string
   supervisor?: string
@@ -89,11 +90,24 @@ function LocationDisplay({ location }: { location: Location }) {
   )
 }
 
-function OrganizationDisplay({ organization }: { organization: string }) {
+function OrganizationDisplay({ organization }: { organization: Organization }) {
+  const OrganizationName = organization.link ? (
+    <Link 
+      href={organization.link} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="hover:text-foreground transition-colors"
+    >
+      {organization.name}
+    </Link>
+  ) : (
+    <span>{organization.name}</span>
+  )
+
   return (
     <div className="flex items-center">
       <Building2 className="mr-1 h-4 w-4" />
-      {organization}
+      {OrganizationName}
     </div>
   )
 }
