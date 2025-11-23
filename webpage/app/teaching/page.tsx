@@ -1,6 +1,6 @@
 "use client"
 
-import { useTeaching } from "@/hooks/useApiData"
+import { useTeaching, useCourses } from "@/hooks/useApiData"
 import { useHashNavigation } from "@/hooks/useHashNavigation"
 import { TeachingItem } from "./components/teaching-item"
 import { TeachingLoadingSkeleton } from "./components/teaching-loading-skeleton"
@@ -10,8 +10,14 @@ import { OrganizationIcon } from "@/components/organization-icon"
 import { generateSlug } from "@/utils/slug"
 
 export default function TeachingPage() {
-  const { data: teaching, loading, error } = useTeaching()
+  const { data: teaching, loading: teachingLoading, error: teachingError } = useTeaching()
+  const { data: courses, loading: coursesLoading } = useCourses()
   const targetHash = useHashNavigation()
+
+  const loading = teachingLoading || coursesLoading
+  const error = teachingError
+
+  const courseMap = new Map(courses.map(course => [course.code, course]))
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
@@ -23,11 +29,19 @@ export default function TeachingPage() {
         renderItem={(experience) => {
           const slug = generateSlug(experience.title)
           const shouldExpand = slug === targetHash
-          return <TeachingItem teaching={experience} defaultExpanded={shouldExpand} />
+          const course = courseMap.get(experience.courseCode)
+          return (
+            <TeachingItem 
+              teaching={experience} 
+              course={course}
+              defaultExpanded={shouldExpand} 
+            />
+          )
         }}
-        getIcon={(experience) => (
-          <OrganizationIcon organization={experience.organization} />
-        )}
+        getIcon={(experience) => {
+          const course = courseMap.get(experience.courseCode)
+          return course ? <OrganizationIcon organization={course.organization} /> : null
+        }}
         LoadingSkeleton={TeachingLoadingSkeleton}
         pageName="teaching experience"
         itemName="teaching experience"
