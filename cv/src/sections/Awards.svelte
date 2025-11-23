@@ -17,7 +17,7 @@
     <div class="no-break-on-print">
       <h3>{getLocalizedText(award.title, language)}</h3>
       <div class="row">
-        <p>{award.organization}</p>
+        <p>{award.organization.name}</p>
         {#if award.date}
           <p>{getYearRange(award.date)}</p>
         {:else if award.instances}

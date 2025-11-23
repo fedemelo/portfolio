@@ -18,7 +18,7 @@
   {#each filterForCV(teaching) as teach}
     <div class="no-break-on-print">
       <div class="row">
-        <h3>{teach.organization}</h3>
+        <h3>{teach.organization.name}</h3>
         <Location
           location={{
             city: teach.city,

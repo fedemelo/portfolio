@@ -18,7 +18,7 @@
   {#each filterForCV(workExperience) as work}
     <div class="no-break-on-print">
       <div class="row">
-        <h3>{work.organization}</h3>
+        <h3>{work.organization.name}</h3>
         <Location
           location={{
             city: work.city,
