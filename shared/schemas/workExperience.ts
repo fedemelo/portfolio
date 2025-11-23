@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { HideableSchema } from "./hideable";
 import { LocationSchema } from "./location";
+import { OrganizationSchema } from "./organization";
 import { RichLocalizedContentSchema, SimpleLocalizedContentSchema } from "./utils";
 
 export type WorkMode = z.infer<typeof WorkModeSchema>;
@@ -13,8 +14,7 @@ export const WorkExperienceSchema = z.object({
   title: SimpleLocalizedContentSchema,
   team: SimpleLocalizedContentSchema.optional(),
   squad: SimpleLocalizedContentSchema.optional(),
-  organization: z.string(),
-  icon: z.string().optional(),
+  organization: OrganizationSchema,
   startDate: z.date(),
   endDate: z.date().optional(),
   description: RichLocalizedContentSchema,

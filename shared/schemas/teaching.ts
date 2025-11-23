@@ -2,14 +2,14 @@ import { z } from "zod";
 import { HideableSchema } from "./hideable";
 import { LocationSchema } from "./location";
 import { CourseSchema } from "./course";
+import { OrganizationSchema } from "./organization";
 import { RichLocalizedContentSchema, SimpleLocalizedContentSchema } from "./utils";
 
 export const TeachingSchema = z.object({
   ...HideableSchema.shape,
   ...LocationSchema.shape,
   title: SimpleLocalizedContentSchema,
-  organization: z.string(),
-  icon: z.string().optional(),
+  organization: OrganizationSchema,
   course: CourseSchema.optional(),
   department: SimpleLocalizedContentSchema.optional(),
   supervisor: z.string().optional(),
