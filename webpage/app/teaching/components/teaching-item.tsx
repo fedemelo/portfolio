@@ -1,5 +1,5 @@
-import { BookOpen, GraduationCap } from "lucide-react"
-import type { Teaching } from "@/types"
+import { BookOpen } from "lucide-react"
+import type { Teaching, Course } from "@/types"
 import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
 import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
@@ -9,10 +9,11 @@ import { formatDate } from "@/utils/date"
 
 interface TeachingItemProps {
   teaching: Teaching
+  course?: Course
   defaultExpanded?: boolean
 }
 
-export function TeachingItem({ teaching, defaultExpanded }: TeachingItemProps) {
+export function TeachingItem({ teaching, course, defaultExpanded }: TeachingItemProps) {
   const displayEndDate = teaching.isCurrent ? undefined : teaching.endDate
 
   const dateRange = displayEndDate
@@ -28,30 +29,30 @@ export function TeachingItem({ teaching, defaultExpanded }: TeachingItemProps) {
       header={
         <div className="space-y-1">
           <HeaderSubheaderWithIcon
-            icon={<GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />}
-            title={teaching.title}
-            organization={teaching.organization}
+            icon={<BookOpen className="h-5 w-5 text-primary flex-shrink-0" />}
+            header={teaching.title}
+            subheader={course ? `${course.code}: ${course.name}` : undefined}
+            subheaderUrl={course && course.hasPage ? `/courses/${course.slug}` : undefined}
           />
-          <p className="text-sm text-muted-foreground ml-7">{dateRange}</p>
+          <p className="text-sm text-muted-foreground ml-7">{teaching.period} • {dateRange}</p>
         </div>
       }
     >
       <div className="space-y-3">
-        <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
-          <CourseInformation course={teaching.course} />
-        </div>
-
-        <div className="flex flex-row justify-between">
-          <ContextInfo
-            location={{
-              city: teaching.city,
-              state: teaching.state,
-              country: teaching.country,
-            }}
-            department={teaching.department}
-            supervisor={teaching.supervisor}
-          />
-        </div>
+        {course && (
+          <div className="flex flex-row justify-between">
+            <ContextInfo
+              location={{
+                city: course.city || '',
+                state: course.state,
+                country: course.country || '',
+              }}
+              department={course.department}
+              supervisor={teaching.supervisor}
+            />
+            <CourseDetails credits={course.credits} />
+          </div>
+        )}
 
         <DescriptionAndBullets description={teaching.description} achievements={teaching.achievements} />
       </div>
@@ -59,22 +60,12 @@ export function TeachingItem({ teaching, defaultExpanded }: TeachingItemProps) {
   )
 }
 
-function CourseInformation({ course }: { course?: Teaching['course'] }) {
-  if (!course) return null
+function CourseDetails({ credits }: { credits?: number }) {
+  if (!credits) return null
 
   return (
-    <div className="bg-muted rounded-lg p-4 space-y-2">
-      <div className="flex items-center">
-        <BookOpen className="mr-2 h-4 w-4 text-primary" />
-        <span className="font-medium">{course.name}</span>
-        <span className="ml-2 text-sm text-muted-foreground">({course.code})</span>
-        {course.credits && (
-          <span className="ml-2 text-sm text-muted-foreground">• {course.credits} credits</span>
-        )}
-      </div>
-      {course.description && (
-        <p className="text-sm text-muted-foreground">{course.description}</p>
-      )}
+    <div className="flex items-center text-sm text-muted-foreground">
+      <span>{credits} credits</span>
     </div>
   )
 }
