@@ -23,6 +23,8 @@
   import { TEACHING } from '../../shared/data/teaching';
   import Teaching from './sections/Teaching.svelte';
 
+  import { COURSES } from '../../shared/data/courses';
+
   import { SKILLS } from '../../shared/data/skills';
   import Skills from './sections/Skills.svelte';
 
@@ -36,7 +38,7 @@
   <Education education={EDUCATION} />
   <Awards awards={AWARDS} />
   <WorkExperience workExperience={WORK_EXPERIENCE} />
-  <Teaching teaching={TEACHING} />
+  <Teaching teaching={TEACHING} courses={COURSES} />
   <Publications publications={PUBLICATIONS} />
   <RelevantCoursework relevantCoursework={RELEVANT_COURSEWORK} />
   <Skills skills={SKILLS} />
