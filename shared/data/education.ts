@@ -10,9 +10,6 @@ export const EDUCATION: Education[] = [
       en: "B.Sc. Systems and Computing Engineering",
       es: "Ingeniería de Sistemas y Computación"
     },
-    honors: {
-      en: "Summa Cum Laude",
-    },
     ...UNIANDES,
     startDate: new Date("2020-08-08T12:00:00-05:00"),  // Unclear if this is the actual start date
     graduationDate: new Date("2025-04-07T12:00:00-05:00"),
@@ -20,17 +17,13 @@ export const EDUCATION: Education[] = [
     gpa: "4.92/5.00",
     diplomaUrl: "/education/diplomas/uniandes.png",
     certificates: ["/education/certificates/acta-grado-uniandes.png"],
+    relatedAwardTitles: [
+      "Summa Cum Laude",
+      "Athletic Career Distinction",
+      "Ramón de Zubiría Award",
+      "Semester Excellence Award",
+    ],
     details: [
-      {
-        en: {
-          full: "Highest cumulative GPA in the Faculty of Engineering in the last 17 years",
-          short: "Highest cumulative GPA in Faculty of Engineering in 17 years"
-        },
-        es: {
-          full: "Mejor promedio acumulado en la Facultad de Ingeniería en los últimos 17 años",
-          short: "Mejor promedio acumulado en Facultad de Ingeniería en 17 años"
-        }
-      },
       {
         en: {
           full: "Best cumulative GPA in the Systems and Computing Engineering program in the XXI century",
@@ -41,6 +34,16 @@ export const EDUCATION: Education[] = [
           short: "Mejor promedio acumulado en Ingeniería de Sistemas y Computación en siglo XXI"
         }
       },
+      {
+        en: {
+          full: "Highest cumulative GPA in the Faculty of Engineering in the last 17 years",
+          short: "Highest cumulative GPA in Faculty of Engineering in 17 years"
+        },
+        es: {
+          full: "Mejor promedio acumulado en la Facultad de Ingeniería en los últimos 17 años",
+          short: "Mejor promedio acumulado en Facultad de Ingeniería en 17 años"
+        }
+      }
     ],
   },
   {
@@ -51,12 +54,17 @@ export const EDUCATION: Education[] = [
     city: "Bogotá",
     country: "Colombia",
     graduationDate: new Date("2020-06-26T12:00:00-05:00"),
-    honors: {
-      en: "Highest GPA in the 2020 cohort"
-    },
     gpa: "92.21 / 100.00",
     diplomaUrl: "/education/diplomas/csc.png",
     certificates: ["/education/certificates/acta-grado-csc.png"],
+    details: [
+      {
+        en: {
+          full: "Highest GPA in the 2020 cohort",
+          short: "Highest GPA in 2020 cohort"
+        },
+      },
+    ],
     showInCV: false,
     showInResume: false,
   }
