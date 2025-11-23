@@ -2,6 +2,7 @@ import { GraduationCap, Star } from "lucide-react"
 import type { Education } from "@/types"
 import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
+import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
 
 interface EducationItemProps {
   education: Education
@@ -11,7 +12,7 @@ export function EducationItem({ education }: EducationItemProps) {
   return (
     <div className="border rounded-lg p-6 space-y-3">
       <div className="flex flex-col gap-2 md:gap-0 md:flex-row md:justify-between">
-        <EducationHeader degree={education.degree} organization={education.organization} />
+        <HeaderSubheaderWithIcon icon={<GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />} title={education.degree} organization={education.organization} />
 
         <EducationDetails gpa={education.gpa} honors={education.honors} />
       </div>
@@ -28,18 +29,6 @@ export function EducationItem({ education }: EducationItemProps) {
       />
 
       <DescriptionAndBullets achievements={education.details} />
-    </div>
-  )
-}
-
-function EducationHeader({ degree, organization }: { degree: string; organization: string }) {
-  return (
-    <div className="space-y-0">
-      <div className="flex items-center gap-2">
-        <GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />
-        <h3 className="text-xl font-semibold leading-tight">{degree}</h3>
-      </div>
-      <p className="text-lg text-muted-foreground ml-7">{organization}</p>
     </div>
   )
 }
