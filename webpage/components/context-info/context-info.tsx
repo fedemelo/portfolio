@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Building2, Users, BookOpen, User, ExternalLink } from "lucide-react"
+import { Calendar, MapPin, Building2, Users, User, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import type { Location, Organization } from "@/types"
 import { formatDate } from "@/utils/date"
@@ -122,8 +122,8 @@ function TeamDisplay({ team }: { team: string }) {
 function DepartmentDisplay({ department }: { department: string }) {
   return (
     <div className="flex items-center">
-      <BookOpen className="mr-1 h-4 w-4" />
-      Department: {department}
+      <Building2 className="mr-1 h-4 w-4" />
+      {department}
     </div>
   )
 }
