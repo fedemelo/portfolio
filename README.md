@@ -56,7 +56,7 @@ For VPS or containerized deployments, build all images and run all services with
 pnpm docker:dev
 ```
 
-To only build (and not run) all images, run: `pnpm docker:build`.
+To only build (but not run) all images, run: `pnpm docker:build`.
 
 Commands per service:
 | Service | Build                       | URL                    | Build production image                                     | Run production image                      |
