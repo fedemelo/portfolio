@@ -1,18 +1,43 @@
-import { Calendar, Trophy } from "lucide-react"
+"use client"
+
+import { useState } from "react"
+import { Calendar, Trophy, ChevronDown, ChevronUp } from "lucide-react"
 import type { Award } from "@/types"
 import { ContextInfo } from "@/components/context-info"
-import { formatShortDate } from "@/utils/date"
+import { formatShortDate, formatDate } from "@/utils/date"
 
 interface AwardItemProps {
   award: Award
 }
 
 export function AwardItem({ award }: AwardItemProps) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  const dateDisplay = award.date ? formatDate(award.date) : ''
+
   return (
-    <div className="border rounded-lg p-6">
-      <div className="flex items-start">
-        <div className="flex-1 space-y-4 w-full">
-          <AwardHeader award={award} />
+    <div className="border rounded-lg overflow-hidden">
+      <div 
+        className="p-4 cursor-pointer hover:bg-muted/50 transition-colors"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex-1 space-y-1">
+            <AwardHeader award={award} />
+            {dateDisplay && <p className="text-sm text-muted-foreground ml-7">{dateDisplay}</p>}
+          </div>
+          <div className="flex-shrink-0 mt-1">
+            {isExpanded ? (
+              <ChevronUp className="h-5 w-5 text-muted-foreground" />
+            ) : (
+              <ChevronDown className="h-5 w-5 text-muted-foreground" />
+            )}
+          </div>
+        </div>
+      </div>
+
+      {isExpanded && (
+        <div className="px-4 pb-4 space-y-4 border-t pt-3">
           <ContextInfo date={award.date} location={{
             city: award.city,
             state: award.state,
@@ -21,7 +46,7 @@ export function AwardItem({ award }: AwardItemProps) {
           <AwardDescription description={award.description} />
           <AwardInstancesIfMultipleInstances award={award} />
         </div>
-      </div>
+      )}
     </div>
   )
 }
