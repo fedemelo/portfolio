@@ -5,6 +5,7 @@ import { TeachingItem } from "./components/teaching-item"
 import { TeachingLoadingSkeleton } from "./components/teaching-loading-skeleton"
 import { PageHeader } from "@/components/page-header"
 import { TimelineLayout } from "@/components/timeline-layout"
+import { OrganizationIcon } from "@/components/organization-icon"
 
 export default function TeachingPage() {
   const { data: teaching, loading, error } = useTeaching()
@@ -17,6 +18,9 @@ export default function TeachingPage() {
         loading={loading}
         error={error}
         renderItem={(experience) => <TeachingItem teaching={experience} />}
+        getIcon={(experience) => (
+          <OrganizationIcon icon={experience.icon} organization={experience.organization} />
+        )}
         LoadingSkeleton={TeachingLoadingSkeleton}
         pageName="teaching experience"
         itemName="teaching experience"
