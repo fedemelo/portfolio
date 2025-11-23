@@ -5,9 +5,6 @@ A monorepo containing Federico Melo Barrero's personal portfolio applications:
 - **Webpage**: [fedemelo.com](https://fedemelo.com)
 - **CV**: [cv.fedemelo.com](https://cv.fedemelo.com)
 - **Resume**: [resume.fedemelo.com](https://resume.fedemelo.com)
-- **API**: [api.fedemelo.com](https://api.fedemelo.com) [[/docs](https://api.fedemelo.com/docs)]
-
-Note: The API is not open for public use, only the documentation is available.
 
 ## Architecture
 
