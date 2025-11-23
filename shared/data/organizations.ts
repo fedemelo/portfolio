@@ -28,6 +28,8 @@ export const COLEGIO_SAN_CARLOS: Organization = {
 export const MIN_EDUCACION_COLOMBIA: Organization = {
   name: "Ministerio de Educación Nacional",
   icon: "/icons/min-educacion-icon.png",
-  link: "https://mineducacion.gov.co",
+  // Link to the certificate of accreditation from Acreditta,
+  // not to the official website of the Ministry of Education.
+  link: "https://www.acreditta.com/credential/4b25867e-0749-4267-a55b-aedecdc29aca",
 };
 
