@@ -16,6 +16,7 @@ import type {
   Extracurricular,
   PersonalInfo,
   Publication,
+  Course,
 } from '@/types'
 
 import { EDUCATION } from '../../shared/data/education'
@@ -28,6 +29,7 @@ import { TEACHING } from '../../shared/data/teaching'
 import { EXTRACURRICULARS } from '../../shared/data/extracurricular'
 import { PERSONAL_INFO } from '../../shared/data/personalInfo'
 import { PUBLICATIONS } from '../../shared/data/publications'
+import { COURSES } from '../../shared/data/courses'
 
 import { 
   getLocalizedText, 
@@ -43,7 +45,6 @@ const convertEducation = (data: typeof EDUCATION, language: LanguageCode): Educa
   return data.map(item => ({
     ...item,
     degree: getLocalizedText(item.degree, language),
-    honors: item.honors ? getLocalizedText(item.honors, language) : undefined,
     details: item.details?.map(detail => getCVText(detail, language)),
     startDate: dateToString(item.startDate),
     graduationDate: dateToString(item.graduationDate),
@@ -74,17 +75,19 @@ const convertTeaching = (data: typeof TEACHING, language: LanguageCode): Teachin
   return data.map(item => ({
     ...item,
     title: getLocalizedText(item.title, language),
-    department: item.department ? getLocalizedText(item.department, language) : '',
     description: item.description ? getCVText(item.description, language) : undefined,
     achievements: item.achievements?.map(achievement => getCVText(achievement, language)),
-    responsibilities: item.achievements?.map(achievement => getCVText(achievement, language)) || [],
-    course: item.course ? {
-      ...item.course,
-      name: getLocalizedText(item.course.name, language),
-      description: item.course.description ? getCVText(item.course.description, language) : undefined,
-    } : undefined,
     startDate: dateToString(item.startDate) || '',
     endDate: dateToString(item.endDate),
+  }))
+}
+
+const convertCourses = (data: typeof COURSES, language: LanguageCode): Course[] => {
+  return data.map(item => ({
+    ...item,
+    name: getLocalizedText(item.name, language),
+    department: item.department ? getLocalizedText(item.department, language) : undefined,
+    description: item.description ? getCVText(item.description, language) : undefined,
   }))
 }
 
@@ -136,6 +139,7 @@ const convertRelevantCoursework = (data: typeof RELEVANT_COURSEWORK, language: L
     courses: item.courses.map(course => ({
       ...course,
       name: getLocalizedText(course.name, language),
+      department: course.department ? getLocalizedText(course.department, language) : undefined,
       description: course.description ? getCVText(course.description, language) : undefined,
     })),
   }))
@@ -193,6 +197,10 @@ class StaticDataClient {
 
   getPublications = async (language: LanguageCode = 'en'): Promise<Publication[]> => {
     return convertPublications(PUBLICATIONS, language)
+  }
+
+  getCourses = async (language: LanguageCode = 'en'): Promise<Course[]> => {
+    return convertCourses(COURSES, language)
   }
 
   getHealth = async (): Promise<{ status: string; timestamp: string }> => {
