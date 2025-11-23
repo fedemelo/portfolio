@@ -1,13 +1,4 @@
-import { Hideable } from "./hideable"
-
-export interface Course extends Hideable {
-  name: string
-  originalName?: string
-  code: string
-  credits?: number
-  description?: string
-  link?: string
-}
+import { Course } from "./course"
 
 export interface RelevantCoursework {
   area: string
