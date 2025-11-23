@@ -15,10 +15,10 @@ interface TeachingItemProps {
 export function TeachingItem({ teaching, defaultExpanded }: TeachingItemProps) {
   const displayEndDate = teaching.isCurrent ? undefined : teaching.endDate
 
-  const dateRange = displayEndDate 
+  const dateRange = displayEndDate
     ? `${formatDate(teaching.startDate)} - ${formatDate(displayEndDate)}`
     : `${formatDate(teaching.startDate)} - Present`
-  
+
   const slug = generateSlug(teaching.title)
 
   return (
@@ -27,10 +27,10 @@ export function TeachingItem({ teaching, defaultExpanded }: TeachingItemProps) {
       defaultExpanded={defaultExpanded}
       header={
         <div className="space-y-1">
-          <HeaderSubheaderWithIcon 
-            icon={<GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />} 
-            title={teaching.title} 
-            organization={teaching.organization} 
+          <HeaderSubheaderWithIcon
+            icon={<GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />}
+            title={teaching.title}
+            organization={teaching.organization}
           />
           <p className="text-sm text-muted-foreground ml-7">{dateRange}</p>
         </div>

@@ -16,7 +16,7 @@ interface EducationItemProps {
 
 export function EducationItem({ education, defaultExpanded }: EducationItemProps) {
   const endDate = education.trueEndDate || education.graduationDate
-  const dateRange = endDate 
+  const dateRange = endDate
     ? `${education.startDate ? formatDate(education.startDate) + ' - ' : ''}${formatDate(endDate)}`
     : education.startDate ? formatDate(education.startDate) : ''
 
@@ -28,10 +28,10 @@ export function EducationItem({ education, defaultExpanded }: EducationItemProps
       defaultExpanded={defaultExpanded}
       header={
         <div className="space-y-1">
-          <HeaderSubheaderWithIcon 
-            icon={<GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />} 
-            title={education.degree} 
-            organization={education.organization} 
+          <HeaderSubheaderWithIcon
+            icon={<GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />}
+            title={education.degree}
+            organization={education.organization}
           />
           {dateRange && <p className="text-sm text-muted-foreground ml-7">{dateRange}</p>}
         </div>

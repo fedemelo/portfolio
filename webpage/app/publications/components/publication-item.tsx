@@ -35,11 +35,11 @@ export function PublicationItem({ publication, defaultExpanded }: PublicationIte
             }}
           />
           {" "}
-          ({publication.year}). 
+          ({publication.year}).
           {" "}
-          "{publication.title}". 
+          "{publication.title}".
           {" "}
-          <em>{publication.description}</em>. 
+          <em>{publication.description}</em>.
           {" "}
           {publication.institution}.
         </p>

@@ -33,7 +33,7 @@ export function TimelineItem({ children, loading, icon }: { children: ReactNode,
           <div className={`absolute inset-0 rounded-full border-4 pointer-events-none ${loading ? 'border-muted' : 'border-primary'}`}></div>
         </div>
       </div>
-      
+
       <div className="ml-2 flex-1 pb-6">
         {children}
       </div>
