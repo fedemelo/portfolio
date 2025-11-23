@@ -17,6 +17,7 @@ export const CourseSchema = z.object({
   description: RichLocalizedContentSchema.optional(),
   topics: z.array(z.string()).optional(),
   teachingIds: z.array(z.string()),
+  websiteUrl: z.string().optional(),
   syllabusUrl: z.string().optional(),
   materialsUrl: z.string().optional(),
   hasPage: z.boolean().optional(),
