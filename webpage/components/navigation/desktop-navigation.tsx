@@ -10,8 +10,6 @@ export function DesktopNavigation() {
   const pathname = usePathname()
   const { setNavigatedInternally } = useNavigationAnimation()
 
-  
-
   return (
     <div className="hidden md:flex items-center space-x-8">      
       <div className="flex items-center space-x-6">
