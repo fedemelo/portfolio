@@ -1,27 +1,14 @@
-import { UNIANDES } from "./constants";
 import type { Teaching } from "../schemas/teaching";
 
 export const TEACHING: Teaching[] = [
   {
+    id: "isis-1221-2025-20-lecturer",
     title: {
       en: "Lecturer",
       es: "Profesor"
     },
-    course: {
-      name: {
-        en: "Introduction to Programming",
-        es: "Introducción a la Programación"
-      },
-      originalName: "Introducción a la Programación",
-      code: "ISIS-1221",
-      credits: 3,
-      showInCV: true,
-      showInResume: false,
-    },
-    department: {
-      en: "Systems and Computing Engineering",
-      es: "Ingeniería de Sistemas y Computación"
-    },
+    courseCode: "ISIS-1221",
+    period: "2025-20",
     startDate: new Date("2025-08-04T12:00:00-05:00"),
     achievements: [
       {
@@ -39,28 +26,15 @@ export const TEACHING: Teaching[] = [
     isCurrent: true,
     showInCV: true,
     showInResume: false,
-    ...UNIANDES,
   },
   {
+    id: "vice-3001-2022-2024-assistant",
     title: {
       en: "Undergraduate Research Teaching Assistant",
       es: "Asistente de Investigación"
     },
-    course: {
-      name: {
-        en: "CupiTaller",
-        es: "CupiTaller"
-      },
-      originalName: "CupiTaller",
-      code: "VICE-3001",
-      credits: 6,
-      showInCV: true,
-      showInResume: false,
-    },
-    department: {
-      en: "Systems and Computing Engineering",
-      es: "Ingeniería de Sistemas y Computación"
-    },
+    courseCode: "VICE-3001",
+    period: "2022-20 - 2024-20",
     startDate: new Date("2022-08-08T12:00:00-05:00"),
     endDate: new Date("2024-12-07T12:00:00-05:00"),
     supervisor: "Prof. Eduardo Rosales, Ph.D.",
@@ -111,28 +85,15 @@ export const TEACHING: Teaching[] = [
     isCurrent: false,
     showInCV: true,
     showInResume: false,
-    ...UNIANDES,
   },
   {
+    id: "mate-1207-2024-19-ta",
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
     },
-    course: {
-      name: {
-        en: "Vector Calculus",
-        es: "Cálculo Vectorial"
-      },
-      originalName: "Cálculo Vectorial",
-      code: "MATE-1207",
-      credits: 3,
-      showInCV: true,
-      showInResume: false,
-    },
-    department: {
-      en: "Mathematics",
-      es: "Matemáticas"
-    },
+    courseCode: "MATE-1207",
+    period: "Summer 2024",
     startDate: new Date("2024-06-04T12:00:00-05:00"),
     endDate: new Date("2024-07-26T12:00:00-05:00"),
     supervisor: "Prof. Jacinto Puig, Ph.D.",
@@ -156,28 +117,15 @@ export const TEACHING: Teaching[] = [
     isCurrent: false,
     showInCV: true,
     showInResume: false,
-    ...UNIANDES,
   },
   {
+    id: "isis-1211-2022-10-tutor",
     title: {
       en: "Tutor",
       es: "Tutor"
     },
-    course: {
-      name: {
-        en: "CupiTaller",
-        es: "CupiTaller"
-      },
-      originalName: "CupiTaller",
-      code: "ISIS-1211",
-      credits: 3,
-      showInCV: true,
-      showInResume: false,
-    },
-    department: {
-      en: "Systems and Computing Engineering",
-      es: "Ingeniería de Sistemas y Computación"
-    },
+    courseCode: "ISIS-1211",
+    period: "2022-10",
     startDate: new Date("2022-02-01T12:00:00-05:00"),
     endDate: new Date("2022-06-04T12:00:00-05:00"),
     achievements: [
@@ -195,28 +143,15 @@ export const TEACHING: Teaching[] = [
     isCurrent: false,
     showInCV: true,
     showInResume: false,
-    ...UNIANDES,
   },
   {
+    id: "isis-1221-2021-10-ta",
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
     },
-    course: {
-      name: {
-        en: "Introduction to Programming",
-        es: "Introducción a la Programación"
-      },
-      originalName: "Introducción a la Programación",
-      code: "ISIS-1221",
-      credits: 3,
-      showInCV: true,
-      showInResume: false,
-    },
-    department: {
-      en: "Systems and Computing Engineering",
-      es: "Ingeniería de Sistemas y Computación"
-    },
+    courseCode: "ISIS-1221",
+    period: "2021-10",
     startDate: new Date("2021-02-01T12:00:00-05:00"),
     endDate: new Date("2021-06-05T12:00:00-05:00"),
     supervisor: "Prof. Diego Salinas",
@@ -236,28 +171,15 @@ export const TEACHING: Teaching[] = [
     isCurrent: false,
     showInCV: true,
     showInResume: false,
-    ...UNIANDES,
   },
   {
+    id: "mate-1203-2021-10-ta",
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
     },
-    course: {
-      name: {
-        en: "Differential Calculus",
-        es: "Cálculo Diferencial"
-      },
-      originalName: "Cálculo Diferencial",
-      code: "MATE-1203",
-      credits: 3,
-      showInCV: true,
-      showInResume: false,
-    },
-    department: {
-      en: "Mathematics",
-      es: "Matemáticas"
-    },
+    courseCode: "MATE-1203",
+    period: "2021-10",
     startDate: new Date("2021-01-25T12:00:00-05:00"),
     endDate: new Date("2021-05-29T12:00:00-05:00"),
     supervisor: "Prof. Alexander Murcia, Ph.D.",
@@ -270,13 +192,12 @@ export const TEACHING: Teaching[] = [
       },
       {
         en: {
-          full: "Graded worksheets and provided individualized support",
+          full: "Graded worksheets and provided feedback",
         },
       },
     ],
     isCurrent: false,
     showInCV: true,
     showInResume: false,
-    ...UNIANDES,
   },
 ];
