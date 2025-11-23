@@ -13,7 +13,6 @@ export const EducationSchema = z.object({
   startDate: z.date().optional(),
   graduationDate: z.date().optional(),
   trueEndDate: z.date().optional(),
-  honors: SimpleLocalizedContentSchema.optional(),
   gpa: z.string().regex(/^\d+\.\d+\/\d+\.\d+$/).optional(),
   details: z.array(RichLocalizedContentSchema).optional(),
   course: CourseSchema.optional(),
@@ -21,6 +20,10 @@ export const EducationSchema = z.object({
   diplomaUrl: z.string().optional(),
   certificates: z.array(z.string()).optional(),
   images: z.array(z.string()).optional(),
+
+  // We take these, extract their slug, and use it to attempt
+  // a deep link to the corresponding award on the awards page.
+  relatedAwardTitles: z.array(z.string()).optional(),
 });
 
 export type Education = z.infer<typeof EducationSchema>;

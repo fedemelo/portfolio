@@ -9,7 +9,6 @@ export interface Education extends Location, Hideable {
   startDate?: string
   graduationDate?: string
   trueEndDate?: string
-  honors?: string
   gpa?: string
   details?: string[]
   course?: Course
@@ -17,4 +16,5 @@ export interface Education extends Location, Hideable {
   diplomaUrl?: string
   certificates?: string[]
   images?: string[]
+  relatedAwardTitles?: string[]
 }
