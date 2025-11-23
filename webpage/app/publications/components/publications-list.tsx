@@ -18,7 +18,7 @@ export function PublicationsList({ publications, loading, error }: PublicationsL
   if (publications.length === 0) return <NoItemsAvailable itemName="publications" />
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-4">
       {publications.map((publication, index) => (
         <PublicationItem key={index} publication={publication} />
       ))}

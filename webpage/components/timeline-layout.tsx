@@ -34,7 +34,7 @@ export function TimelineLayout<T>({
 
   if (isMobile)
     return (
-      <div className="space-y-6">
+      <div className="space-y-4">
         {items.map((item, index) => (
           <div key={index}>{renderItem(item, index)}</div>
         ))}

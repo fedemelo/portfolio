@@ -19,7 +19,7 @@ export function AwardsGrid({ awards, loading, error }: AwardsGridProps) {
   if (awards.length === 0) return <NoItemsAvailable itemName="awards" />
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       {awards.map((award, index) => (
         <AwardItem key={index} award={award} />
       ))}
