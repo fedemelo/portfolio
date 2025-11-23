@@ -21,6 +21,7 @@ export const CASEWARE: Organization = {
 export const COLEGIO_SAN_CARLOS: Organization = {
   name: "Colegio San Carlos",
   icon: "/icons/csc-icon.png",
-  link: "https://www.colegiosancarlos.edu.co",
+  // I feel like the Wikipedia page is more telling than sancarlos.edu.co
+  link: "https://en.wikipedia.org/wiki/Colegio_San_Carlos",  
 };
 
