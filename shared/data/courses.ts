@@ -23,6 +23,7 @@ export const COURSES: Course[] = [
     teachingIds: ["isis-1221-2025-20-lecturer", "isis-1221-2021-10-ta"],
     showInCV: true,
     showInResume: false,
+    hasPage: true,
     ...UNIANDES,
   },
   {
