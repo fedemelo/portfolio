@@ -12,6 +12,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       en: "Parsing"
     },
     organization: "Canals AI",
+    icon: "/icons/canals-icon.png",
     city: "Coral Gables",
     state: "FL",
     country: "USA",
@@ -146,6 +147,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       en: "Software Developer I"
     },
     organization: "Caseware International Inc.",
+    icon: "/icons/caseware-icon.png",
     team: {
       en: "Data Analytics"
     },
