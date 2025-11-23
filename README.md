@@ -41,7 +41,7 @@ Development via Docker is also supported, see [Docker Deployment](#docker-deploy
 
 ### Cloudflare Pages
 
-Each module deploys to its own domain or subdomain via an independent Cloudflare Pages project. Cloudflare Pages doesn't support [pnpm](https://pnpm.io/) directly, so the build commands use [npm](https://www.npmjs.com/) instead. All modules use [Node.js 20](https://nodejs.org/).
+Each module deploys **automatically on push to main** to its own domain or subdomain via an independent Cloudflare Pages project. Cloudflare Pages doesn't support [pnpm](https://pnpm.io/) directly, so the build commands use [npm](https://www.npmjs.com/) instead. All modules use [Node.js 20](https://nodejs.org/).
 
 | Module  | Domain / Subdomain                                 | Build Command                 | Build Output Directory |
 | ------- | -------------------------------------------------- | ----------------------------- | ---------------------- |
