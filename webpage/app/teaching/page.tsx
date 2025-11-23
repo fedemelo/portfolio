@@ -19,7 +19,7 @@ export default function TeachingPage() {
         error={error}
         renderItem={(experience) => <TeachingItem teaching={experience} />}
         getIcon={(experience) => (
-          <OrganizationIcon icon={experience.icon} organization={experience.organization} />
+          <OrganizationIcon organization={experience.organization} />
         )}
         LoadingSkeleton={TeachingLoadingSkeleton}
         pageName="teaching experience"

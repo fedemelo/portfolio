@@ -19,7 +19,7 @@ export default function WorkExperiencePage() {
         error={error}
         renderItem={(experience) => <ExperienceItem experience={experience} />}
         getIcon={(experience) => (
-          <OrganizationIcon icon={experience.icon} organization={experience.organization} />
+          <OrganizationIcon organization={experience.organization} />
         )}
         LoadingSkeleton={ExperienceLoadingSkeleton}
         pageName="work experience"
