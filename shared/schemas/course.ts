@@ -1,13 +1,25 @@
 import { z } from "zod";
 import { HideableSchema } from "./hideable";
+import { OrganizationSchema } from "./organization";
+import { LocationSchema } from "./location";
 import { RichLocalizedContentSchema, SimpleLocalizedContentSchema } from "./utils";
 
 export const CourseSchema = z.object({
   ...HideableSchema.shape,
+  ...LocationSchema.shape,
+  code: z.string(),
+  slug: z.string(),
   name: SimpleLocalizedContentSchema,
   originalName: z.string().optional(),
-  code: z.string(),
+  organization: OrganizationSchema,
+  department: SimpleLocalizedContentSchema.optional(),
   credits: z.number().optional(),
   description: RichLocalizedContentSchema.optional(),
-  link: z.string().optional(),
+  topics: z.array(z.string()).optional(),
+  teachingIds: z.array(z.string()),
+  syllabusUrl: z.string().optional(),
+  materialsUrl: z.string().optional(),
+  hasPage: z.boolean().optional(),
 });
+
+export type Course = z.infer<typeof CourseSchema>;
