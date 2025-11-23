@@ -18,6 +18,8 @@ export const EDUCATION: Education[] = [
     graduationDate: new Date("2025-04-07T12:00:00-05:00"),
     trueEndDate: new Date("2024-12-08T12:00:00-05:00"),  // Sunday, last day to turn in deliverables
     gpa: "4.92/5.00",
+    diplomaUrl: "/education/diplomas/uniandes.png",
+    certificates: ["/education/certificates/acta-grado-uniandes.png"],
     details: [
       {
         en: {
@@ -53,6 +55,8 @@ export const EDUCATION: Education[] = [
       en: "Highest GPA in the 2020 cohort"
     },
     gpa: "92.21 / 100.00",
+    diplomaUrl: "/education/diplomas/csc.png",
+    certificates: ["/education/certificates/acta-grado-csc.png"],
     showInCV: false,
     showInResume: false,
   }
