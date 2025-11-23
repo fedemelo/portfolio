@@ -16,6 +16,9 @@ export function expandAndSortAwards(awards: Award[]): Award[] {
           // Combine general description with instance-specific description
           description: `${award.description}\n\n${instance.description}`,
           date: instance.date,
+          // Use instance-specific credentials if available, otherwise fall back to award-level
+          certificateUrl: instance.certificateUrl || award.certificateUrl,
+          images: instance.images || award.images,
           instances: undefined, // Remove instances from expanded awards
         })
       })
