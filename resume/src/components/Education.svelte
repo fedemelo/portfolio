@@ -18,7 +18,7 @@
     {#each filterForResume(education) as edu}
       <div class="no-break-on-print">
         <div class="row">
-          <h3>{edu.organization}</h3>
+          <h3>{edu.organization.name}</h3>
           <Location
             location={{
               city: edu.city,

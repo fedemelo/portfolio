@@ -55,7 +55,7 @@
           </p>
         </div>
         <div class="row">
-          <p>{experience.organization}</p>
+          <p>{experience.organization.name}</p>
           <Location
             location={{
               city: experience.city,
