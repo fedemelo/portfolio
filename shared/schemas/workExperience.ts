@@ -14,6 +14,7 @@ export const WorkExperienceSchema = z.object({
   team: SimpleLocalizedContentSchema.optional(),
   squad: SimpleLocalizedContentSchema.optional(),
   organization: z.string(),
+  icon: z.string().optional(),
   startDate: z.date(),
   endDate: z.date().optional(),
   description: RichLocalizedContentSchema,

@@ -9,6 +9,7 @@ export const TeachingSchema = z.object({
   ...LocationSchema.shape,
   title: SimpleLocalizedContentSchema,
   organization: z.string(),
+  icon: z.string().optional(),
   course: CourseSchema.optional(),
   department: SimpleLocalizedContentSchema.optional(),
   supervisor: z.string().optional(),

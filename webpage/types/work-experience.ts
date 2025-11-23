@@ -6,6 +6,7 @@ export interface WorkExperience extends Location, Hideable {
   team?: string
   squad?: string
   organization: string
+  icon?: string
   startDate: string
   endDate?: string
   description: string
