@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge"
 import type { WorkExperience } from "@/types"
 import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
+import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
 
 interface ExperienceItemProps {
   experience: WorkExperience
@@ -11,7 +12,7 @@ interface ExperienceItemProps {
 export function ExperienceItem({ experience }: ExperienceItemProps) {
   return (
     <div className="border rounded-lg p-6 space-y-3">
-      <ExperienceHeader title={experience.title} />
+      <HeaderSubheaderWithIcon icon={<Briefcase className="h-5 w-5 text-primary flex-shrink-0" />} title={experience.title} organization={experience.organization} />
 
       <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row sm:justify-between">
         <ContextInfo
@@ -32,15 +33,6 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
 
       <TechnologiesTags technologies={experience.technologies} />
     </div>
-  )
-}
-
-function ExperienceHeader({ title }: { title: string }) {
-  return (
-      <div className="flex items-center gap-2">
-        <Briefcase className="h-5 w-5 text-primary flex-shrink-0" />
-        <h3 className="text-xl font-semibold leading-tight">{title}</h3>
-      </div>
   )
 }
 
