@@ -1,4 +1,4 @@
-import { Calendar, MapPin, Building2, Users, BookOpen, User } from "lucide-react"
+import { Calendar, MapPin, Building2, Users, BookOpen, User, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import type { Location, Organization } from "@/types"
 import { formatDate } from "@/utils/date"
@@ -91,23 +91,21 @@ function LocationDisplay({ location }: { location: Location }) {
 }
 
 function OrganizationDisplay({ organization }: { organization: Organization }) {
-  const OrganizationName = organization.link ? (
-    <Link 
-      href={organization.link} 
-      target="_blank" 
-      rel="noopener noreferrer"
-      className="hover:text-foreground transition-colors"
-    >
-      {organization.name}
-    </Link>
-  ) : (
-    <span>{organization.name}</span>
-  )
-
   return (
-    <div className="flex items-center">
-      <Building2 className="mr-1 h-4 w-4" />
-      {OrganizationName}
+    <div className="flex items-center gap-1">
+      <Building2 className="h-4 w-4" />
+      <span>{organization.name}</span>
+      {organization.link && (
+        <Link 
+          href={organization.link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="hover:text-foreground transition-colors"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <ExternalLink className="h-3 w-3" />
+        </Link>
+      )}
     </div>
   )
 }
