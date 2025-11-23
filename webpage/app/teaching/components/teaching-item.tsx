@@ -2,6 +2,7 @@ import { BookOpen, GraduationCap, User } from "lucide-react"
 import type { Teaching } from "@/types"
 import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
+import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
 
 interface TeachingItemProps {
   teaching: Teaching
@@ -14,7 +15,7 @@ export function TeachingItem({ teaching }: TeachingItemProps) {
     <div className="border rounded-lg p-6 space-y-3">
 
       <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
-        <TeachingHeader title={teaching.title} organization={teaching.organization} />
+        <HeaderSubheaderWithIcon icon={<GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />} title={teaching.title} organization={teaching.organization} />
 
         <CourseInformation course={teaching.course} />
       </div>
@@ -34,18 +35,6 @@ export function TeachingItem({ teaching }: TeachingItemProps) {
       </div>
 
       <DescriptionAndBullets description={teaching.description} achievements={teaching.achievements} />
-    </div>
-  )
-}
-
-function TeachingHeader({ title, organization }: { title: string; organization: string }) {
-  return (
-    <div className="space-y-0">
-      <div className="flex items-center gap-2">
-        <GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />
-        <h3 className="text-xl font-semibold leading-tight">{title}</h3>
-      </div>
-      <p className="text-lg text-muted-foreground ml-7">{organization}</p>
     </div>
   )
 }
