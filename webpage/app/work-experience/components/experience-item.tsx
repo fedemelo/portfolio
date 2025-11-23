@@ -5,19 +5,25 @@ import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
 import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
 import { AccordionItem } from "@/components/accordion-item"
+import { generateSlug } from "@/utils/slug"
 import { formatDate } from "@/utils/date"
 
 interface ExperienceItemProps {
   experience: WorkExperience
+  defaultExpanded?: boolean
 }
 
-export function ExperienceItem({ experience }: ExperienceItemProps) {
+export function ExperienceItem({ experience, defaultExpanded }: ExperienceItemProps) {
   const dateRange = experience.endDate 
     ? `${formatDate(experience.startDate)} - ${formatDate(experience.endDate)}`
     : `${formatDate(experience.startDate)} - Present`
+  
+  const slug = generateSlug(experience.title)
 
   return (
     <AccordionItem
+      id={slug}
+      defaultExpanded={defaultExpanded}
       header={
         <div className="space-y-1">
           <HeaderSubheaderWithIcon 
