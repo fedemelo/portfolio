@@ -7,6 +7,8 @@ import { RichLocalizedContentSchema, SimpleLocalizedContentSchema } from "./util
 export const AwardInstanceSchema = z.object({
   description: RichLocalizedContentSchema,
   date: z.date(),
+  certificateUrl: z.string().optional(),
+  images: z.array(z.string()).optional(),
 });
 
 export const AwardSchema = z.object({
