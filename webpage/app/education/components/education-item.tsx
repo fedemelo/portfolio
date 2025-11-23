@@ -1,24 +1,31 @@
-import { GraduationCap, Star } from "lucide-react"
+import { GraduationCap } from "lucide-react"
 import type { Education } from "@/types"
 import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
 import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
 import { AccordionItem } from "@/components/accordion-item"
 import { CredentialGallery } from "@/components/credential-gallery"
+import { AwardReferences } from "@/components/award-references"
+import { generateSlug } from "@/utils/slug"
 import { formatDate } from "@/utils/date"
 
 interface EducationItemProps {
   education: Education
+  defaultExpanded?: boolean
 }
 
-export function EducationItem({ education }: EducationItemProps) {
+export function EducationItem({ education, defaultExpanded }: EducationItemProps) {
   const endDate = education.trueEndDate || education.graduationDate
   const dateRange = endDate 
     ? `${education.startDate ? formatDate(education.startDate) + ' - ' : ''}${formatDate(endDate)}`
     : education.startDate ? formatDate(education.startDate) : ''
 
+  const slug = generateSlug(education.degree)
+
   return (
     <AccordionItem
+      id={slug}
+      defaultExpanded={defaultExpanded}
       header={
         <div className="space-y-1">
           <HeaderSubheaderWithIcon 
@@ -41,10 +48,12 @@ export function EducationItem({ education }: EducationItemProps) {
             supervisor={education.supervisor}
           />
 
-          <EducationDetails gpa={education.gpa} honors={education.honors} />
+          <EducationDetails gpa={education.gpa} />
         </div>
 
         <DescriptionAndBullets achievements={education.details} />
+
+        <AwardReferences awardTitles={education.relatedAwardTitles || []} />
 
         <CredentialGallery
           type="education"
@@ -57,23 +66,15 @@ export function EducationItem({ education }: EducationItemProps) {
   )
 }
 
-function EducationDetails({ gpa, honors }: { gpa?: string; honors?: string }) {
-  if (!gpa && !honors) return null
+function EducationDetails({ gpa }: { gpa?: string }) {
+  if (!gpa) return null
 
   return (
     <div className="flex flex-col items-start md:items-end gap-2 text-sm">
-      {gpa && (
-        <div className="flex items-center gap-2">
-          <span className="text-muted-foreground">GPA:</span>
-          <span className="font-medium">{gpa}</span>
-        </div>
-      )}
-      {honors && (
-        <div className="flex items-center gap-2">
-          <Star className="h-4 w-4 text-primary" />
-          <span className="font-medium text-primary">{honors}</span>
-        </div>
-      )}
+      <div className="flex items-center gap-2">
+        <span className="text-muted-foreground">GPA:</span>
+        <span className="font-medium">{gpa}</span>
+      </div>
     </div>
   )
 } 
