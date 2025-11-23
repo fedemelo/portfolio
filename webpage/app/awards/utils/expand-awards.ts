@@ -13,7 +13,8 @@ export function expandAndSortAwards(awards: Award[]): Award[] {
       award.instances.forEach((instance) => {
         expandedAwards.push({
           ...award,
-          description: instance.description,
+          // Combine general description with instance-specific description
+          description: `${award.description}\n\n${instance.description}`,
           date: instance.date,
           instances: undefined, // Remove instances from expanded awards
         })

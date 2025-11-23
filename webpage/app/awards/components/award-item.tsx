@@ -32,7 +32,11 @@ export function AwardItem({ award }: AwardItemProps) {
           }} 
           organization={award.organization} 
         />
-        <p className="leading-relaxed text-justify">{award.description}</p>
+        <div className="leading-relaxed text-justify space-y-3">
+          {award.description.split('\n\n').map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
       </div>
     </AccordionItem>
   )
