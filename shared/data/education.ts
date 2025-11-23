@@ -21,6 +21,9 @@ export const EDUCATION: Education[] = [
       "Summa Cum Laude",
       "Athletic Career Distinction",
       "Ramón de Zubiría Award",
+      "Ramón de Zubiría Award",
+      "Semester Excellence Award",
+      "Semester Excellence Award",
       "Semester Excellence Award",
     ],
     details: [

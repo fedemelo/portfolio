@@ -11,13 +11,23 @@ interface AwardReferencesProps {
 export function AwardReferences({ awardTitles }: AwardReferencesProps) {
   if (!awardTitles || awardTitles.length === 0) return null
 
+  const awardCounts = awardTitles.reduce((acc, title) => {
+    acc[title] = (acc[title] || 0) + 1
+    return acc
+  }, {} as Record<string, number>)
+
+  const uniqueAwards = Object.entries(awardCounts).map(([title, count]) => ({
+    title,
+    count,
+  }))
+
   return (
     <div className="mt-4 pt-4 border-t">
       <h4 className="text-sm font-medium text-muted-foreground mb-3">
         Honors & Awards ({awardTitles.length})
       </h4>
       <div className="flex flex-wrap gap-2">
-        {awardTitles.map((title) => {
+        {uniqueAwards.map(({ title, count }) => {
           const slug = generateSlug(title)
           return (
             <Link
@@ -30,6 +40,11 @@ export function AwardReferences({ awardTitles }: AwardReferencesProps) {
             >
               <Trophy className="h-4 w-4 text-primary flex-shrink-0" />
               <span className="text-sm font-medium">{title}</span>
+              {count > 1 && (
+                <span className="text-xs text-muted-foreground font-medium">
+                  × {count}
+                </span>
+              )}
               <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary flex-shrink-0 transition-colors" />
             </Link>
           )
