@@ -14,4 +14,7 @@ export interface Education extends Location, Hideable {
   details?: string[]
   course?: Course
   supervisor?: string
+  diplomaUrl?: string
+  certificates?: string[]
+  images?: string[]
 }

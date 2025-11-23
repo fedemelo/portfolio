@@ -18,6 +18,9 @@ export const EducationSchema = z.object({
   details: z.array(RichLocalizedContentSchema).optional(),
   course: CourseSchema.optional(),
   supervisor: z.string().optional(),
+  diplomaUrl: z.string().optional(),
+  certificates: z.array(z.string()).optional(),
+  images: z.array(z.string()).optional(),
 });
 
 export type Education = z.infer<typeof EducationSchema>;
