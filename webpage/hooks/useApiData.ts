@@ -12,6 +12,7 @@ import type {
   Extracurricular,
   PersonalInfo,
   Publication,
+  Course,
 } from '@/types'
 import type { Language as LanguageCode } from '../../shared/schemas/utils'
 
@@ -103,4 +104,8 @@ export function usePersonalInfo(): UseApiDataReturn<PersonalInfo> {
 
 export function usePublications(): UseApiDataReturn<Publication> {
   return useApiData(apiClient.getPublications)
+}
+
+export function useCourses(): UseApiDataReturn<Course> {
+  return useApiData(apiClient.getCourses)
 }
