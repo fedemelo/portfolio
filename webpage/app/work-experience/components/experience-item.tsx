@@ -28,8 +28,9 @@ export function ExperienceItem({ experience, defaultExpanded }: ExperienceItemPr
         <div className="space-y-1">
           <HeaderSubheaderWithIcon 
             icon={<Briefcase className="h-5 w-5 text-primary flex-shrink-0" />} 
-            title={experience.title} 
-            organization={experience.organization} 
+            header={experience.title} 
+            subheader={experience.organization.name}
+            subheaderUrl={experience.organization.link}
           />
           <p className="text-sm text-muted-foreground ml-7">{dateRange}</p>
         </div>
