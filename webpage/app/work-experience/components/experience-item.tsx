@@ -32,8 +32,6 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
       <div className="space-y-3">
         <div className="flex flex-col gap-2 sm:gap-0 sm:flex-row sm:justify-between">
           <ContextInfo
-            startDate={experience.startDate}
-            endDate={experience.endDate}
             location={{
               city: experience.city,
               state: experience.state,

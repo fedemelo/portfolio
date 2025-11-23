@@ -32,8 +32,6 @@ export function EducationItem({ education }: EducationItemProps) {
       <div className="space-y-3">
         <div className="flex flex-col gap-2 md:gap-0 md:flex-row md:justify-between">
           <ContextInfo
-            startDate={education.startDate}
-            endDate={endDate}
             location={{
               city: education.city,
               state: education.state,

@@ -37,8 +37,6 @@ export function TeachingItem({ teaching }: TeachingItemProps) {
 
         <div className="flex flex-row justify-between">
           <ContextInfo
-            startDate={teaching.startDate}
-            endDate={displayEndDate}
             location={{
               city: teaching.city,
               state: teaching.state,

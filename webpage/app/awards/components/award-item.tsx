@@ -21,7 +21,7 @@ export function AwardItem({ award }: AwardItemProps) {
       }
     >
       <div className="space-y-4">
-        <ContextInfo date={award.date} location={{
+        <ContextInfo location={{
           city: award.city,
           state: award.state,
           country: award.country,
