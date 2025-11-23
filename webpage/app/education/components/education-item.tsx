@@ -30,8 +30,9 @@ export function EducationItem({ education, defaultExpanded }: EducationItemProps
         <div className="space-y-1">
           <HeaderSubheaderWithIcon
             icon={<GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />}
-            title={education.degree}
-            organization={education.organization}
+            header={education.degree}
+            subheader={education.organization.name}
+            subheaderUrl={education.organization.link}
           />
           {dateRange && <p className="text-sm text-muted-foreground ml-7">{dateRange}</p>}
         </div>
