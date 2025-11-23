@@ -35,7 +35,7 @@ export const AWARDS: Award[] = [
   },
   {
     title: {
-      en: "Ramón de Zubiría Awardee",
+      en: "Ramón de Zubiría Award",
       es: "Distinción Ramón de Zubiría"
     },
     description: {
@@ -69,7 +69,7 @@ export const AWARDS: Award[] = [
   },
   {
     title: {
-      en: "Semester Excellence Awardee",
+      en: "Semester Excellence Award",
       es: "Premio a la Excelencia Semestral"
     },
     description: {
@@ -110,15 +110,4 @@ export const AWARDS: Award[] = [
       },
     ],
   },
-  // {
-  //   title: {
-  //     en: "Dean's List Awardee",
-  //     es: "Premio a la Lista del Dean"
-  //   },
-  //   description: {
-  //     en: {
-  //       full: `Recognition awarded to the student who achieved the highest GPA in their undergraduate program during the immediately preceding semester.`,
-  //     },
-  //   },
-  // }
 ];
