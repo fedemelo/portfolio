@@ -22,6 +22,11 @@ export const TEACHING: Teaching[] = [
           full: "Exceptionally selected to teach the course, typically reserved for faculty with graduate degrees",
         },
       },
+      {
+        en: {
+          full: "Crafted the midterm exams from scratch, designed and ran the lab sessions based on existing materials, and held office hours for students"
+        },
+      }
     ],
     isCurrent: true,
     showInCV: true,
