@@ -4,6 +4,7 @@ import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
 import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
 import { AccordionItem } from "@/components/accordion-item"
+import { CredentialGallery } from "@/components/credential-gallery"
 import { formatDate } from "@/utils/date"
 
 interface EducationItemProps {
@@ -44,6 +45,13 @@ export function EducationItem({ education }: EducationItemProps) {
         </div>
 
         <DescriptionAndBullets achievements={education.details} />
+
+        <CredentialGallery
+          type="education"
+          diplomaUrl={education.diplomaUrl}
+          certificates={education.certificates}
+          images={education.images}
+        />
       </div>
     </AccordionItem>
   )
