@@ -32,11 +32,6 @@
           {getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate)}
         </p>
       </div>
-      <div class="row">
-        {#if edu.honors}
-          <p class="honors" style="font-style: italic;">{getLocalizedText(edu.honors, language)}</p>
-        {/if}
-      </div>
       <div class="indented-block">
         {#if edu.gpa}
           <p>GPA: {edu.gpa}</p>

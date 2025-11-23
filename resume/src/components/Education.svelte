@@ -29,7 +29,7 @@
         </div>
         <div class="row">
           <p style="font-style: italic;">
-            {getLocalizedText(edu.degree, language)}{#if edu.honors}, <strong>{getLocalizedText(edu.honors, language)}</strong>{/if}
+            {getLocalizedText(edu.degree, language)}
           </p>
           <p>
             {getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate)}
