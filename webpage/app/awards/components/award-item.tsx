@@ -3,17 +3,22 @@ import type { Award } from "@/types"
 import { ContextInfo } from "@/components/context-info"
 import { AccordionItem } from "@/components/accordion-item"
 import { CredentialGallery } from "@/components/credential-gallery"
+import { generateSlug } from "@/utils/slug"
 import { formatDate } from "@/utils/date"
 
 interface AwardItemProps {
   award: Award
+  defaultExpanded?: boolean
 }
 
-export function AwardItem({ award }: AwardItemProps) {
+export function AwardItem({ award, defaultExpanded }: AwardItemProps) {
   const dateDisplay = award.date ? formatDate(award.date) : ''
+  const slug = generateSlug(award.title)
 
   return (
-    <AccordionItem
+      <AccordionItem
+        id={slug}
+        defaultExpanded={defaultExpanded}
       header={
         <div className="space-y-1">
           <div className="flex items-center gap-2">
