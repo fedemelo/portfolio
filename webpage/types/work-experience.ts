@@ -1,12 +1,12 @@
 import { Location } from "./location"
 import { Hideable } from "./hideable"
+import { Organization } from "./organization"
 
 export interface WorkExperience extends Location, Hideable {
   title: string
   team?: string
   squad?: string
-  organization: string
-  icon?: string
+  organization: Organization
   startDate: string
   endDate?: string
   description: string

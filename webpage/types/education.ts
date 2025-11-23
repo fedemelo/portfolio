@@ -1,10 +1,11 @@
 import { Location } from "./location"
 import { Course } from "./relevant-coursework"
 import { Hideable } from "./hideable"
+import { Organization } from "./organization"
 
 export interface Education extends Location, Hideable {
   degree: string
-  organization: string
+  organization: Organization
   startDate?: string
   graduationDate?: string
   trueEndDate?: string
