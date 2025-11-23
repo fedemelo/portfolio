@@ -1,6 +1,7 @@
 import { z } from "zod";
 import { LocationSchema } from "./location";
 import { HideableSchema } from "./hideable";
+import { OrganizationSchema } from "./organization";
 import { RichLocalizedContentSchema, SimpleLocalizedContentSchema } from "./utils";
 
 export const AwardInstanceSchema = z.object({
@@ -13,7 +14,7 @@ export const AwardSchema = z.object({
   ...LocationSchema.shape,
   title: SimpleLocalizedContentSchema,
   description: RichLocalizedContentSchema,
-  organization: z.string(),
+  organization: OrganizationSchema,
   date: z.date().optional(),
   instances: z.array(AwardInstanceSchema).optional(),
 });
