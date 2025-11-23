@@ -1,7 +1,29 @@
 import { UNIANDES } from "./constants";
+import { MIN_EDUCACION_COLOMBIA } from "./organizations";
 import type { Award } from "../schemas/award";
 
 export const AWARDS: Award[] = [
+  {
+    title: {
+      en: "Award for Outstanding Saber Pro and TyT Scores 2024",
+      es: "Reconocimiento Mejores Saber Pro y TyT 2024",
+    },
+    description: {
+      en: {
+        full: "Awarded to students with the highest nationwide results in the previous year’s Saber Pro and TyT university-level exams."  // Ranked third nationally in my major and seventeenth in engineering.
+      },
+      es: {
+        full: "Reconocimiento otorgado a los estudiantes con los mejores resultados nacionales en el año inmediatamente anterior en las Pruebas Saber Pro y TyT del nivel universitario",
+      },
+    },
+    date: new Date("2025-11-23T20:00:00-05:00"),
+    certificateUrl: "/awards/certificates/reconocimiento-mejores-saber-pro-y-tyt-2024.png",
+    showInCV: true,
+    showInResume: false,
+    organization: MIN_EDUCACION_COLOMBIA,
+    city: "Bogotá",
+    country: "Colombia",
+  },
   {
     title: {
       en: "Summa Cum Laude",

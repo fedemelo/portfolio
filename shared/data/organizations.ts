@@ -25,3 +25,9 @@ export const COLEGIO_SAN_CARLOS: Organization = {
   link: "https://en.wikipedia.org/wiki/Colegio_San_Carlos",  
 };
 
+export const MIN_EDUCACION_COLOMBIA: Organization = {
+  name: "Ministerio de Educación Nacional",
+  icon: "/icons/min-educacion-icon.png",
+  link: "https://mineducacion.gov.co",
+};
+
