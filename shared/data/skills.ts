@@ -7,7 +7,7 @@ export const SKILLS: Skill[] = [
     category: {
       en: "Programming Languages"
     },
-    skills: ["TypeScript", "Python", "Rust", "Java", "Swift"],
+    skills: ["TypeScript", "Python", "Java", "Swift"],
   },
   {
     showInCV: true,

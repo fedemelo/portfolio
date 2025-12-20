@@ -10,7 +10,7 @@
 </script>
 
 <section>
-  {#if researchInterests.showInCV}
+  {#if researchInterests.showInCV ?? true}
     <h2>Research Interests</h2>
     <p>{getCVText(researchInterests.text, language)}</p>
   {/if}

@@ -19,6 +19,7 @@ export const TEACHING: Teaching[] = [
         full: "Served as sole instructor for a 25-student undergraduate course in procedural programming in Python",
         short: "Sole instructor of 25-student course in procedural programming with Python"
       },
+      showInResume: true,
     },
     achievements: [
       {

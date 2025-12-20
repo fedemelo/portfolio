@@ -125,6 +125,8 @@ const convertPublications = (data: typeof PUBLICATIONS, language: LanguageCode):
     description: getCVText(item.description, language),
     linkText: item.linkText ? getLocalizedText(item.linkText, language) : undefined,
     year: String(item.year),
+    showInCV: item.showInCV ?? true,
+    showInResume: item.showInResume ?? true,
     authors: item.authors.map(author => ({
       ...author,
       isUser: author.isUser ?? false,
@@ -178,7 +180,7 @@ class StaticDataClient {
   getResearchInterests = async (language: LanguageCode = 'en'): Promise<ResearchInterest[]> => {
     return [{
       text: getCVText(RESEARCH_INTERESTS.text, language),
-      showInCV: RESEARCH_INTERESTS.showInCV,
+      showInCV: RESEARCH_INTERESTS.showInCV ?? true,
     }]
   }
 
