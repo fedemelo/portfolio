@@ -17,10 +17,6 @@ interface TeachingItemProps {
 export function TeachingItem({ teaching, course, defaultExpanded }: TeachingItemProps) {
   const displayEndDate = teaching.isCurrent ? undefined : teaching.endDate
 
-  const dateRange = displayEndDate
-    ? `${formatDate(teaching.startDate)} - ${formatDate(displayEndDate)}`
-    : `${formatDate(teaching.startDate)} - Present`
-
   const slug = generateSlug(teaching.title)
 
   return (
@@ -28,7 +24,7 @@ export function TeachingItem({ teaching, course, defaultExpanded }: TeachingItem
       id={slug}
       defaultExpanded={defaultExpanded}
       header={
-        <div className="flex justify-between items-center w-full gap-4">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center w-full gap-3 sm:gap-4">
           <div className="space-y-1">
             <HeaderSubheaderWithIcon
               icon={<BookOpen className="h-5 w-5 text-primary flex-shrink-0" />}
@@ -36,21 +32,23 @@ export function TeachingItem({ teaching, course, defaultExpanded }: TeachingItem
               subheader={course ? `${course.code}: ${course.name}` : undefined}
               subheaderUrl={course && course.hasPage ? `/courses/${course.slug}` : undefined}
             />
-            <p className="text-sm text-muted-foreground ml-7">{teaching.period} • {dateRange}</p>
+            <p className="text-sm text-muted-foreground ml-7">{teaching.period}</p>
           </div>
           {teaching.evaluationPdfUrl && (
-            <GreenButton asChild tooltip="Download official student evaluation report">
-              <a 
-                href={teaching.evaluationPdfUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                download
-                onClick={(e) => e.stopPropagation()}
-              >
-                <Download className="h-4 w-4" />
-                Student Evaluations
-              </a>
-            </GreenButton>
+            <div className="ml-7 sm:ml-0">
+              <GreenButton asChild tooltip="Download official student evaluation report">
+                <a 
+                  href={teaching.evaluationPdfUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  download
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <Download className="h-4 w-4" />
+                  Student Evaluations
+                </a>
+              </GreenButton>
+            </div>
           )}
         </div>
       }
