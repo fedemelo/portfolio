@@ -1,9 +1,10 @@
-import { BookOpen } from "lucide-react"
+import { BookOpen, Download } from "lucide-react"
 import type { Teaching, Course } from "@/types"
 import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
 import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
 import { AccordionItem } from "@/components/accordion-item"
+import { GreenButton } from "@/components/green-button"
 import { generateSlug } from "@/utils/slug"
 import { formatDate } from "@/utils/date"
 
@@ -55,6 +56,17 @@ export function TeachingItem({ teaching, course, defaultExpanded }: TeachingItem
         )}
 
         <DescriptionAndBullets description={teaching.description} achievements={teaching.achievements} />
+
+        {teaching.evaluationPdfUrl && (
+          <div className="pt-2">
+            <GreenButton asChild tooltip="Download official student evaluation report">
+              <a href={teaching.evaluationPdfUrl} target="_blank" rel="noopener noreferrer" download>
+                <Download className="h-4 w-4" />
+                Student Evaluations
+              </a>
+            </GreenButton>
+          </div>
+        )}
       </div>
     </AccordionItem>
   )
