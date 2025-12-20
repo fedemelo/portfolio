@@ -81,7 +81,7 @@ export default function TeachingPage() {
         itemName="professional teaching experience"
       />
 
-    <div className="space-y-4 !mt-2">
+    <div className="space-y-4 md:!mt-2">
       <h2 className="text-xl font-bold">Undergraduate Experience</h2>
 
       <TimelineLayout
