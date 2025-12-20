@@ -22,6 +22,7 @@ export const TeachingSchema = z.object({
   achievements: z.array(RichLocalizedContentSchema).optional(),
   supervisor: z.string().optional(),
   isCurrent: z.boolean().optional(),
+  evaluationPdfUrl: z.string().url().optional(),
 });
 
 export type Teaching = z.infer<typeof TeachingSchema>;

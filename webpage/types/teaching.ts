@@ -19,4 +19,5 @@ export interface Teaching extends Hideable {
   achievements?: string[]
   supervisor?: string
   isCurrent?: boolean
+  evaluationPdfUrl?: string
 }
