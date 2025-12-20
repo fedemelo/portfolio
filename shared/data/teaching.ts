@@ -8,23 +8,24 @@ export const TEACHING: Teaching[] = [
       es: "Profesor"
     },
     courseCode: "ISIS-1221",
-    period: "2025-20",
+    period: "2025-20 - Present",
     startDate: new Date("2025-08-04T12:00:00-05:00"),
+    endDate: new Date("2025-12-12T12:00:00-05:00"),
+    description: {
+      en: {
+        full: "Served as sole instructor for a 25-student undergraduate course in procedural programming in Python",
+        short: "Sole instructor of 25-student course in procedural programming with Python"
+      },
+    },
     achievements: [
       {
         en: {
-          full: "Taught a 25-student undergraduate course covering core procedural programming concepts including control flow, functions, data structures, matrix operations, and Python libraries (e.g., matplotlib, pandas)",
-          short: "Taught fundamental procedural programming in Python to ~25 students, covering pandas and matplotlib"
+          full: "Exceptionally selected to teach as principal instructor, a position typically reserved for faculty with graduate degrees, and supervised two teaching assistants",
         },
       },
       {
         en: {
-          full: "Exceptionally selected to teach the course, typically reserved for faculty with graduate degrees",
-        },
-      },
-      {
-        en: {
-          full: "Crafted the midterm exams from scratch, designed and ran the lab sessions based on existing materials, and held office hours for students"
+          full: "Authored midterm examinations and designed weekly lab sessions and programming assignments",
         },
       }
     ],
