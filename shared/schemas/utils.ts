@@ -1,7 +1,9 @@
 import { z } from "zod";
 import { zodToJsonSchema } from "zod-to-json-schema";
+import { HideableSchema } from "./hideable";
 
 export const RichLocalizedContentSchema = z.object({
+  ...HideableSchema.shape,
   en: z.object({
     full: z.string(),
     short: z.string().optional(),
