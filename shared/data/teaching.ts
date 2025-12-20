@@ -1,13 +1,16 @@
 import type { Teaching } from "../schemas/teaching";
+import { UNIANDES } from "./constants";
 
 export const TEACHING: Teaching[] = [
   {
     id: "isis-1221-2025-20-lecturer",
+    type: "professional",
     title: {
       en: "Lecturer",
       es: "Profesor"
     },
     courseCode: "ISIS-1221",
+    ...UNIANDES,
     period: "2025-20 - Present",
     startDate: new Date("2025-08-04T12:00:00-05:00"),
     endDate: new Date("2025-12-12T12:00:00-05:00"),
@@ -31,15 +34,17 @@ export const TEACHING: Teaching[] = [
     ],
     isCurrent: true,
     showInCV: true,
-    showInResume: false,
+    showInResume: true,
   },
   {
     id: "vice-3001-2022-2024-assistant",
+    type: "undergraduate",
     title: {
       en: "Undergraduate Research Teaching Assistant",
       es: "Asistente de Investigación"
     },
     courseCode: "VICE-3001",
+    ...UNIANDES,
     period: "2022-20 - 2024-20",
     startDate: new Date("2022-08-08T12:00:00-05:00"),
     endDate: new Date("2024-12-07T12:00:00-05:00"),
@@ -94,11 +99,13 @@ export const TEACHING: Teaching[] = [
   },
   {
     id: "mate-1207-2024-19-ta",
+    type: "undergraduate",
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
     },
     courseCode: "MATE-1207",
+    ...UNIANDES,
     period: "Summer 2024",
     startDate: new Date("2024-06-04T12:00:00-05:00"),
     endDate: new Date("2024-07-26T12:00:00-05:00"),
@@ -126,11 +133,13 @@ export const TEACHING: Teaching[] = [
   },
   {
     id: "isis-1211-2022-10-tutor",
+    type: "undergraduate",
     title: {
       en: "Tutor",
       es: "Tutor"
     },
     courseCode: "ISIS-1211",
+    ...UNIANDES,
     period: "2022-10",
     startDate: new Date("2022-02-01T12:00:00-05:00"),
     endDate: new Date("2022-06-04T12:00:00-05:00"),
@@ -152,11 +161,13 @@ export const TEACHING: Teaching[] = [
   },
   {
     id: "isis-1221-2021-10-ta",
+    type: "undergraduate",
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
     },
     courseCode: "ISIS-1221",
+    ...UNIANDES,
     period: "2021-10",
     startDate: new Date("2021-02-01T12:00:00-05:00"),
     endDate: new Date("2021-06-05T12:00:00-05:00"),
@@ -180,11 +191,13 @@ export const TEACHING: Teaching[] = [
   },
   {
     id: "mate-1203-2021-10-ta",
+    type: "undergraduate",
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
     },
     courseCode: "MATE-1203",
+    ...UNIANDES,
     period: "2021-10",
     startDate: new Date("2021-01-25T12:00:00-05:00"),
     endDate: new Date("2021-05-29T12:00:00-05:00"),
