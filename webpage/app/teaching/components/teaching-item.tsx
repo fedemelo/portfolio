@@ -28,14 +28,30 @@ export function TeachingItem({ teaching, course, defaultExpanded }: TeachingItem
       id={slug}
       defaultExpanded={defaultExpanded}
       header={
-        <div className="space-y-1">
-          <HeaderSubheaderWithIcon
-            icon={<BookOpen className="h-5 w-5 text-primary flex-shrink-0" />}
-            header={teaching.title}
-            subheader={course ? `${course.code}: ${course.name}` : undefined}
-            subheaderUrl={course && course.hasPage ? `/courses/${course.slug}` : undefined}
-          />
-          <p className="text-sm text-muted-foreground ml-7">{teaching.period} • {dateRange}</p>
+        <div className="flex justify-between items-center w-full gap-4">
+          <div className="space-y-1">
+            <HeaderSubheaderWithIcon
+              icon={<BookOpen className="h-5 w-5 text-primary flex-shrink-0" />}
+              header={teaching.title}
+              subheader={course ? `${course.code}: ${course.name}` : undefined}
+              subheaderUrl={course && course.hasPage ? `/courses/${course.slug}` : undefined}
+            />
+            <p className="text-sm text-muted-foreground ml-7">{teaching.period} • {dateRange}</p>
+          </div>
+          {teaching.evaluationPdfUrl && (
+            <GreenButton asChild tooltip="Download official student evaluation report">
+              <a 
+                href={teaching.evaluationPdfUrl} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                download
+                onClick={(e) => e.stopPropagation()}
+              >
+                <Download className="h-4 w-4" />
+                Student Evaluations
+              </a>
+            </GreenButton>
+          )}
         </div>
       }
     >
@@ -56,17 +72,6 @@ export function TeachingItem({ teaching, course, defaultExpanded }: TeachingItem
         )}
 
         <DescriptionAndBullets description={teaching.description} achievements={teaching.achievements} />
-
-        {teaching.evaluationPdfUrl && (
-          <div className="pt-2">
-            <GreenButton asChild tooltip="Download official student evaluation report">
-              <a href={teaching.evaluationPdfUrl} target="_blank" rel="noopener noreferrer" download>
-                <Download className="h-4 w-4" />
-                Student Evaluations
-              </a>
-            </GreenButton>
-          </div>
-        )}
       </div>
     </AccordionItem>
   )
