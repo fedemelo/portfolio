@@ -29,6 +29,10 @@
   <h2>Experience</h2>
   <div class="indented-block">
     {#each sortedExperiences as experience}
+      {@const filteredAchievements = filterForResume(experience.achievements ?? [])}
+      <!-- Not show description by default, unless explicitly instructed to
+      If shown, shown as a bullet point, just as the achievements are -->
+      {@const showDescriptionAsBullet = experience.description?.showInResume ?? false}
       <div class="no-break-on-print">
         <div class="row">
           <h3>{getLocalizedText(experience.title, language)}</h3>
@@ -64,9 +68,12 @@
             }}
           />
         </div>
-        {#if experience.achievements && experience.achievements.length > 0}
+        {#if showDescriptionAsBullet || filteredAchievements.length > 0}
           <ul>
-            {#each experience.achievements as achievement}
+            {#if showDescriptionAsBullet && experience.description}
+              <li>{getResumeText(experience.description, language)}</li>
+            {/if}
+            {#each filteredAchievements as achievement}
               <li>{getResumeText(achievement, language)}</li>
             {/each}
           </ul>
