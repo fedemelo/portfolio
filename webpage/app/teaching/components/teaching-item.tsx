@@ -15,8 +15,6 @@ interface TeachingItemProps {
 }
 
 export function TeachingItem({ teaching, course, defaultExpanded }: TeachingItemProps) {
-  const displayEndDate = teaching.isCurrent ? undefined : teaching.endDate
-
   const slug = generateSlug(teaching.title)
 
   return (
