@@ -55,13 +55,10 @@ export default function TeachingPage() {
   }}>Los Estudiantes</span>
 
   const losEstudiantesButton = (
-    <GreenButton asChild >
+    <GreenButton asChild tooltip="View student reviews on Los Estudiantes">
       <a href={LOS_ESTUDIANTES_URL} target="_blank" rel="noopener noreferrer">
         <ExternalLink className="h-4 w-4" />
-        <div className="flex flex-row gap-1">
-          <span>View student reviews on </span>
-          {losEstudiantesFormattedText}
-        </div>
+        {losEstudiantesFormattedText}
       </a>
     </GreenButton>
   )
