@@ -19,40 +19,41 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     startDate: new Date("2024-12-09T12:00:00-05:00"),
     description: {
       en: {
-        full: "Parsed diverse order formats (emails, PDFs, spreadsheets, images, handwritten documents) from wholesale distributors into structured product data.",
-        short: "Parsed diverse order formats from wholesale distributors into structured product data."
+        full: "Parsed diverse order formats (emails, voice calls, PDFs, images, spreadsheets, handwritten documents) into structured product data, processing 5,000+ orders daily for ~100 wholesale distribution customers.",
+        short: "Parsed diverse order formats into structured product data, processing 5,000+ orders daily."
       }
     },
     achievements: [
       {
         en: {
-          full: "Built visual highlighting systems with DOM traversal, coordinate mapping, and string comparison to map parsed products to source documents. Reduced weekly errors by 2/3 in first OKR period"
+          full: "Built a real-time voice parsing service with WebSocket orchestration, speech-to-text transcription, speaker diarization, and concurrency control to extract products from live phone calls",
         }
       },
       {
         en: {
-          full: "Improved parsing accuracy and speed through LLM prompt engineering, caching, model fine-tuning, and validation logic",
-          short: "Improved parsing through prompt engineering, caching, fine-tuning, and validation logic",
+          full: "Led large-scale prompt refactors improving QA pass rate from 85% to 89%, including model selection, prompt engineering, cache handling, fine-tuning, and regression testing for LLM outputs",
+        }
+      },
+      {
+        en: {
+          full: "Built visual highlighting systems using DOM traversal, coordinate mapping, and string comparison to map parsed products to source documents. Reduced weekly highlighting errors by 2/3",
         }
       },
       {
         en: {
           full: "Developed text extraction algorithms for complex layouts (nested tables, side-by-side formats, schematics) supporting most file formats (PDF, DOCX, XLSX, MSG, EML, TIFF, etc.)",
-          short: "Developed text extraction algorithms for complex layouts supporting 10+ file formats"
         }
       },
       {
         en: {
-          full: "Created performance monitoring dashboards (Polars, Plotly) for Parsing team, later scaled to monitor 3 teams (30+ engineers)",
-          short: "Created performance monitoring dashboards (Polars, Plotly) scaling to 3 teams (30+ engineers)"
+          full: "Created performance monitoring dashboards for the Parsing team, later scaled to monitor 3 teams (20+ engineers)",
         }
       },
       {
         en: {
-          full: "Built automated reliability tools that improved developer QOL and caught non-deterministic parsing failures before they reached customers",
-          short: "Built automated reliability tools to improve QOL and prevent parsing failures from reaching customers"
+          full: "Abstracted OCR pipeline from single provider to support multiple providers, enabling format-specific OCR selection",
         }
-      },
+      }
     ],
     technologies: [
       "TypeScript",
