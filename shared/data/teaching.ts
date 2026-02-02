@@ -15,20 +15,19 @@ export const TEACHING: Teaching[] = [
     endDate: new Date("2025-12-12T12:00:00-05:00"),
     description: {
       en: {
-        full: "Served as sole instructor for a 25-student undergraduate course in procedural programming in Python",
-        short: "Sole instructor of 25-student course in procedural programming with Python"
+        full: "Principal instructor of 25-student course in procedural programming with Python",
       },
       showInResume: true,
     },
     achievements: [
       {
         en: {
-          full: "Exceptionally selected to teach as principal instructor, a position typically reserved for faculty with graduate degrees, and supervised two teaching assistants",
+          full: "Exceptionally selected for principal instructor position, typically reserved for faculty with graduate degrees",
         },
       },
       {
         en: {
-          full: "Authored midterm examinations and designed weekly lab sessions and programming assignments",
+          full: "Delivered course lectures, authored midterm examinations, led weekly lab sessions with 2 TAs, and designed programming assignments",
         },
       }
     ],
