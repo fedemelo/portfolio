@@ -77,8 +77,9 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     team: {
       en: "Vice Dean's Office of Student Affairs"
     },
-    startDate: new Date("2024-02-15T12:00:00-05:00"),
-    endDate: new Date("2025-07-31T12:00:00-05:00"),  // TODO: Consider splitting this entry into my time as dev and my time as SW consultant
+    // Substance prevails over form. Contract states 15/02 as start date, but I started the project with the start of the academic year, 22/01
+    startDate: new Date("2024-01-22T12:00:00-05:00"),
+    endDate: new Date("2024-12-07T12:00:00-05:00"),
     description: {
       en: {
         full: "Designed and built full-stack student data analytics system serving 15,000+ students and 600+, replacing an external platform and saving ~$100K USD annually",
