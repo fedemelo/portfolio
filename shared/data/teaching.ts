@@ -12,7 +12,7 @@ export const TEACHING: Teaching[] = [
     courseCode: "ISIS-1221",
     period: "2025-20 - Present",
     startDate: new Date("2025-08-04T12:00:00-05:00"),
-    endDate: new Date("2025-12-12T12:00:00-05:00"),
+    endDate: new Date("2026-05-29T12:00:00-05:00"),
     description: {
       en: {
         full: "Principal instructor of 25-student course in procedural programming with Python",
