@@ -81,8 +81,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     endDate: new Date("2025-07-31T12:00:00-05:00"),  // TODO: Consider splitting this entry into my time as dev and my time as SW consultant
     description: {
       en: {
-        full: "Built a full-stack student data system for the Universidad de los Andes.",
-        short: "Built full-stack student data system for Universidad de los Andes."
+        full: "Designed and built full-stack student data analytics system serving 15,000+ students and 600+, replacing an external platform and saving ~$100K USD annually",
       }
     },
     technologies: [
@@ -91,41 +90,29 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "FastAPI",
       "TypeScript",
       "React (MUI)",
-      "SQL",
       "PostgreSQL",
-      "Coolify",
       "Docker",
       "Firebase",
     ],
     achievements: [
       {
         en: {
-          full: "Designed and built a system (Python, Polars) from scratch to process student data with advanced filters and aggregations. The system ultimately fed 3 distinct university services through a unified REST API (FastAPI)",
-          short: "Built student data processing system (Polars) serving 3 university services via unified REST API (FastAPI)"
+          full: "Built parallelized data processing pipeline (Python, Polars) with complex filtering and aggregations, exposed through a unified REST API (FastAPI)",
         }
       },
       {
         en: {
-          full: "Extended a web application (TypeScript, React, MUI) with advanced filtering, report generation, dynamic graphing, and role-based access control dashboards, which served 15,000+ students and 600+ faculty and staff",
-          short: "Extended web application (TS, React, MUI) with advanced filtering, report generation, and dynamic graphing, serving 15,000+ students and 600+ faculty"
+          full: "Developed dynamic graphing, advanced filtering, report generation, and role-based dashboards in a React/TypeScript web app",
         }
       },
       {
         en: {
-          full: "Enabled the university to discontinue an external student counseling platform through the advanced student analytics system, saving approximately 400M COP (~$100K USD) annually",
-          short: "Enabled university to save ~$100K USD annually by replacing external counseling platform"
+          full: "Built early-warning system for at-risk students (academic performance, dropout indicators), alerting counselors on 1,000+ critical cases",
         }
       },
       {
         en: {
-          full: "Architected and managed cross-VM communication systems for sensitive data, using air-gapping techniques and network management tools",
-          short: "Architected secure cross-VM communication systems using air-gapping techniques"
-        }
-      },
-      {
-        en: {
-          full: "Designed and co-implemented an academic and personal risk detection system that successfully alerted relevant stakeholders on 1000+ critical cases",
-          short: "Co-implemented risk detection system alerting stakeholders on 1000+ critical student cases"
+          full: "Architected secure cross-VM communication using air-gapping and network isolation techniques to ensure compliance with student data protection requirements",
         }
       },
     ],
