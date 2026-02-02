@@ -45,14 +45,14 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       },
       {
         en: {
-          full: "Created performance monitoring dashboards for the Parsing team, later scaled to monitor 3 teams (20+ engineers)",
+          full: "Abstracted OCR pipeline from single provider to support multiple providers, enabling format-specific OCR selection",
         }
       },
       {
         en: {
-          full: "Abstracted OCR pipeline from single provider to support multiple providers, enabling format-specific OCR selection",
+          full: "Created performance monitoring dashboards for the Parsing team, later scaled to monitor 3 teams (20+ engineers)",
         }
-      }
+      },
     ],
     technologies: [
       "TypeScript",
@@ -60,16 +60,9 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Svelte",
       "AWS (RDS, ECS)",
       "Redis",
-      "SQL",
       "PostgreSQL",
-      "Anthropic API",
-      "OpenAI API",
-      "Groq API",
-      "Gemini API",
-      "Hex",
+      "LLM APIs (OpenAI, Anthropic, Gemini)",
       "Polars",
-      "Plotly",
-      "ClickUp",
     ],
     workMode: "remote",
     employmentType: "full-time",
