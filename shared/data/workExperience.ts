@@ -19,8 +19,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     startDate: new Date("2024-12-09T12:00:00-05:00"),
     description: {
       en: {
-        full: "Parsed diverse order formats (emails, voice calls, PDFs, images, spreadsheets, handwritten documents) into structured product data, processing 5,000+ orders daily for ~100 wholesale distribution customers.",
-        short: "Parsed diverse order formats into structured product data, processing 5,000+ orders daily."
+        full: "Parsed emails, voice calls, PDFs, images, spreadsheets, and handwritten documents into structured product data, processing 5,000+ orders daily for ~100 wholesale distribution customers.",
       }
     },
     achievements: [
