@@ -2,6 +2,42 @@ import type { Teaching } from "../schemas/teaching";
 import { UNIANDES } from "./constants";
 
 export const TEACHING: Teaching[] = [
+    {
+    id: "isis-2112-2026-20-lecturer",
+    type: "professional",
+    title: {
+      en: "Adjunct Professor",
+      es: "Profesor de cátedra"
+    },
+    courseCode: "ISIS-2112",
+    period: "2026-20 - Present",
+    startDate: new Date("2026-08-03T12:00:00-05:00"),
+    endDate: new Date("2026-12-05T12:00:00-05:00"),
+
+    description: {
+      en: {
+        full: "Principal instructor of upper-division undergraduate course in algorithm design and analysis",
+      },
+      showInResume: true,
+    },
+    achievements: [
+      {
+        en: {
+          full: "Exceptionally selected for principal instructor position in core upper-division course, typically reserved for full-time faculty",
+        },
+      },
+      {
+        en: {
+          full: "Delivered course lectures, authored quizzes and examinations, supervised 2 TAs, and collaborated with fellow instructors on course project design",
+        },
+      },
+    ],
+    ...UNIANDES,
+    isCurrent: true,
+    showInCV: true,
+    showInResume: true,
+    evaluationPdfUrl: "/documents/teaching-evaluations/isis-1221-2025-20.pdf",
+  },
   {
     id: "isis-1221-2025-20-lecturer",
     type: "professional",
@@ -10,7 +46,7 @@ export const TEACHING: Teaching[] = [
       es: "Profesor de cátedra"
     },
     courseCode: "ISIS-1221",
-    period: "2025-20 - Present",
+    period: "2025-20 - 2026-10",
     startDate: new Date("2025-08-04T12:00:00-05:00"),
     endDate: new Date("2026-05-29T12:00:00-05:00"),
     description: {
