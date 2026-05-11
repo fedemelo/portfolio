@@ -3,6 +3,29 @@ import type { Course } from "../schemas/course";
 
 export const COURSES: Course[] = [
   {
+    code: "ISIS-2112",
+    slug: "isis-2112",
+    name: {
+      en: "Algorithm Design",
+      es: "Diseño de Algoritmos"
+    },
+    originalName: "Diseño de Algoritmos",
+    department: {
+      en: "Systems and Computing Engineering",
+      es: "Ingeniería de Sistemas y Computación"
+    },
+    description: {
+      en: {
+        full: "Core upper-division undergraduate course covering dynamic programming, graph algorithms (shortest paths, flows, matching), computational complexity and P vs NP, as well as approximation, randomized, and probabilistic algorithms.",
+      },
+    },
+      teachingIds: ["isis-2112-2026-20-lecturer"],
+      showInCV: true,
+      showInResume: false,
+      hasPage: false,
+      ...UNIANDES,
+  },
+  {
     code: "ISIS-1221",
     slug: "isis-1221",
     name: {
