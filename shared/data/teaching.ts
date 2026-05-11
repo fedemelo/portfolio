@@ -6,8 +6,8 @@ export const TEACHING: Teaching[] = [
     id: "isis-1221-2025-20-lecturer",
     type: "professional",
     title: {
-      en: "Lecturer",
-      es: "Profesor"
+      en: "Adjunct Professor",
+      es: "Profesor de cátedra"
     },
     courseCode: "ISIS-1221",
     period: "2025-20 - Present",
