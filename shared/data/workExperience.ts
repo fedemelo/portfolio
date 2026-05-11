@@ -7,7 +7,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     showInCV: true,
     showInResume: true,
     title: {
-      en: "Software Engineer"
+      en: "Software Engineer II"
     },
     team: {
       en: "Parsing"
@@ -16,10 +16,10 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     city: "Coral Gables",
     state: "FL",
     country: "USA",
-    startDate: new Date("2024-12-09T12:00:00-05:00"),
+    startDate: new Date("2025-06-01T12:00:00-05:00"),
     description: {
       en: {
-        full: "Parsed emails, voice calls, PDFs, images, spreadsheets, and handwritten documents into structured product data, processing 5,000+ orders daily for ~100 wholesale distribution customers.",
+        full: "Own parsing for the Live Voice and Inquiries Agent systems, serving ~100 wholesale distribution customers with 10,000+ daily orders across the full order and logistics pipeline.",
       }
     },
     achievements: [
@@ -30,27 +30,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       },
       {
         en: {
+          full: "Shipped Inquiries, an AI agent with MCP integration and tools for web search, spec sheet retrieval, ERP lookup, and order tracking to answer real-time customer questions about orders, materials, and logistics",
+        }
+      },
+      {
+        en: {
           full: "Led large-scale prompt refactors improving QA pass rate from 85% to 89%, including model selection, prompt engineering, cache handling, fine-tuning, and regression testing for LLM outputs",
-        }
-      },
-      {
-        en: {
-          full: "Built visual highlighting systems using DOM traversal, coordinate mapping, and string comparison to map parsed products to source documents. Reduced weekly highlighting errors by 2/3",
-        }
-      },
-      {
-        en: {
-          full: "Developed text extraction algorithms for complex layouts (nested tables, side-by-side formats, schematics) supporting most file formats (PDF, DOCX, XLSX, MSG, EML, TIFF, etc.)",
-        }
-      },
-      {
-        en: {
-          full: "Abstracted OCR pipeline from single provider to support multiple providers, enabling format-specific OCR selection",
-        }
-      },
-      {
-        en: {
-          full: "Created performance monitoring dashboards for the Parsing team, later scaled to monitor 3 teams (20+ engineers)",
         }
       },
     ],
@@ -67,6 +52,54 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     workMode: "remote",
     employmentType: "full-time",
     isCurrent: true,
+  },
+  {
+    showInCV: true,
+    showInResume: true,
+    title: {
+      en: "Software Engineer I"
+    },
+    team: {
+      en: "Parsing"
+    },
+    organization: CANALS_AI,
+    city: "Coral Gables",
+    state: "FL",
+    country: "USA",
+    startDate: new Date("2024-12-09T12:00:00-05:00"),
+    endDate: new Date("2025-06-01T12:00:00-05:00"),
+    description: {
+      en: {
+        full: "Built parsing infrastructure for emails, PDFs, images, spreadsheets, handwritten documents, etc. contributing to a pipeline processing 5,000+ orders daily for ~100 wholesale distribution customers.",
+      }
+    },
+    achievements: [
+      {
+        en: {
+          full: "Built visual highlighting systems using DOM traversal, coordinate mapping, and string comparison to map parsed products to source documents. Reduced weekly highlighting errors by 2/3",
+        }
+      },
+      {
+        en: {
+          full: "Developed text extraction algorithms for complex layouts (nested tables, side-by-side formats, schematics) supporting most file formats (PDF, DOCX, XLSX, MSG, EML, TIFF, etc.)",
+        }
+      },
+      {
+        en: {
+          full: "Abstracted OCR pipeline from single provider to support multiple providers, decoupling the implementation from Textract and enabling format-specific OCR selection",
+        }
+      },
+    ],
+    technologies: [
+      "TypeScript",
+      "Fastify",
+      "Svelte",
+      "AWS (RDS, ECS)",
+      "PostgreSQL",
+      "LLM APIs (OpenAI, Anthropic, Gemini)",
+    ],
+    workMode: "remote",
+    employmentType: "full-time",
   },
   {
     showInCV: true,
