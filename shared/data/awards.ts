@@ -19,7 +19,7 @@ export const AWARDS: Award[] = [
     date: new Date("2025-11-23T20:00:00-05:00"),
     certificateUrl: "/awards/certificates/reconocimiento-mejores-saber-pro-y-tyt-2024.png",
     showInCV: true,
-    showInResume: false,
+    showInResume: true,
     organization: MIN_EDUCACION_COLOMBIA,
     city: "Bogotá",
     country: "Colombia",
@@ -36,7 +36,7 @@ export const AWARDS: Award[] = [
     date: new Date("2025-04-07T20:00:00-05:00"),
     certificateUrl: "/awards/certificates/summa-cum-laude.png",
     showInCV: true,
-    showInResume: false,
+    showInResume: true,
     ...UNIANDES,
   },
   {
@@ -52,7 +52,7 @@ export const AWARDS: Award[] = [
     date: new Date("2025-04-07T20:00:00-05:00"),
     certificateUrl: "/awards/certificates/distincion-trayectoria-deportiva.png",
     showInCV: true,
-    showInResume: false,
+    showInResume: true,
     ...UNIANDES,
   },
   {
@@ -66,7 +66,7 @@ export const AWARDS: Award[] = [
       },
     },
     showInCV: true,
-    showInResume: false,
+    showInResume: true,
     ...UNIANDES,
     instances: [
       {
@@ -100,7 +100,7 @@ export const AWARDS: Award[] = [
       },
     },
     showInCV: true,
-    showInResume: false,
+    showInResume: true,
     ...UNIANDES,
     instances: [
       {
