@@ -23,6 +23,7 @@ export const TeachingSchema = z.object({
   supervisor: z.string().optional(),
   isCurrent: z.boolean().optional(),
   evaluationPdfUrl: z.string().url().optional(),
+  groupId: z.string().optional(),
 });
 
 export type Teaching = z.infer<typeof TeachingSchema>;

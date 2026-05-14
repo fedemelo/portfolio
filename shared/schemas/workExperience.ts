@@ -23,6 +23,7 @@ export const WorkExperienceSchema = z.object({
   workMode: WorkModeSchema,
   employmentType: EmploymentTypeSchema,
   isCurrent: z.boolean().optional(),
+  groupId: z.string().optional(),
 });
 
 export type WorkExperience = z.infer<typeof WorkExperienceSchema>;

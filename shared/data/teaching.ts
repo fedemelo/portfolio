@@ -37,6 +37,7 @@ export const TEACHING: Teaching[] = [
     showInCV: true,
     showInResume: true,
     evaluationPdfUrl: "/documents/teaching-evaluations/isis-1221-2025-20.pdf",
+    groupId: "uniandes-adjunct",
   },
   {
     id: "isis-1221-2025-20-lecturer",
@@ -72,6 +73,7 @@ export const TEACHING: Teaching[] = [
     showInCV: true,
     showInResume: true,
     evaluationPdfUrl: "/documents/teaching-evaluations/isis-1221-2025-20.pdf",
+    groupId: "uniandes-adjunct",
   },
   {
     id: "vice-3001-2022-2024-assistant",

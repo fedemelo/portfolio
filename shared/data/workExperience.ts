@@ -52,6 +52,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     workMode: "remote",
     employmentType: "full-time",
     isCurrent: true,
+    groupId: "canals-ai",
   },
   {
     showInCV: true,
@@ -100,6 +101,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     ],
     workMode: "remote",
     employmentType: "full-time",
+    groupId: "canals-ai",
   },
   {
     showInCV: true,
