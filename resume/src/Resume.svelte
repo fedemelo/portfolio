@@ -10,6 +10,9 @@
   import { EDUCATION } from '../../shared/data/education';
   import Education from './components/Education.svelte';
 
+  import { AWARDS } from '../../shared/data/awards';
+  import Awards from './components/Awards.svelte';
+
   import { SKILLS } from '../../shared/data/skills';
   import Skills from './components/Skills.svelte';
 </script>
@@ -18,5 +21,6 @@
   <PersonalInfo personalInfo={PERSONAL_INFO} />
   <WorkExperience experiences={[...WORK_EXPERIENCE, ...TEACHING]} />
   <Education education={EDUCATION} />
+  <Awards awards={AWARDS} />
   <Skills skills={SKILLS} />
 </main>
