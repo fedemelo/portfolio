@@ -11,15 +11,6 @@
   
   const language = getContext<Language>('language');
 
-  function formatHonors(titles: string[]): string {
-    const counts: Record<string, number> = {};
-    titles.forEach(title => {
-      counts[title] = (counts[title] || 0) + 1;
-    });
-    return Object.entries(counts)
-      .map(([title, count]) => count > 1 ? `${title} × ${count}` : title)
-      .join(', ');
-  }
 </script>
 
 <section>
@@ -45,7 +36,7 @@
             {getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate)}
           </p>
         </div>
-        {#if edu.gpa || (edu.details && edu.details.length > 0) || (edu.relatedAwardTitles && edu.relatedAwardTitles.length > 0)}
+        {#if edu.gpa || (edu.details && edu.details.length > 0)}
           <ul>
             {#if edu.gpa}
               <li>GPA: {edu.gpa}</li>
@@ -54,9 +45,6 @@
               {#each edu.details as detail}
                 <li>{getResumeText(detail, language)}</li>
               {/each}
-            {/if}
-            {#if edu.relatedAwardTitles && edu.relatedAwardTitles.length > 0}
-              <li><strong>Honors:</strong> {formatHonors(edu.relatedAwardTitles)}</li>
             {/if}
           </ul>
         {/if}
