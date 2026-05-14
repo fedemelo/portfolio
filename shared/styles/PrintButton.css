@@ -1,7 +1,14 @@
-.print-button {
+.page-controls {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 1000;
+}
+
+.page-control-button {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
@@ -14,39 +21,20 @@
   justify-content: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
   transition: all 0.3s ease;
-  z-index: 1000;
 }
 
-.print-button:hover {
+.page-control-button:hover:not(:disabled) {
   transform: scale(1.1);
   background-color: #00695c;
 }
 
+.page-control-button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
 @media print {
-  .print-button {
+  .page-controls {
     display: none;
-  }
-}
-
-.loading {
-  position: absolute;
-  width: 70%;
-  height: 70%;
-  border: 2px solid transparent;
-  border-radius: 50%;
-  border-top-color: white;
-  border-left-color: white;
-  animation: spin 0.8s linear infinite;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-@keyframes spin {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
   }
 }

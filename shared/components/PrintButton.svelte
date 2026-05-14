@@ -1,32 +1,41 @@
 <script lang="ts">
-  import { Printer } from "lucide-svelte";
-  import { generatePdf } from "../utils/print";
+  import { Printer, ZoomIn, ZoomOut } from "lucide-svelte";
+  import { print } from "../utils/print";
+  import { simulatePageBreaks } from "../utils/simulatePageBreaks";
 
-  let generating = false;
-  export let currentView: 'cv' | 'resume';
+  let zoom = 1;
+  const STEP = 0.1;
+  const MIN_ZOOM = 0.5;
+  const MAX_ZOOM = 2.0;
 
-  async function handlePrint() {
-    generating = true;
-    try {
-      await generatePdf(currentView);
-    } finally {
-      generating = false;
-    }
+  function changeZoom(delta: number) {
+    zoom = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, +(zoom + delta).toFixed(1)));
+    document.documentElement.style.setProperty('--page-zoom', String(zoom));
+    simulatePageBreaks();
   }
 </script>
 
-<button
-  class="print-button"
-  class:disabled={generating}
-  on:click={handlePrint}
-  disabled={generating}
-  title={generating ? "Generating PDF..." : "Generate PDF"}
->
-  <Printer size={24} opacity={generating ? 0.5 : 1} />
-  {#if generating}
-    <span class="loading"></span>
-  {/if}
-</button>
+<div class="page-controls">
+  <button
+    class="page-control-button"
+    on:click={() => changeZoom(STEP)}
+    disabled={zoom >= MAX_ZOOM}
+    title="Zoom in"
+  >
+    <ZoomIn size={20} />
+  </button>
+  <button
+    class="page-control-button"
+    on:click={() => changeZoom(-STEP)}
+    disabled={zoom <= MIN_ZOOM}
+    title="Zoom out"
+  >
+    <ZoomOut size={20} />
+  </button>
+  <button class="page-control-button" on:click={print} title="Print / Save as PDF">
+    <Printer size={20} />
+  </button>
+</div>
 
 <style>
   @import "../styles/PrintButton.css";
