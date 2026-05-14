@@ -36,7 +36,7 @@ export const TEACHING: Teaching[] = [
     isCurrent: true,
     showInCV: true,
     showInResume: true,
-    evaluationPdfUrl: "/documents/teaching-evaluations/isis-1221-2025-20.pdf",
+    // evaluationPdfUrl: TODO: Add when ready
     groupId: "uniandes-adjunct",
   },
   {
