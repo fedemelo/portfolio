@@ -5,48 +5,36 @@ export const SKILLS: Skill[] = [
     showInCV: true,
     showInResume: true,
     category: {
-      en: "Programming Languages"
+      en: "AI Engineering & LLM Orchestration"
     },
-    skills: ["TypeScript", "Python", "Java", "Swift"],
+    // Highlighting the cutting-edge MCP integration mentioned in your experience [cite: 7]
+    skills: ["Anthropic / OpenAI / Gemini / Groq APIs", "MCP", "TensorFlow", "PyTorch"],
   },
   {
     showInCV: true,
     showInResume: true,
     category: {
-      en: "Data & Databases"
+      en: "Backend & Systems Architecture"
     },
-    skills: ["Polars", "SQL", "Plotly", "Jupyter", "Hex", "PostgreSQL", "Redis", "Oracle SQL Developer"],
+    // Positioning your core languages alongside high-performance frameworks you've used [cite: 6, 29, 46, 69]
+    skills: ["Python", "Java", "TypeScript", "Swift", "FastAPI", "Spring Boot", "WebSocket Orchestration", "Concurrency Control"],
   },
   {
     showInCV: true,
     showInResume: true,
     category: {
-      en: "Cloud & DevOps"
+      en: "Data Engineering & Infrastructure"
     },
-    skills: ["AWS (RDS, ECS, S3, DynamoDB)", "Docker", "Coolify", "GitHub CI/CD"],
+    // Focusing on high-performance tools like Polars and AWS services [cite: 29, 37, 69]
+    skills: ["Polars", "PostgreSQL", "Redis", "AWS (RDS, ECS, S3, DynamoDB)", "Docker", "GitHub CI/CD"],
   },
   {
     showInCV: true,
     showInResume: true,
     category: {
-      en: "Web Technologies"
+      en: "Product & Interface"
     },
-    skills: ["React", "Svelte", "Next.js", "FastAPI", "Fastify", "Spring Boot", "HTML", "CSS", "MUI", "ShadCN"],
+    // Streamlining frontend to focus on modern frameworks [cite: 30, 69]
+    skills: ["React", "Next.js", "Svelte", "Plotly", "ShadCN / MUI"],
   },
-  {
-    showInCV: true,
-    showInResume: true,
-    category: {
-      en: "AI/ML"
-    },
-    skills: [ "TensorFlow", "PyTorch", "Anthropic API", "OpenAI API", "Groq API", "Gemini API"],
-  },
-  {
-    showInCV: true,
-    showInResume: true,
-    category: {
-      en: "Other"
-    },
-    skills: ["LaTeX", "Git", "Bash", "Linux", "Firebase"],
-  },
-]; 
+];
