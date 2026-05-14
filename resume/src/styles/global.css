@@ -13,9 +13,76 @@ body {
 }
 
 main {
-  max-width: 210mm;  /* A4 width */
-  padding: 0.5in;  /* 1/2 inch */
+  max-width: var(--page-width, 8.5in);
+  padding: var(--page-margin, 0.5in);
   text-rendering: optimizeSpeed;
+}
+
+@media print {
+  /* @page is injected by applyPageConfig() — CSS vars are not supported inside @page rules */
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  main {
+    padding: 0 var(--page-margin, 0.5in);
+    margin: 0 !important;
+    min-height: unset !important;
+    transform: none !important;
+  }
+
+  .page-sep { display: none; }
+
+  /* preparePrint() inserts these; the JS algorithm decides where pages break */
+  .print-break {
+    page-break-before: always;
+    height: 0;
+  }
+
+  h2 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
+  .no-break-on-print {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+@media screen {
+  body {
+    background-color: var(--screen-background, #d0d0d0);
+    padding: 32px 0;
+    overflow-x: hidden;
+  }
+
+  main {
+    width: var(--page-width, 8.5in);
+    margin: 0 auto;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    transform: scale(var(--page-zoom, 1));
+    transform-origin: top center;
+  }
+
+  .print-break { display: none; }
+
+  .page-sep {
+    height: calc(var(--page-gap, 32px) + 2 * var(--page-margin, 0.5in));
+    background: linear-gradient(
+      to bottom,
+      #ffffff var(--page-margin, 0.5in),
+      #d0d0d0 var(--page-margin, 0.5in),
+      #d0d0d0 calc(var(--page-margin, 0.5in) + var(--page-gap, 32px)),
+      #ffffff calc(var(--page-margin, 0.5in) + var(--page-gap, 32px))
+    );
+    margin-left: calc(-1 * var(--page-margin, 0.5in));
+    margin-right: calc(-1 * var(--page-margin, 0.5in));
+  }
 }
 
 h1 {
