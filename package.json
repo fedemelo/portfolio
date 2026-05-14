@@ -34,7 +34,6 @@
   },
   "dependencies": {
     "lucide-svelte": "^0.501.0",
-    "html2pdf.js": "^0.10.3",
     "zod": "^3.25.74",
     "zod-to-json-schema": "^3.24.6"
   }
