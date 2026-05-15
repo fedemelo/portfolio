@@ -3,12 +3,11 @@
   import type { Location } from "../schemas/location";
   export let location: Location;
   export let workMode: WorkMode | undefined = undefined;
+  export let suffix: string | undefined = undefined;
+
+  $: locationStr = [location.city, location.state, location.country].filter(Boolean).join(', ');
 </script>
 
 <p>
-  {[location.city,
-    location.state,
-    location.country,
-    ].filter(Boolean).join(', ')}
-  {workMode && workMode == 'remote' ? ' (Remote)' : ''}
+  {locationStr}{#if workMode}{' '}· {workMode === 'remote' ? 'Remote' : workMode === 'hybrid' ? 'Hybrid' : 'On-site'}{/if}{#if suffix}{' '}· {suffix}{/if}
 </p>
