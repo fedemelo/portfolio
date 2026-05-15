@@ -23,6 +23,7 @@ export const WorkExperienceSchema = z.object({
   workMode: WorkModeSchema,
   employmentType: EmploymentTypeSchema,
   isCurrent: z.boolean().optional(),
+  showSubtitle: z.boolean().optional(),
   groupId: z.string().optional(),
 });
 
