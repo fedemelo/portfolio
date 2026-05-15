@@ -10,7 +10,7 @@ export const TEACHING: Teaching[] = [
       es: "Profesor de cátedra"
     },
     courseCode: "ISIS-2112",
-    period: "2026-20 - Present",
+    period: "Fall 2026 – Present",
     startDate: new Date("2026-08-03T12:00:00-05:00"),
     endDate: new Date("2026-12-05T12:00:00-05:00"),
 
@@ -47,7 +47,7 @@ export const TEACHING: Teaching[] = [
       es: "Profesor de cátedra"
     },
     courseCode: "ISIS-1221",
-    period: "2025-20 - 2026-10",
+    period: "Fall 2025, Spring 2026",
     startDate: new Date("2025-08-04T12:00:00-05:00"),
     endDate: new Date("2026-05-29T12:00:00-05:00"),
     description: {
@@ -83,7 +83,7 @@ export const TEACHING: Teaching[] = [
       es: "Asistente de Investigación"
     },
     courseCode: "VICE-3001",
-    period: "2022-20 - 2024-20",
+    period: "Fall 2022 – Fall 2024",
     startDate: new Date("2022-08-08T12:00:00-05:00"),
     endDate: new Date("2024-12-07T12:00:00-05:00"),
     supervisor: "Prof. Eduardo Rosales, Ph.D.",
@@ -179,7 +179,7 @@ export const TEACHING: Teaching[] = [
       es: "Tutor"
     },
     courseCode: "ISIS-1211",
-    period: "2022-10",
+    period: "Spring 2022",
     startDate: new Date("2022-02-01T12:00:00-05:00"),
     endDate: new Date("2022-06-04T12:00:00-05:00"),
     achievements: [
@@ -207,7 +207,7 @@ export const TEACHING: Teaching[] = [
       es: "Monitor"
     },
     courseCode: "ISIS-1221",
-    period: "2021-10",
+    period: "Spring 2021",
     startDate: new Date("2021-02-01T12:00:00-05:00"),
     endDate: new Date("2021-06-05T12:00:00-05:00"),
     supervisor: "Prof. Diego Salinas",
@@ -237,7 +237,7 @@ export const TEACHING: Teaching[] = [
       es: "Monitor"
     },
     courseCode: "MATE-1203",
-    period: "2021-10",
+    period: "Spring 2021",
     startDate: new Date("2021-01-25T12:00:00-05:00"),
     endDate: new Date("2021-05-29T12:00:00-05:00"),
     supervisor: "Prof. Alexander Murcia, Ph.D.",
