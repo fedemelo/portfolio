@@ -8,6 +8,7 @@ import { CredentialGallery } from "@/components/credential-gallery"
 import { AwardReferences } from "@/components/award-references"
 import { generateSlug } from "@/utils/slug"
 import { formatDate } from "@/utils/date"
+import { getOrgName } from "@/types/organization"
 
 interface EducationItemProps {
   education: Education
@@ -31,7 +32,7 @@ export function EducationItem({ education, defaultExpanded }: EducationItemProps
           <HeaderSubheaderWithIcon
             icon={<GraduationCap className="h-5 w-5 text-primary flex-shrink-0" />}
             header={education.degree}
-            subheader={education.organization.name}
+            subheader={getOrgName(education.organization)}
             subheaderUrl={education.organization.link}
           />
           {dateRange && <p className="text-sm text-muted-foreground ml-7">{dateRange}</p>}

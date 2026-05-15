@@ -1,6 +1,7 @@
 import { Calendar, MapPin, Building2, Users, User, ExternalLink } from "lucide-react"
 import Link from "next/link"
 import type { Location, Organization } from "@/types"
+import { getOrgName } from "@/types/organization"
 import { formatDate } from "@/utils/date"
 
 export function ContextInfo({
@@ -94,7 +95,7 @@ function OrganizationDisplay({ organization }: { organization: Organization }) {
   return (
     <div className="flex items-center gap-1">
       <Building2 className="h-4 w-4" />
-      <span>{organization.name}</span>
+      <span>{getOrgName(organization)}</span>
       {organization.link && (
         <Link 
           href={organization.link} 

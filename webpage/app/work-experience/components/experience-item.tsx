@@ -7,6 +7,7 @@ import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon
 import { AccordionItem } from "@/components/accordion-item"
 import { generateSlug } from "@/utils/slug"
 import { formatDate } from "@/utils/date"
+import { getOrgName } from "@/types/organization"
 
 interface ExperienceItemProps {
   experience: WorkExperience
@@ -29,7 +30,7 @@ export function ExperienceItem({ experience, defaultExpanded }: ExperienceItemPr
           <HeaderSubheaderWithIcon 
             icon={<Briefcase className="h-5 w-5 text-primary flex-shrink-0" />} 
             header={experience.title} 
-            subheader={experience.organization.name}
+            subheader={getOrgName(experience.organization)}
             subheaderUrl={experience.organization.link}
           />
           <p className="text-sm text-muted-foreground ml-7">{dateRange}</p>

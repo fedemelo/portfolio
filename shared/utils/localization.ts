@@ -1,6 +1,12 @@
 import type { RichLocalizedContent, SimpleLocalizedContent, Language, ContentType } from '../schemas/utils';
+import type { Organization } from '../schemas/organization';
 
 export const DEFAULT_LANGUAGE: Language = 'en';
+
+export function getOrgName(org: Organization, language: Language): string {
+  if (typeof org.name === 'string') return org.name;
+  return getLocalizedText(org.name, language);
+}
 
 export function getLocalizedText(
   content: SimpleLocalizedContent,
