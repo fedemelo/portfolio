@@ -49,10 +49,10 @@ export function getYearRange(
   if (!endDate && startDate)
     return isCurrent ? `${startDate.getFullYear()} – Present` : `${startDate.getFullYear()}`;
 
-  if (startDate.getFullYear() === endDate.getFullYear())
-    return `${startDate.getFullYear()}`;
+  if (startDate!.getFullYear() === endDate!.getFullYear())
+    return `${startDate!.getFullYear()}`;
 
-  return `${startDate.getFullYear()} – ${endDate.getFullYear()}`;
+  return `${startDate!.getFullYear()} – ${endDate!.getFullYear()}`;
 }
 
 export function getYearSequence(dates: Date[]): string {
@@ -63,6 +63,7 @@ export function getYearSequence(dates: Date[]): string {
   return Object.entries(groupedByYear)
     .sort(([a], [b]) => Number(a) - Number(b))
     .flatMap(([_, yearDates]) => {
+      if (!yearDates || yearDates.length === 0) return [];
       if (yearDates.length === 1) return [yearDates[0].getFullYear().toString()];
       
       // Multiple dates in same year - use sorted periods
@@ -71,7 +72,7 @@ export function getYearSequence(dates: Date[]): string {
       return periods.sort((a, b) => {
         const [periodA] = a.split(' ');
         const [periodB] = b.split(' ');
-        return periodOrder[periodA] - periodOrder[periodB];
+        return periodOrder[periodA as keyof typeof periodOrder] - periodOrder[periodB as keyof typeof periodOrder];
       });
     })
     .join(", ");
