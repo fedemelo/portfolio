@@ -16,7 +16,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     city: "Coral Gables",
     state: "FL",
     country: "USA",
-    startDate: new Date("2025-06-01T12:00:00-05:00"),
+    startDate: new Date("2025-07-01T12:00:00-05:00"),
     description: {
       en: {
         full: "Own parsing for the Live Voice and Inquiries Agent systems, serving ~100 wholesale distribution customers with 10,000+ daily orders across the full order and logistics pipeline.",
@@ -68,7 +68,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     state: "FL",
     country: "USA",
     startDate: new Date("2024-12-09T12:00:00-05:00"),
-    endDate: new Date("2025-06-01T12:00:00-05:00"),
+    endDate: new Date("2025-07-01T12:00:00-05:00"),
     description: {
       en: {
         full: "Built parsing infrastructure for emails, PDFs, images, spreadsheets, handwritten documents, etc. contributing to a pipeline processing 5,000+ orders daily for ~100 wholesale distribution customers.",
@@ -153,7 +153,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       },
     ],
     workMode: "onsite",
-    employmentType: "contract",
+    employmentType: "part-time",
     ...UNIANDES,
   },
   {
@@ -265,8 +265,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
         }
       },
     ],
-    workMode: "onsite",
-    employmentType: "contract",
+    workMode: "hybrid",
+    employmentType: "part-time",
     ...UNIANDES,
   }
 ]
