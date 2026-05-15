@@ -3,7 +3,7 @@
   import { filterForCV } from "../../../shared/utils/show";
   import { getYearRange } from "../../../shared/utils/year";
   import Location from "../../../shared/components/Location.svelte";
-  import { getLocalizedText, getCVText } from "../../../shared/utils/localization";
+  import { getLocalizedText, getCVText, getOrgName } from "../../../shared/utils/localization";
   import { getContext } from 'svelte';
   import type { Language } from "../../../shared/schemas/utils";
   
@@ -17,7 +17,7 @@
   {#each filterForCV(education) as edu}
     <div class="no-break-on-print">
       <div class="row">
-        <h3>{edu.organization.name}</h3>
+        <h3>{getOrgName(edu.organization, language)}</h3>
         <Location
           location={{
             city: edu.city,
@@ -27,7 +27,9 @@
         />
       </div>
       <div class="row">
-        <p>{getLocalizedText(edu.degree, language)}</p>
+        <p>
+          {getLocalizedText(edu.degree, language)}{#if edu.relatedAwardTitles?.includes('Summa Cum Laude')}, <em>summa cum laude</em>{/if}
+        </p>
         <p>
           {getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate)}
         </p>

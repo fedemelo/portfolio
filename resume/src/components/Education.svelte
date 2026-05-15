@@ -3,7 +3,7 @@
   import { getYearRange } from "../../../shared/utils/year";
   import { filterForResume } from "../../../shared/utils/show";
   import Location from "../../../shared/components/Location.svelte";
-  import { getLocalizedText, getResumeText } from "../../../shared/utils/localization";
+  import { getLocalizedText, getResumeText, getOrgName } from "../../../shared/utils/localization";
   import { getContext } from 'svelte';
   import type { Language } from "../../../shared/schemas/utils";
   
@@ -19,7 +19,7 @@
     {#each filterForResume(education) as edu}
       <div class="no-break-on-print">
         <div class="row">
-          <h3>{edu.organization.name}</h3>
+          <h3>{getOrgName(edu.organization, language)}</h3>
           <Location
             location={{
               city: edu.city,
@@ -30,7 +30,7 @@
         </div>
         <div class="row">
           <p style="font-style: italic;">
-            {getLocalizedText(edu.degree, language)}
+            {getLocalizedText(edu.degree, language)}{#if edu.relatedAwardTitles?.includes('Summa Cum Laude')}, Summa Cum Laude{/if}
           </p>
           <p>
             {getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate)}
