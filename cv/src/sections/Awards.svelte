@@ -2,7 +2,7 @@
   import type { Award } from "../../../shared/schemas/award";
   import { filterForCV } from "../../../shared/utils/show";
   import { getYearRange, getYearSequence } from "../../../shared/utils/year";
-  import { getLocalizedText, getCVText } from "../../../shared/utils/localization";
+  import { getLocalizedText, getCVText, getOrgName } from "../../../shared/utils/localization";
   import { getContext } from 'svelte';
   import type { Language } from "../../../shared/schemas/utils";
   
@@ -17,7 +17,7 @@
     <div class="no-break-on-print">
       <h3>{getLocalizedText(award.title, language)}</h3>
       <div class="row">
-        <p>{award.organization.name}</p>
+        <p>{getOrgName(award.organization, language)}</p>
         {#if award.date}
           <p>{getYearRange(award.date)}</p>
         {:else if award.instances}
