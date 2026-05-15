@@ -7,14 +7,3 @@ export function getPeriodFromDate(date: Date): Period {
   const period = month < 6 ? 'Spring' : month < 7 ? 'Summer' : 'Fall';
   return `${period} ${year}`;
 }
-
-export function getPeriodFromDates(startDate: Date, endDate: Date | undefined, isCurrent: boolean = false): Period | `${Period} - ${Period}` {
-  if (isCurrent || !endDate)
-    return getPeriodFromDate(startDate);
-
-  if (startDate.getFullYear() !== endDate.getFullYear())
-    return `${getPeriodFromDate(startDate)} - ${getPeriodFromDate(endDate)}`;
-  
-  const dateMidPoint = new Date(startDate.getFullYear(), Math.round((startDate.getMonth() + endDate.getMonth()) / 2), 1);
-  return getPeriodFromDate(dateMidPoint);
-}
