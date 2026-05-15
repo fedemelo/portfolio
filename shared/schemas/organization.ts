@@ -1,7 +1,8 @@
 import { z } from "zod";
+import { SimpleLocalizedContentSchema } from "./utils";
 
 export const OrganizationSchema = z.object({
-  name: z.string(),
+  name: z.union([z.string(), SimpleLocalizedContentSchema]),
   icon: z.string().optional(),
   link: z.string().url().optional(),
 });
