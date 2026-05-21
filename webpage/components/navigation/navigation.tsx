@@ -1,6 +1,5 @@
 "use client"
 
-import { usePathname } from "next/navigation"
 import { DesktopNavigation } from "./desktop-navigation"
 import { MobileNavigation } from "./mobile-navigation"
 import { ThemeToggle } from "./theme-toggle"
