@@ -17,12 +17,10 @@ export const PUBLICATIONS: Publication[] = [
     year: 2024,
     description: {
       en: {
-        full: "Undergraduate thesis presented at Universidad de los Andes to obtain the degree of Systems and Computing Engineer",
-        short: "Undergraduate thesis - Systems and Computing Engineering degree"
+        full: "Undergraduate thesis",
       },
       es: {
-        full: "Tesis de pregrado presentada en Universidad de los Andes para obtener el título de Ingeniero de Sistemas y Computación",
-        short: "Tesis de pregrado - Ingeniería de Sistemas y Computación"
+        full: "Tesis de pregrado",
       }
     },
     institution: "Universidad de los Andes",
