@@ -117,7 +117,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     endDate: new Date("2024-12-07T12:00:00-05:00"),
     description: {
       en: {
-        full: "Designed and built full-stack student data analytics system serving 15,000+ students and 600+, replacing an external platform and saving ~$100K USD annually",
+        full: "Designed and built full-stack student data analytics system serving 15,000+ students and 600+ faculty, replacing an external platform and saving ~$100K USD annually",
       }
     },
     technologies: [
