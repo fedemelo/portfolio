@@ -36,7 +36,7 @@
       </div>
       <div class="indented-block">
         {#if edu.gpa}
-          <p>GPA: {edu.gpa}</p>
+          <p>GPA: <strong>{edu.gpa}</strong>{#if edu.gpaContext}{' '}({getLocalizedText(edu.gpaContext, language)}){/if}</p>
         {/if}
         {#if edu.details?.length}
           {#each edu.details.filter(d => d.showInCV !== false) as detail}

@@ -15,6 +15,9 @@ export const EDUCATION: Education[] = [
     graduationDate: new Date("2025-04-07T12:00:00-05:00"),
     trueEndDate: new Date("2024-12-08T12:00:00-05:00"), // Sunday, last day to turn in deliverables
     gpa: "4.92/5.00",
+    gpaContext: {
+      en: "Highest in Engineering Faculty in 17 years; highest in Systems and Computing Engineering program this century",
+    },
     diplomaUrl: "/education/diplomas/uniandes.png",
     certificates: ["/education/certificates/acta-grado-uniandes.png"],
     relatedAwardTitles: [
@@ -28,8 +31,9 @@ export const EDUCATION: Education[] = [
     ],
     details: [
       {
+        showInResume: false,
         en: {
-          full: "Highest cumulative GPA in the Engineering Faculty in 17 years and highest in the Systems and Computing Engineering program this century",
+          full: "Recipient of the Quiero Estudiar scholarship (95% tuition coverage) for the duration of the degree",
         },
       },
     ],
