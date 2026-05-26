@@ -30,6 +30,9 @@
 
   import { PUBLICATIONS } from '../../shared/data/publications';
   import Publications from './sections/Publications.svelte';
+
+  import { LANGUAGES } from '../../shared/data/languages';
+  import AdditionalInfo from './sections/AdditionalInfo.svelte';
 </script>
 
 <main>
@@ -43,4 +46,5 @@
   <RelevantCoursework relevantCoursework={RELEVANT_COURSEWORK} />
   <Skills skills={SKILLS} />
   <Extracurricular extracurriculars={EXTRACURRICULARS} />
+  <AdditionalInfo languages={LANGUAGES} />
 </main>
