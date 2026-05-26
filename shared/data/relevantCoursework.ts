@@ -53,7 +53,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Data Structures and Algorithms",
@@ -106,7 +106,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Structural Mathematics",
@@ -117,7 +117,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Statistics and Probability",
@@ -128,7 +128,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Linear Algebra",
@@ -139,7 +139,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Vector Calculus",
@@ -150,7 +150,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Integral Calculus",
@@ -161,7 +161,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Differential Calculus",
@@ -203,7 +203,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Web Technologies Programming",
@@ -225,7 +225,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 2
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Team Software Development",
@@ -236,7 +236,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: true,
+        showInCV: false,
         showInResume: false,
         name: {
           en: "Transactional Systems",
