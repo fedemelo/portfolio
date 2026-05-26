@@ -39,7 +39,7 @@
           <p>GPA: {edu.gpa}</p>
         {/if}
         {#if edu.details?.length}
-          {#each edu.details as detail}
+          {#each edu.details.filter(d => d.showInCV !== false) as detail}
             <p>{getCVText(detail, language)}</p>
           {/each}
         {/if}

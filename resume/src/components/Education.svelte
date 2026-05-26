@@ -42,7 +42,7 @@
               <li>GPA: {edu.gpa}</li>
             {/if}
             {#if edu.details && edu.details.length > 0}
-              {#each edu.details as detail}
+              {#each edu.details.filter(d => d.showInResume !== false) as detail}
                 <li>{getResumeText(detail, language)}</li>
               {/each}
             {/if}
