@@ -4,6 +4,14 @@
   gap: 2rem;
 }
 
+@media print {
+  .coursework-container {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+  }
+}
+
 @media (max-width: 768px) {
   .coursework-container {
     grid-template-columns: max-content max-content;
