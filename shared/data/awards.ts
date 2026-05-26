@@ -10,7 +10,7 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: "Awarded to the top performers in the previous year’s Saber Pro and TyT nationwide exams."  // Ranked third nationally in my major and seventeenth in engineering.
+        full: "Awarded to top-performing students on Colombia’s official national standardized higher-education examinations (Saber Pro and TyT)"  // Ranked third nationally in my major and seventeenth nationally in engineering.
       },
       es: {
         full: "Reconocimiento otorgado a los estudiantes con los mejores resultados nacionales en el año inmediatamente anterior en las Pruebas Saber Pro y TyT del nivel universitario",
