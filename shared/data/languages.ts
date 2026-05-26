@@ -47,18 +47,24 @@ export const LANGUAGES: Language[] = [
         showInCV: true,
         showInResume: true,
         name: {
-          en: "IELTS"
+          en: "IELTS Academic"
         },
-        date: new Date("2025-06-07T12:00:00-05:00"),
+        date: new Date("2025-06-09T12:00:00-05:00"),
         grade: "8.5/9.0",
         cefrLevel: "C2",
         id: "25CO501000MELF001A",
+        subscores: {
+          Listening: 9.0,
+          Reading: 9.0,
+          Writing: 7.5,
+          Speaking: 8.0,
+        },
       },
     ],
   },
   {
-    showInCV: true,
-    showInResume: true,
+    showInCV: false,
+    showInResume: false,
     name: {
       en: "German"
     },
