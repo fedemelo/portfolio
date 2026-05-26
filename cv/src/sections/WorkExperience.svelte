@@ -26,7 +26,7 @@
       if (!it.endDate) return max;
       return !max || it.endDate > max ? it.endDate : max;
     }, undefined);
-    return formatDateRange(start, end, isCurrent);
+    return formatDateRange(start, end, isCurrent, false);
   }
 </script>
 
@@ -37,19 +37,19 @@
       {#each entry.items as work, i}
         <div class="no-break-on-print">
           {#if i === 0}
+            <h3>{getOrgName(entry.items[0].organization, language)}</h3>
             <div class="row">
-              <h3>{getOrgName(entry.items[0].organization, language)}</h3>
+              <Location
+                location={{
+                  city: entry.items[0].city,
+                  state: entry.items[0].state,
+                  country: entry.items[0].country,
+                }}
+                workMode={entry.items[0].workMode}
+                suffix={employmentLabel(entry.items[0].employmentType)}
+              />
               <p>{getGroupRange(entry.items)}</p>
             </div>
-            <Location
-              location={{
-                city: entry.items[0].city,
-                state: entry.items[0].state,
-                country: entry.items[0].country,
-              }}
-              workMode={entry.items[0].workMode}
-              suffix={employmentLabel(entry.items[0].employmentType)}
-            />
           {/if}
           <div class="row">
             <p style="font-style: italic;">
@@ -63,7 +63,7 @@
               {/if}
             </p>
             <p>
-              {formatDateRange(work.startDate, work.endDate, work.isCurrent)}
+              {formatDateRange(work.startDate, work.endDate, work.isCurrent, false)}
             </p>
           </div>
           <Achievements experience={work} />
@@ -95,7 +95,7 @@
             {/if}
           </p>
           <p>
-            {formatDateRange(entry.item.startDate, entry.item.endDate, entry.item.isCurrent)}
+            {formatDateRange(entry.item.startDate, entry.item.endDate, entry.item.isCurrent, false)}
           </p>
         </div>
         <Achievements experience={entry.item} />
