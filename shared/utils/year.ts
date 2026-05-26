@@ -22,11 +22,12 @@ export function formatDuration(startDate: Date, endDate?: Date, isCurrent?: bool
   return parts.join(' ');
 }
 
-export function formatDateRange(startDate: Date, endDate?: Date, isCurrent?: boolean): string {
+export function formatDateRange(startDate: Date, endDate?: Date, isCurrent?: boolean, showDuration = true): string {
   const start = formatMonthYear(startDate);
   const end = isCurrent ? 'Present' : (endDate ? formatMonthYear(endDate) : '');
-  const duration = formatDuration(startDate, endDate, isCurrent);
   const range = end ? `${start} – ${end}` : start;
+  if (!showDuration) return range;
+  const duration = formatDuration(startDate, endDate, isCurrent);
   return duration ? `${range} · ${duration}` : range;
 }
 
@@ -64,7 +65,7 @@ export function getYearSequence(dates: Date[]): string {
     .sort(([a], [b]) => Number(a) - Number(b))
     .flatMap(([_, yearDates]) => {
       if (!yearDates || yearDates.length === 0) return [];
-      if (yearDates.length === 1) return [yearDates[0].getFullYear().toString()];
+      if (yearDates.length === 1) return [getPeriodFromDate(yearDates[0])];
       
       // Multiple dates in same year - use sorted periods
       const periods = new Array(yearDates.length).fill(0).map((_, index) => getPeriodFromDate(yearDates[index]));
