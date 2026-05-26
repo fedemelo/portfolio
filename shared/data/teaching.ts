@@ -10,33 +10,32 @@ export const TEACHING: Teaching[] = [
       es: "Profesor de cátedra"
     },
     courseCode: "ISIS-2112",
-    period: "Fall 2026 – Present",
+    period: "Fall 2026",
     startDate: new Date("2026-08-03T12:00:00-05:00"),
     endDate: new Date("2026-12-05T12:00:00-05:00"),
-
-    description: {
-      en: {
-        full: "Principal instructor of upper-division undergraduate course in algorithm design and analysis",
-      },
-      showInResume: true,
-    },
     achievements: [
       {
         en: {
-          full: "Exceptionally selected for principal instructor position in core upper-division course, typically reserved for full-time faculty",
+          full: "Selected as principal instructor for upper-division undergraduate course in algorithm design and analysis",
         },
       },
       {
         en: {
-          full: "Delivered course lectures, authored quizzes and examinations, supervised 2 TAs, and collaborated with fellow instructors on course project design",
+          full: "Topics include asymptotic analysis, dynamic programming, graph algorithms, greedy methods, NP-completeness, approximation algorithms, and randomized algorithms",
+        },
+      },
+      {
+        en: {
+          full: "Responsibilities include lectures, assessment and exam design, and coordination with fellow professors and TAs",
         },
       },
     ],
     ...UNIANDES,
-    isCurrent: true,
+    isCurrent: false,
+    isUpcoming: true,
     showInCV: true,
-    showInResume: true,
-    // evaluationPdfUrl: TODO: Add when ready
+    showInResume: false,
+    // evaluationPdfUrl: TODO: Add when available
     groupId: "uniandes-adjunct",
   },
   {
@@ -173,6 +172,8 @@ export const TEACHING: Teaching[] = [
   },
   {
     id: "isis-1211-2022-10-tutor",
+    showInCV: false,
+    showInResume: false,
     type: "undergraduate",
     title: {
       en: "Tutor",
@@ -196,12 +197,11 @@ export const TEACHING: Teaching[] = [
     ],
     ...UNIANDES,
     isCurrent: false,
-    showInCV: true,
-    showInResume: false,
   },
   {
     id: "isis-1221-2021-10-ta",
     type: "undergraduate",
+    showInCV: false,
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
@@ -226,12 +226,11 @@ export const TEACHING: Teaching[] = [
     ],
     ...UNIANDES,
     isCurrent: false,
-    showInCV: true,
-    showInResume: false,
   },
   {
     id: "mate-1203-2021-10-ta",
     type: "undergraduate",
+    showInCV: false,
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
@@ -256,7 +255,5 @@ export const TEACHING: Teaching[] = [
     ],
     ...UNIANDES,
     isCurrent: false,
-    showInCV: true,
-    showInResume: false,
   },
 ];

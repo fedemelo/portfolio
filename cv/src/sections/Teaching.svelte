@@ -5,7 +5,7 @@
   import Achievements from "../components/Achievements.svelte";
   import { filterForCV } from "../../../shared/utils/show";
   import { getLocalizedText, getOrgName } from "../../../shared/utils/localization";
-  import { formatTeachingPeriod } from "../../../shared/utils/year";
+
   import { groupByGroupId } from "../../../shared/utils/group-by-group-id";
   import { getContext } from 'svelte';
   import type { Language } from "../../../shared/schemas/utils";
@@ -51,7 +51,7 @@
                 <span style="font-style: italic;">{getLocalizedText(course.name, language)}</span>
               {/if}
             </p>
-            <p>{formatTeachingPeriod(teach.period, teach.startDate, teach.endDate, teach.isCurrent)}</p>
+            <p>{teach.isUpcoming ? `${teach.period} (upcoming)` : teach.period}</p>
           </div>
           <Achievements experience={teach} />
         </div>
@@ -79,7 +79,7 @@
               <span style="font-style: italic;">{getLocalizedText(course.name, language)}</span>
             {/if}
           </p>
-          <p>{formatTeachingPeriod(entry.item.period, entry.item.startDate, entry.item.endDate, entry.item.isCurrent)}</p>
+          <p>{entry.item.isUpcoming ? `${entry.item.period} (upcoming)` : entry.item.period}</p>
         </div>
         {#if entry.item.supervisor}
           <div class="row">
