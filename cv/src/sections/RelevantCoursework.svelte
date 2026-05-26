@@ -20,7 +20,7 @@
           <p style="font-weight: bold;">{getLocalizedText(area.area, language)}</p>
         </div>
         <div class="indented-block">
-          {#each area.courses as course}
+          {#each filterForCV(area.courses) as course}
             <p>{getLocalizedText(course.name, language)}</p>
           {/each}
         </div>
