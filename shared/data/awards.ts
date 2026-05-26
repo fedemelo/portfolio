@@ -10,14 +10,15 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: "Awarded to top-performing students on Colombia’s official national standardized higher-education examinations (Saber Pro and TyT)"  // Ranked third nationally in my major and seventeenth nationally in engineering.
+        full: "Awarded to top-performing students on Colombia’s official national standardized higher-education examinations (Saber Pro and TyT)", // Ranked third nationally in my major and seventeenth nationally in engineering.
       },
       es: {
         full: "Reconocimiento otorgado a los estudiantes con los mejores resultados nacionales en el año inmediatamente anterior en las Pruebas Saber Pro y TyT del nivel universitario",
       },
     },
     date: new Date("2025-11-23T20:00:00-05:00"),
-    certificateUrl: "/awards/certificates/reconocimiento-mejores-saber-pro-y-tyt-2024.png",
+    certificateUrl:
+      "/awards/certificates/reconocimiento-mejores-saber-pro-y-tyt-2024.png",
     showInCV: true,
     showInResume: true,
     organization: MIN_EDUCACION_COLOMBIA,
@@ -42,7 +43,7 @@ export const AWARDS: Award[] = [
   {
     title: {
       en: "Athletic Career Distinction",
-      es: "Distinción a la Trayectoria Deportiva"
+      es: "Distinción a la Trayectoria Deportiva",
     },
     description: {
       en: {
@@ -58,26 +59,17 @@ export const AWARDS: Award[] = [
   {
     title: {
       en: "Ramón de Zubiría Award",
-      es: "Distinción Ramón de Zubiría"
+      es: "Distinción Ramón de Zubiría",
     },
     description: {
       en: {
-        full: `Recognition awarded annually to the undergraduate student with the highest cumulative GPA among all students in their major.`,
+        full: `Annual distinction awarded to the undergraduate student with the highest cumulative GPA in their major.`,
       },
     },
     showInCV: true,
     showInResume: true,
     ...UNIANDES,
     instances: [
-      {
-        description: {
-          en: {
-            full: `Cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering.`,
-          },
-        },
-        date: new Date("2023-11-15T20:00:00-05:00"),
-        certificateUrl: "/awards/certificates/distincion-ramon-zubiria-2023.png",
-      }, 
       {
         description: {
           en: {
@@ -85,18 +77,29 @@ export const AWARDS: Award[] = [
           },
         },
         date: new Date("2024-11-13T20:00:00-05:00"),
-        certificateUrl: "/awards/certificates/distincion-ramon-zubiria-2024.png",
-      }, 
+        certificateUrl:
+          "/awards/certificates/distincion-ramon-zubiria-2024.png",
+      },
+      {
+        description: {
+          en: {
+            full: `Cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering.`,
+          },
+        },
+        date: new Date("2023-11-15T20:00:00-05:00"),
+        certificateUrl:
+          "/awards/certificates/distincion-ramon-zubiria-2023.png",
+      },
     ],
   },
   {
     title: {
       en: "Semester Excellence Award",
-      es: "Premio a la Excelencia Semestral"
+      es: "Premio a la Excelencia Semestral",
     },
     description: {
       en: {
-        full: `Recognition awarded to the student who achieved the highest semester GPA in their undergraduate program during the immediately preceding semester.`,
+        full: `Awarded to the undergraduate student with the highest semester GPA in their academic program during the preceding semester.`,
       },
     },
     showInCV: true,
@@ -106,11 +109,12 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Semester GPA of 4.90 / 5.00 in Physics.`,
+            full: `Semester GPA of 4.97 / 5.00 in Systems and Computing Engineering.`,
           },
         },
-        date: new Date("2021-06-30T20:00:00-05:00"),
-        certificateUrl: "/awards/certificates/distincion-excelencia-semesral-2020-20.png",
+        date: new Date("2023-11-15T20:00:00-05:00"),
+        certificateUrl:
+          "/awards/certificates/distincion-excelencia-semesral-2023-10.png",
       },
       {
         description: {
@@ -119,16 +123,18 @@ export const AWARDS: Award[] = [
           },
         },
         date: new Date("2021-11-30T20:00:00-05:00"),
-        certificateUrl: "/awards/certificates/distincion-excelencia-semesral-2021-10.png",
+        certificateUrl:
+          "/awards/certificates/distincion-excelencia-semesral-2021-10.png",
       },
       {
         description: {
           en: {
-            full: `Semester GPA of 4.97 / 5.00 in Systems and Computing Engineering.`,
+            full: `Semester GPA of 4.90 / 5.00 in Physics.`,
           },
         },
-        date: new Date("2023-11-15T20:00:00-05:00"),
-        certificateUrl: "/awards/certificates/distincion-excelencia-semesral-2023-10.png",
+        date: new Date("2021-06-30T20:00:00-05:00"),
+        certificateUrl:
+          "/awards/certificates/distincion-excelencia-semesral-2020-20.png",
       },
     ],
   },
