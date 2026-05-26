@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { Award } from "../../../shared/schemas/award";
   import { filterForCV } from "../../../shared/utils/show";
-  import { getYearRange, getYearSequence } from "../../../shared/utils/year";
+  import { getYearRange } from "../../../shared/utils/year";
+  import { getPeriodFromDate } from "../../../shared/utils/period";
   import { getLocalizedText, getCVText, getOrgName } from "../../../shared/utils/localization";
   import { getContext } from 'svelte';
   import type { Language } from "../../../shared/schemas/utils";
@@ -20,12 +21,22 @@
         <p>{getOrgName(award.organization, language)}</p>
         {#if award.date}
           <p>{getYearRange(award.date)}</p>
-        {:else if award.instances}
-          <p>{getYearSequence(award.instances.map((instance) => instance.date))}</p>
         {/if}
       </div>
       <div class="indented-block">
         <p>{getCVText(award.description, language)}</p>
+        {#if award.instances}
+          <ul>
+            {#each award.instances as instance}
+              <li>
+                <div class="row">
+                  <span>{getCVText(instance.description, language)}</span>
+                  <span>{getPeriodFromDate(instance.date)}</span>
+                </div>
+              </li>
+            {/each}
+          </ul>
+        {/if}
       </div>
     </div>
   {/each}
