@@ -10,13 +10,13 @@ A monorepo containing Federico Melo Barrero's personal portfolio applications:
 
 This is a pnpm workspace with independent modules that share common data.
 
-| Workspace | Description                                    | Tech stack                                                                                                        |
-| --------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `shared`  | Common data definitions, schemas and utilities | [TS](https://www.typescriptlang.org/) + [Zod](https://zod.dev/)                                                   |
-| `api`     | RESTful API backend                            | [Fastify](https://www.fastify.io/) + [TS](https://www.typescriptlang.org/) + [Swagger](https://swagger.io/)       |
-| `cv`      | CV frontend                                    | [Svelte](https://svelte.dev/) + [TS](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/)               |
-| `resume`  | Resume frontend                                | [Svelte](https://svelte.dev/) + [TS](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/)               |
-| `webpage` | Personal webpage                               | [Next.js](https://nextjs.org/) + [TS](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/) |
+| Workspace | Description                    | Tech stack                                                                                                        |
+| --------- | -----------------------------  | ----------------------------------------------------------------------------------------------------------------- |
+| `shared`  | Common data, schemas and utils | [TS](https://www.typescriptlang.org/) + [Zod](https://zod.dev/)                                                   |
+| `api`     | RESTful API backend            | [Fastify](https://www.fastify.io/) + [TS](https://www.typescriptlang.org/) + [Swagger](https://swagger.io/)       |
+| `cv`      | CV frontend                    | [Svelte](https://svelte.dev/) + [TS](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/)               |
+| `resume`  | Resume frontend                | [Svelte](https://svelte.dev/) + [TS](https://www.typescriptlang.org/) + [Vite](https://vitejs.dev/)               |
+| `webpage` | Personal webpage               | [Next.js](https://nextjs.org/) + [TS](https://www.typescriptlang.org/) + [Tailwind CSS](https://tailwindcss.com/) |
 
 ## Development
 
