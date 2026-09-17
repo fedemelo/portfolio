@@ -14,9 +14,12 @@ export const EDUCATION: Education[] = [
     startDate: new Date("2020-08-08T12:00:00-05:00"), // Unclear if this is the actual start date
     graduationDate: new Date("2025-04-07T12:00:00-05:00"),
     trueEndDate: new Date("2024-12-08T12:00:00-05:00"), // Sunday, last day to turn in deliverables
-    gpa: "4.92/5.00",
+    gpa: "4.92 / 5.00",
     gpaContext: {
-      en: "Highest in Engineering Faculty in 17 years; highest in Systems and Computing Engineering program this century",
+      en: {
+        full: "Highest GPA in Systems and Computing Engineering in 40 years; highest in Engineering Faculty in 16 years",
+        short: "Highest GPA in major in 40 years; highest in Engineering in 16 years",
+      },
     },
     diplomaUrl: "/education/diplomas/uniandes.png",
     certificates: ["/education/certificates/acta-grado-uniandes.png"],
