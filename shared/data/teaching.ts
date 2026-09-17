@@ -2,8 +2,12 @@ import type { Teaching } from "../schemas/teaching";
 import { UNIANDES } from "./constants";
 
 export const TEACHING: Teaching[] = [
-    {
+  {
     id: "isis-2112-2026-20-lecturer",
+    showInCV: true,
+    showInResume: true,
+    isCurrent: true,
+    isUpcoming: false,
     type: "professional",
     title: {
       en: "Adjunct Professor",
@@ -16,30 +20,24 @@ export const TEACHING: Teaching[] = [
     achievements: [
       {
         en: {
-          full: "Selected as principal instructor for upper-division undergraduate course in algorithm design and analysis",
+          full: "Principal instructor for upper-division algorithm design course, delivering lectures and designing exams",
         },
       },
       {
         en: {
-          full: "Topics include asymptotic analysis, dynamic programming, graph algorithms, greedy methods, NP-completeness, approximation algorithms, and randomized algorithms",
-        },
-      },
-      {
-        en: {
-          full: "Responsibilities include lectures, assessment and exam design, and coordination with fellow professors and TAs",
+          full: "Topics include divide and conquer, dynamic programming, graph algorithms, greedy methods, NP-completeness, approximation and randomized algorithms",
         },
       },
     ],
     ...UNIANDES,
-    isCurrent: false,
-    isUpcoming: true,
-    showInCV: true,
-    showInResume: false,
     // evaluationPdfUrl: TODO: Add when available
     groupId: "uniandes-adjunct",
   },
   {
     id: "isis-1221-2025-20-lecturer",
+    showInCV: true,
+    showInResume: true,
+    isCurrent: false,
     type: "professional",
     title: {
       en: "Adjunct Professor",
@@ -51,31 +49,26 @@ export const TEACHING: Teaching[] = [
     endDate: new Date("2026-05-29T12:00:00-05:00"),
     description: {
       en: {
-        full: "Principal instructor of 25-student course in procedural programming with Python",
+        full: "Principal instructor for introductory undergraduate course in procedural programming using Python",
       },
       showInResume: true,
     },
     achievements: [
       {
         en: {
-          full: "Exceptionally selected for principal instructor position, typically reserved for faculty with graduate degrees",
-        },
-      },
-      {
-        en: {
-          full: "Delivered course lectures, authored midterm examinations, led weekly lab sessions with 2 TAs, and designed programming assignments",
+          full: "Topics include programming fundamentals and data-processing libraries Pandas and Matplotlib",
         },
       }
     ],
     ...UNIANDES,
-    isCurrent: true,
-    showInCV: true,
-    showInResume: true,
     evaluationPdfUrl: "/documents/teaching-evaluations/isis-1221-2025-20.pdf",
     groupId: "uniandes-adjunct",
   },
   {
     id: "vice-3001-2022-2024-assistant",
+    isCurrent: false,
+    showInCV: true,
+    showInResume: false,
     type: "undergraduate",
     title: {
       en: "Undergraduate Research Teaching Assistant",
@@ -131,12 +124,12 @@ export const TEACHING: Teaching[] = [
       },
     ],
     ...UNIANDES,
-    isCurrent: false,
-    showInCV: true,
-    showInResume: false,
   },
   {
     id: "mate-1207-2024-19-ta",
+    isCurrent: false,
+    showInCV: true,
+    showInResume: false,
     type: "undergraduate",
     title: {
       en: "Undergraduate Teaching Assistant",
@@ -165,10 +158,6 @@ export const TEACHING: Teaching[] = [
       },
     ],
     ...UNIANDES,
-
-    isCurrent: false,
-    showInCV: true,
-    showInResume: false,
   },
   {
     id: "isis-1211-2022-10-tutor",
@@ -202,6 +191,8 @@ export const TEACHING: Teaching[] = [
     id: "isis-1221-2021-10-ta",
     type: "undergraduate",
     showInCV: false,
+    showInResume: false,
+    isCurrent: false,
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
@@ -225,12 +216,13 @@ export const TEACHING: Teaching[] = [
       },
     ],
     ...UNIANDES,
-    isCurrent: false,
   },
   {
     id: "mate-1203-2021-10-ta",
     type: "undergraduate",
     showInCV: false,
+    showInResume: false,
+    isCurrent: false,
     title: {
       en: "Undergraduate Teaching Assistant",
       es: "Monitor"
@@ -254,6 +246,5 @@ export const TEACHING: Teaching[] = [
       },
     ],
     ...UNIANDES,
-    isCurrent: false,
   },
 ];
