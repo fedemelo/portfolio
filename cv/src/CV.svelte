@@ -42,8 +42,8 @@
   <Awards awards={AWARDS} />
   <WorkExperience workExperience={WORK_EXPERIENCE} />
   <Teaching teaching={TEACHING} courses={COURSES} />
-  <Publications publications={PUBLICATIONS} />
   <RelevantCoursework relevantCoursework={RELEVANT_COURSEWORK} />
+  <Publications publications={PUBLICATIONS} />
   <Skills skills={SKILLS} />
   <Extracurricular extracurriculars={EXTRACURRICULARS} />
   <AdditionalInfo languages={LANGUAGES} />
