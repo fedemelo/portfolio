@@ -39,7 +39,7 @@
         {#if edu.gpa || (edu.details && edu.details.length > 0)}
           <ul>
             {#if edu.gpa}
-              <li>GPA: {edu.gpa}</li>
+              <li>Cumulative GPA: {edu.gpa}{#if edu.gpaContext}{' '}—{' '}{getResumeText(edu.gpaContext, language)}{/if}</li>
             {/if}
             {#if edu.details && edu.details.length > 0}
               {#each edu.details.filter(d => d.showInResume !== false) as detail}
