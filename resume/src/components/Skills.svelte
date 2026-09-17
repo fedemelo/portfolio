@@ -10,7 +10,7 @@
 </script>
 
 <section>
-  <h2>Technical Skills</h2>
+  <h2>Technical Experience</h2>
   <div class="indented-block">
       {#each skills as skillCategory}
         <p><strong>{getLocalizedText(skillCategory.category, language)}</strong>: {skillCategory.skills.join(', ')}</p>

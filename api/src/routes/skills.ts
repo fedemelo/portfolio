@@ -8,8 +8,8 @@ export async function skillsRoutes(fastify: FastifyInstance) {
   createDataRoute(fastify, {
     path: '/skills',
     tag: 'Skills',
-    summary: 'Get technical skills',
-    description: 'Returns a list of technical skills organized by category',
+    summary: 'Get technical experience',
+    description: 'Returns a list of technical experience organized by category',
     data: filterForCV(SKILLS),
     schema: SkillSchema,
   });
