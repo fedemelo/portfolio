@@ -28,10 +28,10 @@ export function simulatePageBreaks(): void {
   let currentPage = 0;
 
   for (const { el, top } of measurements) {
-    const adjustedTop = top + gapsInserted * totalGap;
+    // measurements are in no-gap coordinates; compare against no-gap page boundaries
     const pageBottom = (currentPage + 1) * pageHeight - pageMargin;
 
-    if (adjustedTop > pageBottom) {
+    if (top > pageBottom) {
       const sep = document.createElement('div');
       sep.className = 'page-sep';
       el.before(sep);
