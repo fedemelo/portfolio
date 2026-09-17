@@ -5,3 +5,7 @@ dist
 # env files
 .env*
 .env
+
+# generated PDFs
+cv/*.pdf
+resume/*.pdf
