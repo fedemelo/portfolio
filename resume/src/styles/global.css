@@ -155,3 +155,10 @@ a:hover {
   align-items: center;
   margin-left: var(--font-base);
 }
+
+.award-note {
+  font-size: 0.85em;
+  font-style: italic;
+  color: #444;
+  margin-bottom: 4pt;
+}

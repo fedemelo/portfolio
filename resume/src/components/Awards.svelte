@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Award } from "../../../shared/schemas/award";
   import { filterForResume } from "../../../shared/utils/show";
-  import { getLocalizedText, getOrgName } from "../../../shared/utils/localization";
+  import { getLocalizedText, getOrgName, getResumeText } from "../../../shared/utils/localization";
   import { getPeriodFromDate } from "../../../shared/utils/period";
   import { getContext } from 'svelte';
   import type { Language } from "../../../shared/schemas/utils";
@@ -24,9 +24,10 @@
 
   function formatMeta(award: Award): string {
     const labels = getDateLabels(award);
-    const parts = [getOrgName(award.organization, language)];
-    if (labels.length > 0) parts.push(labels.join(', '));
-    return parts.join(', ');
+    const org = getOrgName(award.organization, language);
+    if (labels.length === 0) return org;
+    const separator = labels.length > 1 ? '; ' : ', ';
+    return `${org}${separator}${labels.join(', ')}`;
   }
 
   function getCount(award: Award): number {
@@ -39,11 +40,16 @@
   <div class="indented-block">
     {#each filterForResume(awards) as award}
       {@const count = getCount(award)}
-      <div class="row">
-        <p>
-          {getLocalizedText(award.title, language)}{count > 1 ? ` (${count} times)` : ''}
-        </p>
-        <p>{formatMeta(award)}</p>
+      <div>
+        <div class="row">
+          <p>
+            {getLocalizedText(award.title, language)}{count > 1 ? ` (${count} times)` : ''}
+          </p>
+          <p>{formatMeta(award)}</p>
+        </div>
+        {#if award.description}
+          <p class="award-note">{getResumeText(award.description, language)}</p>
+        {/if}
       </div>
     {/each}
   </div>
