@@ -35,7 +35,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       },
       {
         en: {
-          full: "Led large-scale prompt refactors improving QA pass rate from 85% to 89%, including model selection, prompt engineering, cache handling, fine-tuning, and regression testing for LLM outputs",
+          full: "Contributed to Canals' shared agent framework (Mastra), adding the capabilities Parsing needed to migrate agents that customize behavior per client off a hand-rolled, unbounded loop",
+        }
+      },
+      {
+        en: {
+          full: "Co-built an autonomous coding agent (Claude Agent SDK) that polls customer-support tickets, debugs parsing failures, and opens PRs for review.",
         }
       },
     ],
@@ -48,6 +53,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "PostgreSQL",
       "LLM APIs (OpenAI, Anthropic, Gemini)",
       "Polars",
+      "Mastra",
+      "Claude Agent SDK",
     ],
     workMode: "remote",
     employmentType: "full-time",
@@ -77,17 +84,22 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     achievements: [
       {
         en: {
+          full: "Abstracted OCR pipeline from single provider to support multiple providers, decoupling the implementation from Textract and enabling format-specific OCR selection",
+        }
+      },
+      {
+        en: {
+          full: "Led large-scale prompt refactors improving QA pass rate from 85% to 89%. Involved: model selection, prompt engineering, cache handling, fine-tuning, and regression testing",
+        }
+      },
+      {
+        en: {
           full: "Built visual highlighting systems using DOM traversal, coordinate mapping, and string comparison to map parsed products to source documents. Reduced weekly highlighting errors by 2/3",
         }
       },
       {
         en: {
           full: "Developed text extraction algorithms for complex layouts (nested tables, side-by-side formats, schematics) supporting most file formats (PDF, DOCX, XLSX, MSG, EML, TIFF, etc.)",
-        }
-      },
-      {
-        en: {
-          full: "Abstracted OCR pipeline from single provider to support multiple providers, decoupling the implementation from Textract and enabling format-specific OCR selection",
         }
       },
     ],
