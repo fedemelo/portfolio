@@ -25,22 +25,22 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     achievements: [
       {
         en: {
-          full: "Built a real-time voice parsing service with WebSocket orchestration, speech-to-text transcription, speaker diarization, and concurrency control to extract products from live phone calls",
+          full: "Built the parsing and review layers of a real-time voice service (WebSocket orchestration, speech-to-text, speaker diarization, concurrency control). Extracted ~21 products per call from live phone calls with 75%+ retained through rep review"
         }
       },
       {
         en: {
-          full: "Shipped Inquiries, an AI agent with MCP integration and tools for web search, spec sheet retrieval, ERP lookup, and order tracking to answer real-time customer questions about orders, materials, and logistics",
+          full: "Integrated tools (web search, spec sheet retrieval, ERP lookup, order tracking) into an inquiries AI agent that addressed customer questions on orders, materials, and logistics. Achieved 97% of answers citing a source and 80% rated positive by reps",
         }
       },
       {
         en: {
-          full: "Contributed to Canals' shared agent framework (Mastra), adding the capabilities Parsing needed to migrate agents that customize behavior per client off a hand-rolled, unbounded loop",
+          full: "Contributed to Canals' shared agent framework (Mastra)m adding extended thinking, reasoning effort, image/PDF input, temperature, and tool concurrency. Migrated four Parsing agents off hand-rolled, unbounded loops onto bounded runs with step and token ceilings",
         }
       },
       {
         en: {
-          full: "Co-built an autonomous coding agent (Claude Agent SDK) that polls customer-support tickets, debugs parsing failures, and opens PRs for review.",
+          full: "Co-built an autonomous agent (Claude Agent SDK) that polled tickets, debugged parsing failures, and shipped prompt-level fixes for review, re-parsing each order to verify its own fix",
         }
       },
     ],
@@ -84,12 +84,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     achievements: [
       {
         en: {
-          full: "Abstracted OCR pipeline from single provider to support multiple providers, decoupling the implementation from Textract and enabling format-specific OCR selection",
+          full: "Abstracted OCR pipeline from single provider to support multiple providers, decoupling the implementation from Textract and enabling format-specific OCR selection, with a cache layer serving ~60% of requests in 0.07s versus 3.6–18.7s uncached",
         }
       },
       {
         en: {
-          full: "Led large-scale prompt refactors improving QA pass rate from 85% to 89%. Involved: model selection, prompt engineering, cache handling, fine-tuning, and regression testing",
+          full: "Led large-scale prompt refactors improving external QA pass rate from 85% to 89%. Involved: model selection, prompt engineering, cache handling, fine-tuning, and regression testing",
         }
       },
       {
@@ -99,7 +99,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       },
       {
         en: {
-          full: "Developed text extraction algorithms for complex layouts (nested tables, side-by-side formats, schematics) supporting most file formats (PDF, DOCX, XLSX, MSG, EML, TIFF, etc.)",
+          full: "Developed text extraction algorithms for side-by-side tables, matrix tables, layered descriptions, items split across pages, and strike-through revisions, supporting 19 mimetypes (PDF, DOCX, XLSX, MSG, PNG, TIFF, etc.)",
         }
       },
     ],
