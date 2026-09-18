@@ -25,7 +25,7 @@ export const TEACHING: Teaching[] = [
       },
       {
         en: {
-          full: "Topics include divide and conquer, dynamic programming, graph algorithms, greedy methods, NP-completeness, approximation and randomized algorithms",
+          full: "Topics: divide and conquer, dynamic programming, graph algorithms, greedy methods, NP-completeness, approximation and randomized algorithms",
         },
       },
     ],
@@ -56,7 +56,7 @@ export const TEACHING: Teaching[] = [
     achievements: [
       {
         en: {
-          full: "Topics include programming fundamentals and data-processing libraries Pandas and Matplotlib",
+          full: "Topics: programming fundamentals and data-processing libraries Pandas and Matplotlib",
         },
       }
     ],
