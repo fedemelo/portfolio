@@ -8,7 +8,7 @@
   import { getLocalizedText, getResumeText, getOrgName } from "../../../shared/utils/localization";
   import { groupByGroupId } from "../../../shared/utils/group-by-group-id";
   import { getContext } from 'svelte';
-  import type { Language } from "../../../shared/schemas/utils";
+  import type { Language, RichLocalizedContent } from "../../../shared/schemas/utils";
 
   export let experiences: (WorkExperience | Teaching)[];
   export let courses: Course[] = [];
@@ -49,6 +49,15 @@
     return formatDateRange(item.startDate, item.endDate, item.isCurrent ?? false);
   }
 
+  function getBullets(item: SingleEntry): RichLocalizedContent[] {
+    if (isTeaching(item)) {
+      const achievements = filterForResume(item.achievements ?? []);
+      const showDescriptionAsBullet = item.description?.showInResume ?? false;
+      return showDescriptionAsBullet && item.description ? [item.description, ...achievements] : achievements;
+    }
+    return filterForResume(item.details ?? []);
+  }
+
   const groupedEntries = groupByGroupId(sortExperiences(filterForResume(experiences)));
 
   function employmentLabel(item: SingleEntry): string | undefined {
@@ -73,8 +82,7 @@
     {#each groupedEntries as entry}
       {#if entry.type === 'group'}
         {#each entry.items as item, i}
-          {@const filteredAchievements = filterForResume(item.achievements ?? [])}
-          {@const showDescriptionAsBullet = item.description?.showInResume ?? false}
+          {@const bullets = getBullets(item)}
           {@const subtitle = item.showSubtitle !== false ? getSubtitle(item) : undefined}
           <div class="no-break-on-print">
             {#if i === 0}
@@ -101,13 +109,10 @@
                   {getPeriod(item)}
                 </p>
               </div>
-              {#if showDescriptionAsBullet || filteredAchievements.length > 0}
+              {#if bullets.length > 0}
                 <ul>
-                  {#if showDescriptionAsBullet && item.description}
-                    <li>{getResumeText(item.description, language)}</li>
-                  {/if}
-                  {#each filteredAchievements as achievement}
-                    <li>{getResumeText(achievement, language)}</li>
+                  {#each bullets as bullet}
+                    <li>{getResumeText(bullet, language)}</li>
                   {/each}
                 </ul>
               {/if}
@@ -115,8 +120,7 @@
           </div>
         {/each}
       {:else}
-        {@const filteredAchievements = filterForResume(entry.item.achievements ?? [])}
-        {@const showDescriptionAsBullet = entry.item.description?.showInResume ?? false}
+        {@const bullets = getBullets(entry.item)}
         {@const subtitle = entry.item.showSubtitle !== false ? getSubtitle(entry.item) : undefined}
         <div class="no-break-on-print">
           <div class="row">
@@ -139,13 +143,10 @@
               suffix={employmentLabel(entry.item)}
             />
           </div>
-          {#if showDescriptionAsBullet || filteredAchievements.length > 0}
+          {#if bullets.length > 0}
             <ul>
-              {#if showDescriptionAsBullet && entry.item.description}
-                <li>{getResumeText(entry.item.description, language)}</li>
-              {/if}
-              {#each filteredAchievements as achievement}
-                <li>{getResumeText(achievement, language)}</li>
+              {#each bullets as bullet}
+                <li>{getResumeText(bullet, language)}</li>
               {/each}
             </ul>
           {/if}
