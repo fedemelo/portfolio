@@ -31,6 +31,7 @@ export const EDUCATION: Education[] = [
       "Semester Excellence Award",
       "Semester Excellence Award",
       "Semester Excellence Award",
+      // "Quiero Estudiar Scholarship"
     ],
     details: [
       {
