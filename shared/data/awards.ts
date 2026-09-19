@@ -166,4 +166,22 @@ export const AWARDS: Award[] = [
       },
     ],
   },
+  {
+    title: {
+      en: "Quiero Estudiar Scholarship",
+      es: "Beca Quiero Estudiar",
+    },
+    description: {
+      en: {
+        full: "Merit- and need-based scholarship from Universidad de los Andes covering 95% of tuition for the full undergraduate degree.",
+        short: "Uniandes scholarship covering 95% of tuition for the full undergraduate degree.",
+      }
+    },
+    date: new Date("2020-07-13T20:00:00-05:00"),
+    // certificateUrl: TODO: Add when available
+    // REF: https://apoyofinanciero.uniandes.edu.co/quiero-estudiar
+    showInCV: true,
+    showInResume: false,
+    ...UNIANDES,
+  },
 ];
