@@ -17,12 +17,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     state: "FL",
     country: "USA",
     startDate: new Date("2025-07-01T12:00:00-05:00"),
-    description: {
-      en: {
-        full: "Own parsing for the Live Voice and Inquiries Agent systems, serving ~100 wholesale distribution customers with 10,000+ daily orders across the full order and logistics pipeline.",
-      }
-    },
-    achievements: [
+    details: [
+      {
+        en: {
+          full: "Owned parsing services for the live voice and inquiries agent systems, as part of a pipeline that processed 20000+ orders daily across 115+ wholesale distributors and 9000+ sales reps",
+        }
+      },
       {
         en: {
           full: "Built the parsing and review layers of a real-time voice service (WebSocket orchestration, speech-to-text, speaker diarization, concurrency control). Extracted ~21 products per call from live phone calls with 75%+ retained through rep review"
@@ -43,6 +43,11 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
           full: "Co-built an autonomous agent (Claude Agent SDK) that polled tickets, debugged parsing failures, and shipped prompt-level fixes for review, re-parsing each order to verify its own fix",
         }
       },
+      {
+        en: {
+          full: "One of 4 engineers on the 10-person Parsing team (~60 engineers total) holding merge approval rights on the main branch."
+        }
+      }
     ],
     technologies: [
       "TypeScript",
@@ -76,12 +81,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     country: "USA",
     startDate: new Date("2024-12-09T12:00:00-05:00"),
     endDate: new Date("2025-07-01T12:00:00-05:00"),
-    description: {
-      en: {
-        full: "Built parsing infrastructure for emails, PDFs, images, spreadsheets, handwritten documents, etc. contributing to a pipeline processing 5,000+ orders daily for ~100 wholesale distribution customers.",
-      }
-    },
-    achievements: [
+    details: [
+      {
+        en: {
+          full: "Maintained a parsing pipeline supporting 19 mimetypes with intricate formats (e.g., handwritten, struck-through text, blurry and fragmented photos, cross-references to other files) in a pipeline serving ~60 wholesale distributors processing 4,000+ orders daily",
+        }
+      },
       {
         en: {
           full: "Abstracted OCR pipeline from single provider to support multiple providers, decoupling the implementation from Textract and enabling format-specific OCR selection, with a cache layer serving ~60% of requests in 0.07s versus 3.6–18.7s uncached",
@@ -99,9 +104,9 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       },
       {
         en: {
-          full: "Developed text extraction algorithms for side-by-side tables, matrix tables, layered descriptions, items split across pages, and strike-through revisions, supporting 19 mimetypes (PDF, DOCX, XLSX, MSG, PNG, TIFF, etc.)",
+          full: "Joined as the company's 14th engineer."
         }
-      },
+      }
     ],
     technologies: [
       "TypeScript",
@@ -127,11 +132,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     // Substance prevails over form. Contract states 15/02 as start date, but I started the project with the start of the academic year, 22/01
     startDate: new Date("2024-01-22T12:00:00-05:00"),
     endDate: new Date("2024-12-07T12:00:00-05:00"),
-    description: {
-      en: {
-        full: "Designed and built full-stack student data analytics system serving 15,000+ students and 600+ faculty, replacing an external platform and saving ~$100K USD annually",
-      }
-    },
     technologies: [
       "Python",
       "Polars",
@@ -142,7 +142,12 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Docker",
       "Firebase",
     ],
-    achievements: [
+    details: [
+      {
+        en: {
+          full: "Designed and built full-stack student data analytics system serving 15,000+ students and 600+ faculty, replacing an external platform and saving ~$100K USD annually",
+        }
+      },
       {
         en: {
           full: "Built parallelized data processing pipeline (Python, Polars) with complex filtering and aggregations, exposed through a unified REST API (FastAPI)",
@@ -186,12 +191,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     country: "Canada",
     startDate: new Date("2024-01-15T12:00:00-05:00"),
     endDate: new Date("2024-07-12T12:00:00-05:00"),
-    description: {
-      en: {
-        full: "Developed data analysis solutions and optimized backend services for financial auditing workflows on the Data Analytics team.",
-        short: "Developed data analysis solutions and optimized backend services for financial auditing."
-      }
-    },
     technologies: [
       "Python",
       "Jupyter",
@@ -199,7 +198,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "AWS (S3, DynamoDB)",
       "Jira"
     ],
-    achievements: [
+    details: [
       {
         en: {
           full: "Awarded the June Team Award for 'delivering impactful contributions and hard work' as part of the Data Analytics team",
@@ -239,29 +238,21 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     },
     startDate: new Date("2023-08-21T12:00:00-05:00"),
     endDate: new Date("2023-12-09T12:00:00-05:00"),
-    description: {
-      en: {
-        full: "Backend developer on the Professors' Portfolio project, a web application for managing faculty academic and administrative information.",
-        short: "Backend developer on Professors' Portfolio web application for faculty management."
-      }
-    },
     technologies: [
       "Java",
       "Spring Boot",
       "SQL",
       "Oracle SQL Developer",
     ],
-    achievements: [
+    details: [
       {
         en: {
-          full: "Designed and implemented backend architecture for the Professors' Portfolio system (Java, Spring Boot), serving faculty members across the Engineering School",
-          short: "Designed backend architecture serving faculty across Engineering School"
+          full: "Designed and implemented backend architecture for the Professors' Portfolio system (Java, Spring Boot), a web application for managing faculty academic and administrative information.",
         }
       },
       {
         en: {
-          full: "Built persistence, logic, and control layers with CRUD operations, custom logic, and RESTful API endpoints",
-          short: "Built persistence, logic, and control layers with CRUD operations and RESTful APIs (Java, Spring)"
+          full: "Built persistence, logic, and control layers with CRUD operations, custom logic, and RESTful APIs",
         }
       },
       {
