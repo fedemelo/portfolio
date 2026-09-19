@@ -9,3 +9,5 @@ dist
 # generated PDFs
 cv/*.pdf
 resume/*.pdf
+
+refs/

@@ -1,10 +1,10 @@
-.PHONY: cv resume webpage test pdf-cv pdf-resume
+.PHONY: cv resume webpage test
 
 cv:
-	pnpm dev:cv
+	./scripts/generate-pdf.sh cv
 
 resume:
-	pnpm dev:resume
+	./scripts/generate-pdf.sh resume
 
 webpage:
 	pnpm dev:webpage
@@ -12,8 +12,3 @@ webpage:
 test:
 	pnpm test
 
-pdf-cv:
-	./scripts/generate-pdf.sh cv
-
-pdf-resume:
-	./scripts/generate-pdf.sh resume
