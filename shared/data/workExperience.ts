@@ -35,7 +35,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       },
       {
         en: {
-          full: "Contributed to Canals' shared agent framework (Mastra)m adding extended thinking, reasoning effort, image/PDF input, temperature, and tool concurrency. Migrated four Parsing agents off hand-rolled, unbounded loops onto bounded runs with step and token ceilings",
+          full: "Contributed to Canals' shared agent framework (Mastra), adding extended thinking, reasoning effort, image/PDF input, temperature, and tool concurrency. Migrated four Parsing agents off hand-rolled, unbounded loops onto bounded runs with step and token ceilings",
         }
       },
       {
