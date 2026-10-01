@@ -6,8 +6,10 @@ dist
 .env*
 .env
 
-# generated PDFs
+# generated PDFs and plain-text exports
 cv/*.pdf
 resume/*.pdf
+cv/*.txt
+resume/*.txt
 
 refs/
