@@ -35,7 +35,7 @@
 }
 
 #let section-heading(title) = block(
-  above: 20pt,
+  above: 16pt,
   below: 10pt,
   width: 100%,
   sticky: true,
