@@ -56,7 +56,8 @@
 #let organization-entry(org) = block(above: 7pt, {
   let is-group = org.period != none
   block(sticky: true, below: block-gap, {
-    row(strong(org.name), if is-group { org.period } else { org.location })
+    let name = if is-group { strong(org.name) } else { emph(org.name) }
+    row(name, if is-group { org.period } else { org.location })
     if is-group and org.location != none { org.location }
   })
   pad(left: if is-group { 0.2in } else { 0pt }, org.roles.map(role-entry).join())
