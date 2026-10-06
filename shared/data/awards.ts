@@ -10,11 +10,11 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: "Universidad de los Andes recognition for team impact on the university community. Awarded for \"No Estás Solx,\" a student-built peer-support platform serving 56,000+ active students with ~1,000 daily connections to institutional support.",
+        full: "Universidad de los Andes recognition for team impact on the university community. Awarded for \"No Estás Solx,\" a student-built peer-support platform serving 56,000+ active students with ~1,000 daily connections to institutional support",
         short: "Uniandes internal impact award, for a peer-support platform serving 56,000+ students",
       },
       es: {
-        full: "Reconocimiento de la Universidad de los Andes al impacto de equipos en la comunidad universitaria. Otorgado por \"No estás solx\", una plataforma de apoyo entre pares construida por estudiantes, con más de 56.000 estudiantes activos y ~1.000 conexiones diarias con la red de apoyo institucional.",
+        full: "Reconocimiento de la Universidad de los Andes al impacto de equipos en la comunidad universitaria. Otorgado por \"No estás solx\", una plataforma de apoyo entre pares construida por estudiantes, con más de 56.000 estudiantes activos y ~1.000 conexiones diarias con la red de apoyo institucional",
         short: "Premio de la Universidad de los Andes al impacto de equipos, por una plataforma de apoyo entre pares con más de 56.000 estudiantes",
       },
     },
@@ -55,7 +55,7 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: `Summa Cum Laude is the highest undergraduate academic honor. Eligibility requires a cumulative GPA within the top 1% of graduates from the faculty over the past five years, and demonstrated integral merits in an interview before a commission appointed by the Academic Council.`,
+        full: `Summa Cum Laude is the highest undergraduate academic honor. Eligibility requires a cumulative GPA within the top 1% of graduates from the faculty over the past five years, and demonstrated integral merits in an interview before a commission appointed by the Academic Council`,
         short: "Highest undergraduate honor; top 1% cumulative GPA among graduates of the faculty",
       },
     },
@@ -72,7 +72,7 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: `The Athletic Career Distinction is awarded to a single student in the graduating class for exemplary leadership, commitment, and ethics in sports. Awarded citing 41 swimming medals, including 24 gold, and two years as elected team captain.`,
+        full: `The Athletic Career Distinction is awarded to a single student in the graduating class for exemplary leadership, commitment, and ethics in sports. Awarded citing 41 swimming medals, including 24 gold, and two years as elected team captain`,
         short: "Awarded to one graduating student university-wide for leadership and excellence in varsity athletics",
       },
     },
@@ -89,7 +89,7 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: `Annual distinction awarded to the undergraduate student with the highest cumulative GPA in their major.`,
+        full: `Annual distinction awarded to the undergraduate student with the highest cumulative GPA in their major`,
         short: "Awarded annually to the top cumulative-GPA student in the major",
       },
     },
@@ -100,7 +100,7 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Cumulative GPA of 4.91 / 5.00 in Systems and Computing Engineering.`,
+            full: `Cumulative GPA of 4.91 / 5.00 in Systems and Computing Engineering`,
           },
         },
         date: new Date("2024-11-13T20:00:00-05:00"),
@@ -110,7 +110,7 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering.`,
+            full: `Cumulative GPA of 4.90 / 5.00 in Systems and Computing Engineering`,
           },
         },
         date: new Date("2023-11-15T20:00:00-05:00"),
@@ -126,7 +126,7 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: `Awarded to the undergraduate student with the highest semester GPA in their academic program during the preceding semester.`,
+        full: `Awarded to the undergraduate student with the highest semester GPA in their academic program during the preceding semester`,
         short: "Awarded each semester to the top-GPA student in the major",
       },
     },
@@ -137,7 +137,7 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Semester GPA of 4.97 / 5.00 in Systems and Computing Engineering.`,
+            full: `Semester GPA of 4.97 / 5.00 in Systems and Computing Engineering`,
           },
         },
         date: new Date("2023-11-15T20:00:00-05:00"),
@@ -147,7 +147,7 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Semester GPA of 4.86 / 5.00 in Physics.`,
+            full: `Semester GPA of 4.86 / 5.00 in Physics`,
           },
         },
         date: new Date("2021-11-30T20:00:00-05:00"),
@@ -157,7 +157,7 @@ export const AWARDS: Award[] = [
       {
         description: {
           en: {
-            full: `Semester GPA of 4.90 / 5.00 in Physics.`,
+            full: `Semester GPA of 4.90 / 5.00 in Physics`,
           },
         },
         date: new Date("2021-06-30T20:00:00-05:00"),
@@ -173,8 +173,8 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: "Merit- and need-based scholarship from Universidad de los Andes covering 95% of tuition for the full undergraduate degree.",
-        short: "Uniandes scholarship covering 95% of tuition for the full undergraduate degree.",
+        full: "Merit- and need-based scholarship from Universidad de los Andes covering 95% of tuition for the full undergraduate degree",
+        short: "Uniandes scholarship covering 95% of tuition for the full undergraduate degree",
       }
     },
     date: new Date("2020-07-13T20:00:00-05:00"),
