@@ -1,0 +1,7 @@
+{
+  "name": "@fedemelo/resume-redirect",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p dist && cp _redirects dist/"
+  }
+}
