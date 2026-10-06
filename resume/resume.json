@@ -49,7 +49,7 @@
       "organizations": [
         {
           "name": "Canals AI",
-          "location": "Coral Gables, FL, USA · Remote · Full-time",
+          "location": "Coral Gables, FL, USA (Remote)",
           "period": "Dec 2024 – Present",
           "roles": [
             {
@@ -93,7 +93,7 @@
               "supervisor": null,
               "bullets": [
                 "Principal instructor for upper-division algorithm design course, delivering lectures and designing exams",
-                "Topics: divide and conquer, dynamic programming, graph algorithms, greedy methods, NP-completeness, approximation and randomized algorithms"
+                "Topics: divide and conquer, dynamic programming, graph algorithms, NP-completeness, approximation and randomized algorithms"
               ]
             },
             {
@@ -110,7 +110,7 @@
         },
         {
           "name": "Universidad de los Andes",
-          "location": "Bogotá, Colombia · On-site · Part-time",
+          "location": "Bogotá, Colombia (Part-time)",
           "period": null,
           "roles": [
             {
@@ -130,7 +130,7 @@
         },
         {
           "name": "Caseware International Inc.",
-          "location": "Toronto, ON, Canada · Remote · Internship",
+          "location": "Toronto, ON, Canada (Remote, Internship)",
           "period": null,
           "roles": [
             {
@@ -149,7 +149,7 @@
         },
         {
           "name": "Universidad de los Andes",
-          "location": "Bogotá, Colombia · Hybrid · Part-time",
+          "location": "Bogotá, Colombia (Hybrid, Part-time)",
           "period": null,
           "roles": [
             {
