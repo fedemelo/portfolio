@@ -34,10 +34,11 @@
           "name": "Universidad de los Andes",
           "location": "Bogotá, Colombia",
           "degree": "B.Sc. Systems and Computing Engineering",
-          "honors": "Summa Cum Laude",
+          "honors": "Summa cum laude",
           "period": "2020 – 2024",
           "bullets": [
-            "Cumulative GPA: 4.92/5.00, highest GPA in major in 40 years, highest in Engineering in 16 years"
+            "GPA: 4.92/5.00",
+            "Summa cum laude, highest GPA in major in 40 years, highest in Engineering in 16 years"
           ]
         }
       ]
