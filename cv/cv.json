@@ -102,7 +102,7 @@
           "roles": [
             {
               "title": "Software Engineer II",
-              "subtitle": "Parsing",
+              "subtitle": null,
               "period": "Jul 2025 – Present",
               "supervisor": null,
               "bullets": [
@@ -116,7 +116,7 @@
             },
             {
               "title": "Software Engineer I",
-              "subtitle": "Parsing",
+              "subtitle": null,
               "period": "Dec 2024 – Jul 2025",
               "supervisor": null,
               "bullets": [
@@ -136,7 +136,7 @@
           "roles": [
             {
               "title": "Full-Stack Developer",
-              "subtitle": "Vice Dean's Office of Student Affairs",
+              "subtitle": null,
               "period": "Jan 2024 – Dec 2024",
               "supervisor": null,
               "bullets": [
@@ -156,7 +156,7 @@
           "roles": [
             {
               "title": "Software Developer I",
-              "subtitle": "Notebook Ninjas, Data Analytics",
+              "subtitle": null,
               "period": "Jan 2024 – Jul 2024",
               "supervisor": null,
               "bullets": [
@@ -175,7 +175,7 @@
           "roles": [
             {
               "title": "Backend Developer",
-              "subtitle": "Engineering Faculty Research Center (CIFI)",
+              "subtitle": null,
               "period": "Aug 2023 – Dec 2023",
               "supervisor": null,
               "bullets": [
