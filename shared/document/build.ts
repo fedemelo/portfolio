@@ -92,15 +92,10 @@ function getGroupRange(items: ExperienceItem[]): string {
   return formatDateRange(start, end, isCurrent);
 }
 
-function getSubtitle(item: ExperienceItem, courses: Course[], showTeam: boolean): string | null {
-  if (isTeaching(item)) {
-    const course = courses.find((c) => c.code === item.courseCode);
-    return course ? getLocalizedText(course.name, language) : null;
-  }
-  if (!showTeam || item.showSubtitle === false) return null;
-  if (item.squad && item.team) return `${getLocalizedText(item.squad, language)}, ${getLocalizedText(item.team, language)}`;
-  if (item.team) return getLocalizedText(item.team, language);
-  return null;
+function getSubtitle(item: ExperienceItem, courses: Course[]): string | null {
+  if (!isTeaching(item)) return null;
+  const course = courses.find((c) => c.code === item.courseCode);
+  return course ? getLocalizedText(course.name, language) : null;
 }
 
 function getBullets(item: ExperienceItem, kind: DocumentKind): string[] {
@@ -125,10 +120,10 @@ function getLocation(item: ExperienceItem): string | null {
   return formatLocation({ city: item.city, state: item.state, country: item.country }, item.workMode, employmentLabel(item.employmentType));
 }
 
-function toRole(item: ExperienceItem, courses: Course[], kind: DocumentKind, showTeam: boolean): Role {
+function toRole(item: ExperienceItem, courses: Course[], kind: DocumentKind): Role {
   return {
     title: getLocalizedText(item.title, language),
-    subtitle: getSubtitle(item, courses, showTeam),
+    subtitle: getSubtitle(item, courses),
     period: getPeriodLabel(item),
     supervisor: isTeaching(item) ? (item.supervisor ?? null) : null,
     bullets: getBullets(item, kind),
@@ -139,12 +134,11 @@ function experienceSection(title: string, items: ExperienceItem[], courses: Cour
   const grouped = groupByGroupId(sortExperiences(filterFor(kind)(items)));
   const organizations: Organization[] = grouped.map((entry) => {
     const roles = entry.type === "group" ? entry.items : [entry.item];
-    const showTeam = kind === "cv" || entry.type === "group";
     return {
       name: getOrgName(roles[0].organization, language),
       location: getLocation(roles[0]),
       period: entry.type === "group" ? getGroupRange(entry.items) : null,
-      roles: roles.map((item) => toRole(item, courses, kind, showTeam)),
+      roles: roles.map((item) => toRole(item, courses, kind)),
     };
   });
   return { kind: "experience", title, organizations };
