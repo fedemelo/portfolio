@@ -1,0 +1,5 @@
+resume/resume.json linguist-generated=true
+resume/*.pdf linguist-generated=true
+cv/cv.json linguist-generated=true
+cv/*.pdf linguist-generated=true
+pnpm-lock.yaml linguist-generated=true
