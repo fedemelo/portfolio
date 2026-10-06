@@ -2,6 +2,7 @@
 #let block-gap = 5pt
 #let role-gap = 9pt
 #let entry-gap = 13pt
+#let award-gap = 8pt
 
 #let setup(data, body) = {
   let kind-label = (resume: "Resume", cv: "CV").at(data.kind)
@@ -72,7 +73,7 @@
   bullets(school.bullets)
 })
 
-#let award-entry(award) = block(breakable: false, above: entry-gap, {
+#let award-entry(award) = block(breakable: false, above: award-gap, {
   row(
     strong(award.title),
     if award.date == none { award.organization } else [#award.organization, #award.date],
