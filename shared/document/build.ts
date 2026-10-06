@@ -175,7 +175,8 @@ function educationSection(education: Education[], kind: DocumentKind): Section {
   const text = textFor(kind);
   const schools = filterFor(kind)(education).map((edu) => {
     const gpaContext = edu.gpaContext && text(edu.gpaContext, language);
-    const gpa = edu.gpa ? [[`Cumulative GPA: ${edu.gpa}`, gpaContext].filter(Boolean).join(" — ")] : [];
+    const gpaScore = edu.gpa?.replace(" / ", "/");
+    const gpa = gpaScore ? [[`Cumulative GPA: ${gpaScore}`, gpaContext].filter(Boolean).join(", ")] : [];
     return {
       name: getOrgName(edu.organization, language),
       location: formatLocation({ city: edu.city, state: edu.state, country: edu.country }),
