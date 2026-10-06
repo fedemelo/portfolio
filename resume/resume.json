@@ -174,38 +174,32 @@
       "awards": [
         {
           "title": "Dejar Huella Award",
-          "organization": "Universidad de los Andes",
-          "date": "2026",
+          "byline": "Universidad de los Andes, 2026",
           "description": "Uniandes internal impact award, for a peer-support platform serving 56,000+ students"
         },
         {
           "title": "Top Saber Pro Score Award 2024",
-          "organization": "Colombian Ministry of Education",
-          "date": "2025",
+          "byline": "Colombian Ministry of Education, 2025",
           "description": "Among the top national scores on Colombia's mandatory exit exam for university graduates"
         },
         {
           "title": "Summa Cum Laude",
-          "organization": "Universidad de los Andes",
-          "date": "2025",
+          "byline": "Universidad de los Andes, 2025",
           "description": "Highest undergraduate honor; top 1% cumulative GPA among graduates of the faculty"
         },
         {
           "title": "Athletic Career Distinction",
-          "organization": "Universidad de los Andes",
-          "date": "2025",
+          "byline": "Universidad de los Andes, 2025",
           "description": "Awarded to one graduating student university-wide for leadership and excellence in varsity athletics"
         },
         {
           "title": "Ramón de Zubiría Award (2 times)",
-          "organization": "Universidad de los Andes",
-          "date": "2023, 2024",
+          "byline": "Universidad de los Andes; 2023, 2024",
           "description": "Awarded annually to the top cumulative-GPA student in the major"
         },
         {
           "title": "Semester Excellence Award (3 times)",
-          "organization": "Universidad de los Andes",
-          "date": "Spring 2021, Fall 2021, Fall 2023",
+          "byline": "Universidad de los Andes; Spring 2021, Fall 2021, Fall 2023",
           "description": "Awarded each semester to the top-GPA student in the major"
         }
       ]
