@@ -1,5 +1,4 @@
-// Prints a document as plain text and saves it to the given path, so job
-// bullets can be copied verbatim (see .claude/skills/sync-linkedin-experience).
+// Job bullets are copied verbatim from this output into LinkedIn and application forms.
 import { writeFileSync } from "node:fs";
 import { DOCUMENT_BUILDERS } from "../shared/document/build";
 import { toPlainText } from "../shared/document/plaintext";
