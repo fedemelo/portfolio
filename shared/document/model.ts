@@ -25,6 +25,7 @@ export type School = {
   name: string;
   location: string;
   degree: string;
+  // Already part of a bullet; renderers that support emphasis italicize it there.
   honors: string | null;
   period: string;
   bullets: string[];
