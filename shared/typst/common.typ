@@ -99,9 +99,10 @@
 
 #let publication-entry(publication) = {
   let authors = publication.authors.map(a => if a.isUser { strong(a.name) } else { a.name }).join(", ")
+  let note = if publication.note != none [ #publication.note.]
   let available = if publication.link != none [ Available at: #link(publication.link.url, publication.link.text)]
   par(justify: false, hanging-indent: 1.5em)[
-    #authors (#publication.year). "#publication.title". #emph(publication.description). #publication.institution.#available
+    #authors (#publication.year). "#publication.title". #emph(publication.description). #publication.institution.#note#available
   ]
 }
 
