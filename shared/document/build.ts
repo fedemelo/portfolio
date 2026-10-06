@@ -61,8 +61,9 @@ function textFor(kind: DocumentKind) {
   return kind === "resume" ? getResumeText : getCVText;
 }
 
+// Full-time is the assumed default, so it gets no label.
 function employmentLabel(type?: string): string | undefined {
-  return ({ "full-time": "Full-time", "part-time": "Part-time", internship: "Internship" } as Record<string, string>)[type ?? ""];
+  return ({ "part-time": "Part-time", internship: "Internship" } as Record<string, string>)[type ?? ""];
 }
 
 type ExperienceItem = WorkExperience | Teaching;
