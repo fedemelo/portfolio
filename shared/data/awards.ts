@@ -27,7 +27,7 @@ export const AWARDS: Award[] = [
   },
   {
     title: {
-      en: "Award for Outstanding Saber Pro and TyT Scores 2024",
+      en: "Top Saber Pro Score Award 2024",
       es: "Reconocimiento Mejores Saber Pro y TyT 2024",
     },
     description: {
