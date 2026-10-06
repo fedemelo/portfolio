@@ -4,22 +4,18 @@
     "name": "Federico Melo Barrero",
     "contacts": [
       {
-        "label": "Webpage",
         "text": "fedemelo.com",
         "url": "https://fedemelo.com"
       },
       {
-        "label": "Email",
         "text": "f.melo@uniandes.edu.co",
         "url": "mailto:f.melo@uniandes.edu.co"
       },
       {
-        "label": "LinkedIn",
         "text": "linkedin.com/in/federico-melo",
         "url": "https://linkedin.com/in/federico-melo"
       },
       {
-        "label": "GitHub",
         "text": "github.com/fedemelo",
         "url": "https://github.com/fedemelo"
       }
