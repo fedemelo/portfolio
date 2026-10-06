@@ -33,8 +33,7 @@ export type School = {
 
 export type AwardEntry = {
   title: string;
-  organization: string;
-  date: string | null;
+  byline: string;
   description: string;
 };
 

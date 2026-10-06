@@ -203,10 +203,11 @@ function awardsSection(awards: Award[], kind: DocumentKind): Section {
   const entries = filterFor(kind)(awards).map((award) => {
     const count = award.instances?.length ?? 1;
     const countLabel = count > 1 ? `(${count} times)` : null;
+    // A semicolon keeps the organization apart from a comma-separated list of dates.
+    const bylineSeparator = count > 1 ? "; " : ", ";
     return {
       title: [getLocalizedText(award.title, language), countLabel].filter(Boolean).join(" "),
-      organization: getOrgName(award.organization, language),
-      date: awardDate(award),
+      byline: [getOrgName(award.organization, language), awardDate(award)].filter(Boolean).join(bylineSeparator),
       description: textFor(kind)(award.description, language),
     };
   });

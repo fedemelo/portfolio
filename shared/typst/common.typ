@@ -74,10 +74,7 @@
 })
 
 #let award-entry(award) = block(breakable: false, above: award-gap, {
-  row(
-    strong(award.title),
-    if award.date == none { award.organization } else [#award.organization, #award.date],
-  )
+  row(strong(award.title), award.byline)
   pad(left: 1em, text(size: 0.9em, emph(award.description)))
 })
 

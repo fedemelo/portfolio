@@ -46,7 +46,7 @@ function sectionBody(section: Section): string[] {
       ]);
     case "awards":
       return section.awards.flatMap((award) => [
-        `${award.title}  ${[award.organization, award.date].filter(Boolean).join(", ")}`,
+        `${award.title}  ${award.byline}`,
         `  ${award.description}`,
         "",
       ]);
