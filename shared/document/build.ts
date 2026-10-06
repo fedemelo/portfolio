@@ -269,8 +269,8 @@ export function buildResume(): DocumentModel {
     kind,
     header: header(PERSONAL_INFO, kind),
     sections: [
-      experienceSection("Experience", [...WORK_EXPERIENCE, ...TEACHING], COURSES, kind),
       educationSection(EDUCATION, kind),
+      experienceSection("Experience", [...WORK_EXPERIENCE, ...TEACHING], COURSES, kind),
       awardsSection(AWARDS, kind),
       skillsSection(SKILLS, kind),
     ],
