@@ -26,13 +26,12 @@ paraphrase, summarize, or "LinkedIn-ify" them unless the user explicitly asks fo
 ## Step 1 — Get ground-truth bullet text
 
 Don't read bullet text out of `shared/data/workExperience.ts` / `shared/data/teaching.ts` and
-assume it's what prints — those files have `full` and `short` variants, and the resume component
-picks between them (short wins when present). Resolving that ambiguity is exactly what
-`make plain-text-resume` does: it runs `scripts/plain-text-resume.ts`, which imports the same
-`shared/utils` functions the Svelte resume renders with (`getResumeText`, `filterForResume`, the
-grouping/date logic) and prints the exact text that would appear on the PDF — no PDF generation,
-no OCR-style reflowing of wrapped lines, no ambiguity to resolve after the fact. Run it from the
-repo root:
+assume it's what prints — those files have `full` and `short` variants, and the resume picks
+between them (short wins when present). Resolving that ambiguity is exactly what
+`make plain-text-resume` does: it runs `scripts/print-plain-text.ts`, which renders the same
+document model (`shared/document/build.ts`) that the Typst PDF is built from, and prints the
+exact text that appears on the PDF — no PDF generation, no OCR-style reflowing of wrapped lines,
+no ambiguity to resolve after the fact. Run it from the repo root:
 
 ```bash
 cd <repo root>
