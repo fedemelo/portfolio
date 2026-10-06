@@ -98,7 +98,7 @@
           "roles": [
             {
               "title": "Full-Stack Developer",
-              "subtitle": "Vice Dean's Office of Student Affairs",
+              "subtitle": null,
               "period": "Jan 2024 – Dec 2024",
               "supervisor": null,
               "bullets": [
@@ -118,7 +118,7 @@
           "roles": [
             {
               "title": "Software Developer I",
-              "subtitle": "Notebook Ninjas, Data Analytics",
+              "subtitle": null,
               "period": "Jan 2024 – Jul 2024",
               "supervisor": null,
               "bullets": [
@@ -137,7 +137,7 @@
           "roles": [
             {
               "title": "Backend Developer",
-              "subtitle": "Engineering Faculty Research Center (CIFI)",
+              "subtitle": null,
               "period": "Aug 2023 – Dec 2023",
               "supervisor": null,
               "bullets": [
