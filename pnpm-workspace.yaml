@@ -1,5 +1,4 @@
 packages:
   - 'cv'
-  - 'resume'
   - 'webpage'
   - 'api' 

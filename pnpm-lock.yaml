@@ -77,12 +77,6 @@ importers:
         specifier: ^5.0.0
         version: 5.8.3
 
-  resume:
-    devDependencies:
-      typescript:
-        specifier: ^5.0.0
-        version: 5.8.3
-
   webpage:
     dependencies:
       '@hookform/resolvers':

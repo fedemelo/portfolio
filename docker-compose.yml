@@ -30,19 +30,6 @@ services:
       retries: 3
     restart: unless-stopped
 
-  resume:
-    build:
-      context: .
-      dockerfile: resume/Dockerfile
-    ports:
-      - "8002:80"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/resume/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    restart: unless-stopped
-
   webpage:
     build:
       context: .
