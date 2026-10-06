@@ -18,17 +18,11 @@
     "docker:dev": "docker-compose up --build"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^3.1.1",
-    "@tsconfig/svelte": "^4.0.1",
     "@types/node": "^20.0.0",
-    "svelte": "^4.2.18",
     "tsx": "^4.20.3",
-    "typescript": "^5.0.0",
-    "vite": "^5.4.0",
-    "vitest": "1.6.0"
+    "typescript": "^5.0.0"
   },
   "dependencies": {
-    "lucide-svelte": "^0.501.0",
     "zod": "^3.25.74",
     "zod-to-json-schema": "^3.24.6"
   }
