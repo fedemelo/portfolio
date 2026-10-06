@@ -10,7 +10,7 @@
   // Hyphenation would split words in the extracted text that ATS parsers read.
   set text(font: "New Computer Modern", size: base-size, lang: "en", hyphenate: false)
   set par(justify: true, leading: 0.65em, spacing: block-gap)
-  set list(indent: 0.6em, body-indent: 0.5em, spacing: 0.7em)
+  set list(indent: 0.6em, body-indent: 0.5em, spacing: 0.6em)
   // Text extractors drop a hyphen at a line end ("speech-totext") and add a
   // space after a slash there, so compounds must never break across lines.
   show regex("[\w.]+([-/][\w.]+)+"): box
