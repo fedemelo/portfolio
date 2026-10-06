@@ -22,7 +22,9 @@ if (typeof Object.groupBy !== "function") {
     const result: Record<PropertyKey, unknown[]> = {};
     for (const item of items) {
       const key = keyFn(item);
-      (result[key] ??= []).push(item);
+      const group = result[key] ?? [];
+      group.push(item);
+      result[key] = group;
     }
     return result as never;
   };
@@ -79,7 +81,7 @@ function sortExperiences(items: ExperienceItem[]): ExperienceItem[] {
 }
 
 function getGroupRange(items: ExperienceItem[], kind: DocumentKind): string {
-  const start = items.reduce((min, it) => (it.startDate < min ? it.startDate : min), items[0].startDate);
+  const start = new Date(Math.min(...items.map((it) => it.startDate.getTime())));
   const isCurrent = items.some((it) => it.isCurrent);
   const end = isCurrent
     ? undefined
@@ -180,9 +182,8 @@ function header(personalInfo: PersonalInfo, kind: DocumentKind): Header {
 function educationSection(education: Education[], kind: DocumentKind): Section {
   const text = textFor(kind);
   const schools = filterFor(kind)(education).map((edu) => {
-    const gpa = edu.gpa
-      ? [`Cumulative GPA: ${edu.gpa}${edu.gpaContext ? ` — ${text(edu.gpaContext, language)}` : ""}`]
-      : [];
+    const gpaContext = edu.gpaContext && text(edu.gpaContext, language);
+    const gpa = edu.gpa ? [[`Cumulative GPA: ${edu.gpa}`, gpaContext].filter(Boolean).join(" — ")] : [];
     return {
       name: getOrgName(edu.organization, language),
       location: formatLocation({ city: edu.city, state: edu.state, country: edu.country }),
@@ -195,18 +196,20 @@ function educationSection(education: Education[], kind: DocumentKind): Section {
   return { kind: "education", title: "Education", schools };
 }
 
+function awardDate(award: Award): string | null {
+  if (award.instances?.length) return getYearSequence(award.instances.map((i) => i.date));
+  if (award.date) return getYearRange(award.date);
+  return null;
+}
+
 function awardsSection(awards: Award[], kind: DocumentKind): Section {
   const entries = filterFor(kind)(awards).map((award) => {
     const count = award.instances?.length ?? 1;
-    const date = award.instances?.length
-      ? getYearSequence(award.instances.map((i) => i.date))
-      : award.date
-        ? getYearRange(award.date)
-        : null;
+    const countLabel = count > 1 ? `(${count} times)` : null;
     return {
-      title: `${getLocalizedText(award.title, language)}${count > 1 ? ` (${count} times)` : ""}`,
+      title: [getLocalizedText(award.title, language), countLabel].filter(Boolean).join(" "),
       organization: getOrgName(award.organization, language),
-      date,
+      date: awardDate(award),
       description: textFor(kind)(award.description, language),
     };
   });
