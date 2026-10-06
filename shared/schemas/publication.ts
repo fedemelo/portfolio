@@ -18,6 +18,7 @@ export const PublicationSchema = z.object({
   institution: z.string(),
   url: z.string().optional(),
   linkText: SimpleLocalizedContentSchema.optional(),
+  note: SimpleLocalizedContentSchema.optional(),
 });
 
 export type Publication = z.infer<typeof PublicationSchema>; 
