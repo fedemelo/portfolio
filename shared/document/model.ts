@@ -51,6 +51,7 @@ export type PublicationEntry = {
   title: string;
   description: string;
   institution: string;
+  note: string | null;
   link: { text: string; url: string } | null;
 };
 

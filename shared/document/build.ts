@@ -240,6 +240,7 @@ function publicationsSection(publications: Publication[], kind: DocumentKind): S
     title: getLocalizedText(pub.title, language),
     description: textFor(kind)(pub.description, language),
     institution: pub.institution,
+    note: pub.note ? getLocalizedText(pub.note, language) : null,
     link: pub.url && pub.linkText ? { text: getLocalizedText(pub.linkText, language), url: pub.url } : null,
   }));
   return { kind: "publications", title: "Publications", publications: entries };
