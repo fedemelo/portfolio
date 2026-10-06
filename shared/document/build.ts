@@ -173,8 +173,8 @@ function educationSection(education: Education[], kind: DocumentKind): Section {
       honors,
       period: getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate),
       bullets: [
-        ...gpa,
         ...(honorsLine ? [honorsLine] : []),
+        ...gpa,
         ...filterFor(kind)(edu.details ?? []).map((detail) => text(detail, language)),
       ],
     };
