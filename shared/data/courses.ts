@@ -16,7 +16,7 @@ export const COURSES: Course[] = [
     },
     description: {
       en: {
-        full: "Core upper-division undergraduate course covering dynamic programming, graph algorithms (shortest paths, flows, matching), computational complexity and P vs NP, as well as approximation, randomized, and probabilistic algorithms.",
+        full: "Core upper-division undergraduate course covering dynamic programming, graph algorithms (shortest paths, flows, matching), computational complexity and P vs NP, as well as approximation, randomized, and probabilistic algorithms",
       },
     },
       teachingIds: ["isis-2112-2026-20-lecturer"],
@@ -40,7 +40,7 @@ export const COURSES: Course[] = [
     credits: 3,
     description: {
       en: {
-        full: "Fundamental course covering core procedural programming concepts including control flow, functions, data structures, matrix operations, and Python libraries (e.g., matplotlib, pandas).",
+        full: "Fundamental course covering core procedural programming concepts including control flow, functions, data structures, matrix operations, and Python libraries (e.g., matplotlib, pandas)",
       },
     },
     teachingIds: ["isis-1221-2025-20-lecturer", "isis-1221-2021-10-ta"],
@@ -64,7 +64,7 @@ export const COURSES: Course[] = [
     credits: 6,
     description: {
       en: {
-        full: "University programming support center providing tutoring for students learning programming.",
+        full: "University programming support center providing tutoring for students learning programming",
       },
     },
     teachingIds: ["vice-3001-2022-2024-assistant"],
@@ -88,7 +88,7 @@ export const COURSES: Course[] = [
     credits: 3,
     description: {
       en: {
-        full: "University programming support center providing tutoring for students learning programming.",
+        full: "University programming support center providing tutoring for students learning programming",
       },
     },
     teachingIds: ["isis-1211-2022-10-tutor"],
@@ -112,7 +112,7 @@ export const COURSES: Course[] = [
     credits: 3,
     description: {
       en: {
-        full: "Advanced calculus course covering partial derivatives, double and triple integrals, line and surface integrals, vector fields, curl and divergence calculations, and the fundamental theorems (Green's, Stokes', and Gauss').",
+        full: "Advanced calculus course covering partial derivatives, double and triple integrals, line and surface integrals, vector fields, curl and divergence calculations, and the fundamental theorems (Green's, Stokes', and Gauss')",
       },
     },
     teachingIds: ["mate-1207-2024-19-ta"],
@@ -136,7 +136,7 @@ export const COURSES: Course[] = [
     credits: 3,
     description: {
       en: {
-        full: "Fundamental calculus course covering limits, derivatives, and basic integrals, including applications to optimization problems, area between curves, and volumes of solids.",
+        full: "Fundamental calculus course covering limits, derivatives, and basic integrals, including applications to optimization problems, area between curves, and volumes of solids",
       },
     },
     teachingIds: ["mate-1203-2021-10-ta"],
