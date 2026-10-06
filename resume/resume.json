@@ -27,6 +27,22 @@
   },
   "sections": [
     {
+      "kind": "education",
+      "title": "Education",
+      "schools": [
+        {
+          "name": "Universidad de los Andes",
+          "location": "Bogotá, Colombia",
+          "degree": "B.Sc. Systems and Computing Engineering",
+          "honors": "Summa Cum Laude",
+          "period": "2020 – 2024",
+          "bullets": [
+            "Cumulative GPA: 4.92 / 5.00 — Highest GPA in major in 40 years; highest in Engineering in 16 years"
+          ]
+        }
+      ]
+    },
+    {
       "kind": "experience",
       "title": "Experience",
       "organizations": [
@@ -147,22 +163,6 @@
                 "Collaborated on system architecture documentation and project planning roadmaps"
               ]
             }
-          ]
-        }
-      ]
-    },
-    {
-      "kind": "education",
-      "title": "Education",
-      "schools": [
-        {
-          "name": "Universidad de los Andes",
-          "location": "Bogotá, Colombia",
-          "degree": "B.Sc. Systems and Computing Engineering",
-          "honors": "Summa Cum Laude",
-          "period": "2020 – 2024",
-          "bullets": [
-            "Cumulative GPA: 4.92 / 5.00 — Highest GPA in major in 40 years; highest in Engineering in 16 years"
           ]
         }
       ]
