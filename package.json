@@ -11,7 +11,7 @@
     "build:webpage": "pnpm --filter @fedemelo/webpage build",
     "build:api": "pnpm --filter @fedemelo/api build",
     "build:all": "pnpm -r build",
-    "test": "pnpm -r test",
+    "test": "tsx scripts/check-json.ts && pnpm -r test",
     "docker:build:api": "docker build -f api/Dockerfile -t cv-api .",
     "docker:build:webpage": "docker build -f webpage/Dockerfile -t webpage-frontend .",
     "docker:build": "pnpm docker:build:api && pnpm docker:build:webpage",
