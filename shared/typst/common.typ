@@ -1,6 +1,3 @@
-// Layout shared by the resume and the CV. Each document reads its JSON
-// (written by scripts/write-json.ts) and hands the sections to render-sections.
-
 #let base-size = 11pt
 #let block-gap = 4pt
 
@@ -12,9 +9,8 @@
   set text(font: "New Computer Modern", size: base-size, lang: "en", hyphenate: false)
   set par(justify: true, leading: 0.55em, spacing: block-gap)
   set list(indent: 0.6em, body-indent: 0.5em, spacing: 0.45em)
-  // Text extractors read a hyphen at a line end as a soft hyphen and drop it
-  // ("speech-to-text" becomes "speech-totext"), and join a line ending in a
-  // slash with a space, so compounds must never break across lines.
+  // Text extractors drop a hyphen at a line end ("speech-totext") and add a
+  // space after a slash there, so compounds must never break across lines.
   show regex("[\w.]+([-/][\w.]+)+"): box
   show link: underline
   body
