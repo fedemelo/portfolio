@@ -37,7 +37,7 @@
           "roles": [
             {
               "title": "Software Engineer II",
-              "subtitle": "Parsing",
+              "subtitle": null,
               "period": "Jul 2025 – Present",
               "supervisor": null,
               "bullets": [
@@ -51,7 +51,7 @@
             },
             {
               "title": "Software Engineer I",
-              "subtitle": "Parsing",
+              "subtitle": null,
               "period": "Dec 2024 – Jul 2025",
               "supervisor": null,
               "bullets": [
