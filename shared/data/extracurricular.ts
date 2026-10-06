@@ -22,6 +22,14 @@ export const EXTRACURRICULARS: Extracurricular[] = [
           full: "Miembro y capitán de la Selección de Natación de la Universidad de los Andes, obteniendo 24 medallas de oro, 10 de plata y 7 de bronce; cuatro veces miembro de la Selección Bogotá de Natación, compitiendo en 12 Campeonatos Nacionales de Natación",
           short: "Capitán de la Selección de Natación de Uniandes (24 medallas de oro, 10 de plata y 7 de bronce); cuatro veces miembro de la Selección Bogotá de Natación (12 Campeonatos Nacionales)"
         }
+      },
+      {
+        en: {
+          full: "1st place, men's 20–29, 2 km open water, OCEANMAN San Andrés 2026",
+        },
+        es: {
+          full: "1.er puesto, hombres 20–29, 2 km en aguas abiertas, OCEANMAN San Andrés 2026",
+        }
       }
     ],
   },
