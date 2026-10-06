@@ -6,6 +6,35 @@ export const PUBLICATIONS: Publication[] = [
     showInCV: true,
     showInResume: true,
     title: {
+      en: "Centralizing the Student Lens: Design and Evaluation of a Learning Analytics Dashboard for Academic Advising in Higher Education",
+    },
+    authors: [
+      { name: "Martínez Novoa, S." },
+      { name: "Melo Barrero, F.", isUser: true },
+      { name: "Ruiz Giraldo, M." },
+      { name: "Velásquez Marín, S." },
+      { name: "Carvajal Chaves, N." },
+      { name: "Hernández Hoyos, M." },
+      { name: "Reyes, J. P." },
+    ],
+    year: 2026,
+    description: {
+      en: {
+        full: "Proceedings of the World Engineering Education Forum (WEEF 2026)",
+      },
+    },
+    institution: "IFEES & GEDC",
+    note: {
+      en: "To appear",
+      es: "En prensa",
+    },
+    city: "Cartagena de Indias",
+    country: "Colombia",
+  },
+  {
+    showInCV: true,
+    showInResume: true,
+    title: {
       en: "Desarrollo del Perfil del estudiante dentro de No estás solo"
     },
     authors: [
