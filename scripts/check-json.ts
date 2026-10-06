@@ -1,7 +1,5 @@
-// Fails when a committed document JSON no longer matches what shared/data
-// produces, i.e. the data changed but the document was not rebuilt.
-// Periods ending in "Present" carry a duration that grows each month, so this
-// also fails once a committed document has gone a month without a rebuild.
+// Durations of periods ending in "Present" grow monthly, so this also fails
+// a month after the last rebuild even without a data change.
 import { existsSync, readFileSync } from "node:fs";
 import { DOCUMENT_BUILDERS } from "../shared/document/build";
 import { DOCUMENT_KINDS, jsonPath, toJson } from "./documents";
