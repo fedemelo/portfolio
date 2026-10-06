@@ -40,13 +40,13 @@ function sectionBody(section: Section): string[] {
     case "education":
       return section.schools.flatMap((school) => [
         `${school.name}  ${school.location}`,
-        `  ${school.degree}${school.honors ? `, ${school.honors}` : ""}  ${school.period}`,
+        `  ${[school.degree, school.honors].filter(Boolean).join(", ")}  ${school.period}`,
         ...bullets(school.bullets, "    "),
         "",
       ]);
     case "awards":
       return section.awards.flatMap((award) => [
-        `${award.title}  ${award.organization}${award.date ? `, ${award.date}` : ""}`,
+        `${award.title}  ${[award.organization, award.date].filter(Boolean).join(", ")}`,
         `  ${award.description}`,
         "",
       ]);
