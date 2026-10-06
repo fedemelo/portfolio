@@ -6,18 +6,15 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev:cv": "pnpm --filter @fedemelo/cv dev",
     "dev:webpage": "pnpm --filter @fedemelo/webpage dev",
     "dev:api": "pnpm --filter @fedemelo/api dev",
-    "build:cv": "pnpm --filter @fedemelo/cv build",
     "build:webpage": "pnpm --filter @fedemelo/webpage build",
     "build:api": "pnpm --filter @fedemelo/api build",
     "build:all": "pnpm -r build",
     "test": "pnpm -r test",
     "docker:build:api": "docker build -f api/Dockerfile -t cv-api .",
-    "docker:build:cv": "docker build -f cv/Dockerfile -t cv-frontend .",
     "docker:build:webpage": "docker build -f webpage/Dockerfile -t webpage-frontend .",
-    "docker:build": "pnpm docker:build:api && pnpm docker:build:cv && pnpm docker:build:webpage",
+    "docker:build": "pnpm docker:build:api && pnpm docker:build:webpage",
     "docker:dev": "docker-compose up --build"
   },
   "devDependencies": {

@@ -17,19 +17,6 @@ services:
       retries: 3
     restart: unless-stopped
 
-  cv:
-    build:
-      context: .
-      dockerfile: cv/Dockerfile
-    ports:
-      - "8001:80"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost/cv/"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-    restart: unless-stopped
-
   webpage:
     build:
       context: .
