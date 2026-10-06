@@ -67,10 +67,8 @@
 
 #let school-entry(school) = block(breakable: false, above: entry-gap, {
   row(strong(school.name), school.location)
-  row(
-    if school.honors == none { emph(school.degree) } else [#emph(school.degree), #school.honors],
-    school.period,
-  )
+  row(emph(school.degree), school.period)
+  show school.honors: emph
   bullets(school.bullets)
 })
 
