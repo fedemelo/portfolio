@@ -40,7 +40,7 @@ function sectionBody(section: Section): string[] {
     case "education":
       return section.schools.flatMap((school) => [
         `${school.name}  ${school.location}`,
-        `  ${[school.degree, school.honors].filter(Boolean).join(", ")}  ${school.period}`,
+        `  ${school.degree}  ${school.period}`,
         ...bullets(school.bullets, "    "),
         "",
       ]);
