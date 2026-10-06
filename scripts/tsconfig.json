@@ -11,6 +11,6 @@
     "noEmit": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["*.ts", "../shared/plaintext/**/*.ts"],
+  "include": ["*.ts", "../shared/document/**/*.ts"],
   "exclude": ["node_modules"]
 }
