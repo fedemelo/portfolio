@@ -33,12 +33,12 @@
         {
           "name": "Canals AI",
           "location": "Coral Gables, FL, USA · Remote · Full-time",
-          "period": "Dec 2024 – Present · 1 yr 10 mos",
+          "period": "Dec 2024 – Present",
           "roles": [
             {
               "title": "Software Engineer II",
               "subtitle": "Parsing",
-              "period": "Jul 2025 – Present · 1 yr 3 mos",
+              "period": "Jul 2025 – Present",
               "supervisor": null,
               "bullets": [
                 "Owned parsing services for the live voice and inquiries agent systems, as part of a pipeline that processed 20000+ orders daily across 115+ wholesale distributors and 9000+ sales reps",
@@ -52,7 +52,7 @@
             {
               "title": "Software Engineer I",
               "subtitle": "Parsing",
-              "period": "Dec 2024 – Jul 2025 · 7 mos",
+              "period": "Dec 2024 – Jul 2025",
               "supervisor": null,
               "bullets": [
                 "Maintained a parsing pipeline supporting 19 mimetypes with intricate formats (e.g., handwritten, struck-through text, blurry and fragmented photos, cross-references to other files) in a pipeline serving ~60 wholesale distributors processing 4,000+ orders daily",
@@ -67,12 +67,12 @@
         {
           "name": "Universidad de los Andes",
           "location": null,
-          "period": "Aug 2025 – Present · 1 yr 2 mos",
+          "period": "Aug 2025 – Present",
           "roles": [
             {
               "title": "Adjunct Professor",
               "subtitle": "Algorithm Design",
-              "period": "Fall 2026 · 2 mos",
+              "period": "Fall 2026",
               "supervisor": null,
               "bullets": [
                 "Principal instructor for upper-division algorithm design course, delivering lectures and designing exams",
@@ -82,7 +82,7 @@
             {
               "title": "Adjunct Professor",
               "subtitle": "Introduction to Programming",
-              "period": "Fall 2025, Spring 2026 · 9 mos",
+              "period": "Fall 2025, Spring 2026",
               "supervisor": null,
               "bullets": [
                 "Principal instructor for introductory undergraduate course in procedural programming using Python",
@@ -99,7 +99,7 @@
             {
               "title": "Full-Stack Developer",
               "subtitle": "Vice Dean's Office of Student Affairs",
-              "period": "Jan 2024 – Dec 2024 · 11 mos",
+              "period": "Jan 2024 – Dec 2024",
               "supervisor": null,
               "bullets": [
                 "Designed and built full-stack student data analytics system serving 15,000+ students and 600+ faculty, replacing an external platform and saving ~$100K USD annually",
@@ -119,7 +119,7 @@
             {
               "title": "Software Developer I",
               "subtitle": "Notebook Ninjas, Data Analytics",
-              "period": "Jan 2024 – Jul 2024 · 6 mos",
+              "period": "Jan 2024 – Jul 2024",
               "supervisor": null,
               "bullets": [
                 "Awarded June Team Award for impactful contributions as part of Data Analytics team",
@@ -138,7 +138,7 @@
             {
               "title": "Backend Developer",
               "subtitle": "Engineering Faculty Research Center (CIFI)",
-              "period": "Aug 2023 – Dec 2023 · 4 mos",
+              "period": "Aug 2023 – Dec 2023",
               "supervisor": null,
               "bullets": [
                 "Designed and implemented backend architecture for the Professors' Portfolio system (Java, Spring Boot), a web application for managing faculty academic and administrative information.",
