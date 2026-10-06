@@ -45,10 +45,15 @@
   text(tracking: 0.5pt, upper(title)),
 )
 
-// Thin spaces: a regular space on each side of the dot looks too wide.
-#let separator = "\u{2009}·\u{2009}"
+#let place-and-period(location, period) = (location, period).filter(part => part != none).join(" | ")
 
-#let role-entry(role, end, above: role-gap) = block(above: above, {
+#let entry-heading(name, location, period) = block(
+  sticky: true,
+  below: block-gap,
+  row(strong(name), place-and-period(location, period)),
+)
+
+#let role-entry(role, end: none, above: role-gap) = block(above: above, {
   block(sticky: true, below: block-gap, {
     row(emph((role.title, role.subtitle).filter(part => part != none).join(", ")), end)
     if role.supervisor != none [Supervisor: #role.supervisor]
@@ -57,15 +62,14 @@
 })
 
 #let group-entry(org) = {
-  let place-and-period = (org.location, org.period).filter(part => part != none).join(separator)
-  block(sticky: true, below: block-gap, row(strong(org.name), place-and-period))
-  pad(left: 0.2in, org.roles.map(role => role-entry(role, role.period)).join())
+  entry-heading(org.name, org.location, org.period)
+  pad(left: 0.2in, org.roles.map(role => role-entry(role, end: role.period)).join())
 }
 
 #let single-role-entry(org) = {
   let role = org.roles.first()
-  block(sticky: true, below: block-gap, row(strong(org.name), role.period))
-  role-entry(role, org.location, above: block-gap)
+  entry-heading(org.name, org.location, role.period)
+  role-entry(role, above: block-gap)
 }
 
 #let organization-entry(org) = block(above: entry-gap, {
@@ -73,8 +77,8 @@
 })
 
 #let school-entry(school) = block(breakable: false, above: entry-gap, {
-  row(strong(school.name), school.location)
-  row(emph(school.degree), school.period)
+  entry-heading(school.name, school.location, school.period)
+  emph(school.degree)
   show school.honors: emph
   bullets(school.bullets)
 })
