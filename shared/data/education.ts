@@ -17,8 +17,7 @@ export const EDUCATION: Education[] = [
     gpa: "4.92 / 5.00",
     gpaContext: {
       en: {
-        full: "highest GPA in Systems and Computing Engineering in 40 years, highest in Engineering Faculty in 16 years",
-        short: "highest GPA in major in 40 years, highest in Engineering Faculty in 16 years",
+        full: "highest GPA in major in 40 years, highest in Engineering Faculty in 16 years",
       },
     },
     diplomaUrl: "/education/diplomas/uniandes.png",
