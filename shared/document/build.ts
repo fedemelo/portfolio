@@ -174,16 +174,20 @@ function header(personalInfo: PersonalInfo, kind: DocumentKind): Header {
 function educationSection(education: Education[], kind: DocumentKind): Section {
   const text = textFor(kind);
   const schools = filterFor(kind)(education).map((edu) => {
-    const gpaContext = edu.gpaContext && text(edu.gpaContext, language);
-    const gpaScore = edu.gpa?.replace(" / ", "/");
-    const gpa = gpaScore ? [[`Cumulative GPA: ${gpaScore}`, gpaContext].filter(Boolean).join(", ")] : [];
+    const gpa = edu.gpa ? [`GPA: ${edu.gpa.replace(" / ", "/")}`] : [];
+    const honors = edu.relatedAwardTitles?.includes("Summa Cum Laude") ? "Summa cum laude" : null;
+    const honorsLine = [honors, edu.gpaContext && text(edu.gpaContext, language)].filter(Boolean).join(", ");
     return {
       name: getOrgName(edu.organization, language),
       location: formatLocation({ city: edu.city, state: edu.state, country: edu.country }),
       degree: getLocalizedText(edu.degree, language),
-      honors: edu.relatedAwardTitles?.includes("Summa Cum Laude") ? "Summa Cum Laude" : null,
+      honors,
       period: getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate),
-      bullets: [...gpa, ...filterFor(kind)(edu.details ?? []).map((detail) => text(detail, language))],
+      bullets: [
+        ...gpa,
+        ...(honorsLine ? [honorsLine] : []),
+        ...filterFor(kind)(edu.details ?? []).map((detail) => text(detail, language)),
+      ],
     };
   });
   return { kind: "education", title: "Education", schools };
