@@ -25,7 +25,7 @@ export const TEACHING: Teaching[] = [
       },
       {
         en: {
-          full: "Topics: divide and conquer, dynamic programming, graph algorithms, greedy methods, NP-completeness, approximation and randomized algorithms",
+          full: "Topics: divide and conquer, dynamic programming, graph algorithms, NP-completeness, approximation and randomized algorithms",
         },
       },
     ],
