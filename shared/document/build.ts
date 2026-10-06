@@ -1,7 +1,5 @@
-// Decides what the resume and CV contain: which items each shows, which text
-// variant (short for the resume, full for the CV), ordering, grouping, and
-// how periods and locations read. Every renderer works from its output, so
-// the plain-text exports and the PDFs cannot disagree about content.
+// The only place that decides document content. The plain-text exports and
+// the PDFs both render its output, so they cannot disagree.
 import type { Language } from "../schemas/utils";
 import type { WorkExperience } from "../schemas/workExperience";
 import type { Teaching } from "../schemas/teaching";
@@ -17,10 +15,8 @@ import type { Publication } from "../schemas/publication";
 import type { Language as LanguageEntry } from "../schemas/language";
 import type { DocumentKind, DocumentModel, Header, Organization, Role, Section } from "./model";
 
-// shared/utils/year.ts uses Object.groupBy, which is only available in
-// browsers and Node 21+. These scripts also run under whatever Node is on
-// the developer's machine (via tsx), so polyfill it here rather than
-// touching the browser-targeted util.
+// Object.groupBy (used by getYearSequence) needs Node 21+, and these scripts
+// run on whatever Node the developer has.
 if (typeof Object.groupBy !== "function") {
   (Object as unknown as { groupBy: <T, K extends PropertyKey>(items: Iterable<T>, keyFn: (item: T) => K) => Partial<Record<K, T[]>> }).groupBy = (items, keyFn) => {
     const result: Record<PropertyKey, unknown[]> = {};
@@ -51,10 +47,8 @@ import { groupByGroupId } from "../utils/group-by-group-id";
 
 const language: Language = DEFAULT_LANGUAGE;
 
-// shared/utils/show.ts's filterForResume/filterForCV are two separately
-// generic functions (one keyed on showInResume, one on showInCV), so a
-// kind-based union of them isn't callable without losing type safety. Both
-// do the exact same thing modulo the key name, so express that directly.
+// filterForResume/filterForCV can't be picked by kind without losing type
+// safety, so this takes the visibility key as the parameter instead.
 function filterFor(kind: DocumentKind) {
   const key = kind === "resume" ? "showInResume" : "showInCV";
   return <T extends { showInResume?: boolean; showInCV?: boolean }>(items: T[]): T[] =>
@@ -142,11 +136,6 @@ function toRole(item: ExperienceItem, courses: Course[], kind: DocumentKind): Ro
   };
 }
 
-/**
- * One Experience-style section (Work Experience, Teaching, or the resume's
- * merged "Experience"). Items that share a groupId become one organization
- * with several roles and an overall period.
- */
 function experienceSection(title: string, items: ExperienceItem[], courses: Course[], kind: DocumentKind): Section {
   const grouped = groupByGroupId(sortExperiences(filterFor(kind)(items)));
   const organizations: Organization[] = grouped.map((entry) => {
