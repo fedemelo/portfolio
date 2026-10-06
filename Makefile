@@ -20,8 +20,6 @@ watch-cv watch-resume: watch-%: json-%
 json-cv json-resume: json-%:
 	pnpm exec tsx scripts/print-json.ts $* > $*/$*.json
 
-# Durations of periods ending in "Present" grow monthly, so this also fails
-# a month after the last rebuild even without a data change.
 check-documents:
 	@for document in $(DOCUMENTS); do \
 		pnpm exec tsx scripts/print-json.ts $$document | cmp -s - $$document/$$document.json \
