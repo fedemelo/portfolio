@@ -1,6 +1,5 @@
-// The shape every document renderer consumes: the plain-text writer reads it
-// directly and Typst reads it as JSON. Absent values are null, not undefined,
-// so they survive JSON serialization and Typst can access every field.
+// Absent values are null, not undefined, so they survive JSON serialization
+// and Typst can read every field without a default.
 export type DocumentKind = "resume" | "cv";
 
 export type Contact = { label: string; text: string; url: string };
