@@ -13,9 +13,8 @@ function bullets(items: string[], indent: string): string[] {
   return items.map((item) => `${indent}- ${item}`);
 }
 
-function headerLines(header: Header, kind: DocumentModel["kind"]): string[] {
-  if (kind === "resume") return [header.name, header.contacts.map((c) => c.text).join(" | ")];
-  return [header.name, ...header.contacts.map((c) => `${c.label}: ${c.text}`)];
+function headerLines(header: Header): string[] {
+  return [header.name, header.contacts.map((c) => c.text).join(" | ")];
 }
 
 function organizationLines(org: Organization): string[] {
@@ -67,7 +66,7 @@ function sectionBody(section: Section): string[] {
 
 export function toPlainText(document: DocumentModel): string {
   const lines = [
-    ...headerLines(document.header, document.kind),
+    ...headerLines(document.header),
     ...document.sections.flatMap((section) => [...heading(section.title), ...sectionBody(section)]),
   ];
   return lines.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";

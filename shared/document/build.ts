@@ -146,29 +146,16 @@ function experienceSection(title: string, items: ExperienceItem[], courses: Cour
   return { kind: "experience", title, organizations };
 }
 
-function header(personalInfo: PersonalInfo, kind: DocumentKind): Header {
+function header(personalInfo: PersonalInfo): Header {
   const linkedInUrl = `linkedin.com/in/${personalInfo.linkedInPath}`;
   const gitHubUrl = `github.com/${personalInfo.gitHubPath}`;
-  const email = { label: "Email", text: personalInfo.email, url: `mailto:${personalInfo.email}` };
-  const webpage = { label: "Webpage", text: personalInfo.webpage, url: `https://${personalInfo.webpage}` };
-  if (kind === "resume") {
-    return {
-      name: personalInfo.name,
-      contacts: [
-        webpage,
-        email,
-        { label: "LinkedIn", text: linkedInUrl, url: `https://${linkedInUrl}` },
-        { label: "GitHub", text: gitHubUrl, url: `https://${gitHubUrl}` },
-      ],
-    };
-  }
   return {
     name: personalInfo.name,
     contacts: [
-      email,
-      { label: "LinkedIn", text: personalInfo.linkedInPath, url: `https://${linkedInUrl}` },
-      webpage,
-      { label: "GitHub", text: personalInfo.gitHubPath, url: `https://${gitHubUrl}` },
+      { text: personalInfo.webpage, url: `https://${personalInfo.webpage}` },
+      { text: personalInfo.email, url: `mailto:${personalInfo.email}` },
+      { text: linkedInUrl, url: `https://${linkedInUrl}` },
+      { text: gitHubUrl, url: `https://${gitHubUrl}` },
     ],
   };
 }
@@ -275,7 +262,7 @@ export function buildResume(): DocumentModel {
   const kind = "resume";
   return {
     kind,
-    header: header(PERSONAL_INFO, kind),
+    header: header(PERSONAL_INFO),
     sections: [
       educationSection(EDUCATION, kind),
       experienceSection("Experience", [...WORK_EXPERIENCE, ...TEACHING], COURSES, kind),
@@ -289,7 +276,7 @@ export function buildCV(): DocumentModel {
   const kind = "cv";
   return {
     kind,
-    header: header(PERSONAL_INFO, kind),
+    header: header(PERSONAL_INFO),
     sections: [
       ...researchInterestsSections(RESEARCH_INTERESTS, kind),
       educationSection(EDUCATION, kind),

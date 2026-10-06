@@ -2,7 +2,7 @@
 // and Typst can read every field without a default.
 export type DocumentKind = "resume" | "cv";
 
-export type Contact = { label: string; text: string; url: string };
+export type Contact = { text: string; url: string };
 
 export type Header = { name: string; contacts: Contact[] };
 
