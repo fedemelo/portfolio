@@ -116,9 +116,10 @@ function getPeriodLabel(item: ExperienceItem): string {
   return formatDateRange(item.startDate, item.endDate, item.isCurrent);
 }
 
-function getLocation(item: ExperienceItem): string | null {
-  if (isTeaching(item)) return null;
-  return formatLocation({ city: item.city, state: item.state, country: item.country }, item.workMode, employmentLabel(item.employmentType));
+function getLocation(item: ExperienceItem): string {
+  const place = { city: item.city, state: item.state, country: item.country };
+  if (isTeaching(item)) return formatLocation(place);
+  return formatLocation(place, item.workMode, employmentLabel(item.employmentType));
 }
 
 function toRole(item: ExperienceItem, courses: Course[], kind: DocumentKind): Role {
