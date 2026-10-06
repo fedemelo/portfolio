@@ -5,7 +5,7 @@
 
 #align(center)[
   #text(size: 24pt, data.header.name)
-  #v(-2pt)
+  #v(3pt)
   #data.header.contacts.map(contact => link(contact.url, contact.text)).join(" | ")
 ]
 
