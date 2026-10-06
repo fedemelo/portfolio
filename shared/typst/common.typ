@@ -45,8 +45,7 @@
 )
 
 #let role-heading(role) = {
-  let title = emph(role.title)
-  row(if role.subtitle == none { title } else [#title · #role.subtitle], role.period)
+  row(emph((role.title, role.subtitle).filter(part => part != none).join(", ")), role.period)
 }
 
 #let role-entry(role) = block(above: role-gap, {
