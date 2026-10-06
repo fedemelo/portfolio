@@ -58,8 +58,9 @@ function sectionBody(section: Section): string[] {
     case "publications":
       return section.publications.flatMap((pub) => {
         const authors = pub.authors.map((a) => a.name).join(", ");
+        const note = pub.note ? ` ${pub.note}.` : "";
         const link = pub.link ? ` Available at: ${pub.link.text} (${pub.link.url})` : "";
-        return [`${authors} (${pub.year}). "${pub.title}". ${pub.description}. ${pub.institution}.${link}`, ""];
+        return [`${authors} (${pub.year}). "${pub.title}". ${pub.description}. ${pub.institution}.${note}${link}`, ""];
       });
   }
 }
