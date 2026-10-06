@@ -118,6 +118,12 @@
   else { panic("Unknown section kind: " + kind) }
 }
 
+#let render-header(header) = align(center)[
+  #text(size: 24pt, weight: "bold", header.name)
+  #v(3pt)
+  #header.contacts.map(contact => link(contact.url, contact.text)).join(" | ")
+]
+
 #let render-sections(sections) = for section in sections {
   section-heading(section.title)
   pad(left: base-size, section-body(section))

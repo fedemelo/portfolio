@@ -1,12 +1,7 @@
-#import "/shared/typst/common.typ": setup, render-sections
+#import "/shared/typst/common.typ": setup, render-header, render-sections
 
 #let data = json("resume.json")
 #show: setup.with(data)
 
-#align(center)[
-  #text(size: 24pt, weight: "bold", data.header.name)
-  #v(3pt)
-  #data.header.contacts.map(contact => link(contact.url, contact.text)).join(" | ")
-]
-
+#render-header(data.header)
 #render-sections(data.sections)
