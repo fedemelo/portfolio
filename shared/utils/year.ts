@@ -9,31 +9,10 @@ function formatMonthYear(date: Date): string {
   return `${MONTHS[date.getMonth()]} ${date.getFullYear()}`;
 }
 
-export function formatDuration(startDate: Date, endDate?: Date, isCurrent?: boolean): string {
-  const end = isCurrent ? new Date() : (endDate ?? new Date());
-  const totalMonths = (end.getFullYear() - startDate.getFullYear()) * 12 +
-                      (end.getMonth() - startDate.getMonth());
-  if (totalMonths <= 0) return '';
-  const years = Math.floor(totalMonths / 12);
-  const months = totalMonths % 12;
-  const parts: string[] = [];
-  if (years > 0) parts.push(`${years} yr${years > 1 ? 's' : ''}`);
-  if (months > 0) parts.push(`${months} mo${months > 1 ? 's' : ''}`);
-  return parts.join(' ');
-}
-
-export function formatDateRange(startDate: Date, endDate?: Date, isCurrent?: boolean, showDuration = true): string {
+export function formatDateRange(startDate: Date, endDate?: Date, isCurrent?: boolean): string {
   const start = formatMonthYear(startDate);
   const end = isCurrent ? 'Present' : (endDate ? formatMonthYear(endDate) : '');
-  const range = end ? `${start} – ${end}` : start;
-  if (!showDuration) return range;
-  const duration = formatDuration(startDate, endDate, isCurrent);
-  return duration ? `${range} · ${duration}` : range;
-}
-
-export function formatTeachingPeriod(period: string, startDate: Date, endDate?: Date, isCurrent?: boolean): string {
-  const duration = formatDuration(startDate, endDate, isCurrent);
-  return duration ? `${period} · ${duration}` : period;
+  return end ? `${start} – ${end}` : start;
 }
 
 export function getYearRange(

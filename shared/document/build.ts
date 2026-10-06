@@ -44,7 +44,7 @@ import { PUBLICATIONS } from "../data/publications";
 import { LANGUAGES } from "../data/languages";
 import { DEFAULT_LANGUAGE, getLocalizedText, getOrgName, getResumeText, getCVText } from "../utils/localization";
 import { formatLocation } from "../utils/location";
-import { formatDateRange, getYearRange, getYearSequence, formatTeachingPeriod } from "../utils/year";
+import { formatDateRange, getYearRange, getYearSequence } from "../utils/year";
 import { groupByGroupId } from "../utils/group-by-group-id";
 
 const language: Language = DEFAULT_LANGUAGE;
@@ -80,7 +80,7 @@ function sortExperiences(items: ExperienceItem[]): ExperienceItem[] {
   });
 }
 
-function getGroupRange(items: ExperienceItem[], kind: DocumentKind): string {
+function getGroupRange(items: ExperienceItem[]): string {
   const start = new Date(Math.min(...items.map((it) => it.startDate.getTime())));
   const isCurrent = items.some((it) => it.isCurrent);
   const end = isCurrent
@@ -89,7 +89,7 @@ function getGroupRange(items: ExperienceItem[], kind: DocumentKind): string {
         if (!it.endDate) return max;
         return !max || it.endDate > max ? it.endDate : max;
       }, undefined);
-  return formatDateRange(start, end, isCurrent, kind === "resume");
+  return formatDateRange(start, end, isCurrent);
 }
 
 function getSubtitle(item: ExperienceItem, courses: Course[]): string | null {
@@ -115,12 +115,9 @@ function getBullets(item: ExperienceItem, kind: DocumentKind): string[] {
   return filter(item.details ?? []).map((d) => text(d, language));
 }
 
-function getPeriodLabel(item: ExperienceItem, kind: DocumentKind): string {
-  if (isTeaching(item)) {
-    if (kind === "resume") return formatTeachingPeriod(item.period, item.startDate, item.endDate, item.isCurrent);
-    return item.isUpcoming ? `${item.period} (upcoming)` : item.period;
-  }
-  return formatDateRange(item.startDate, item.endDate, item.isCurrent ?? false, kind === "resume");
+function getPeriodLabel(item: ExperienceItem): string {
+  if (isTeaching(item)) return item.isUpcoming ? `${item.period} (upcoming)` : item.period;
+  return formatDateRange(item.startDate, item.endDate, item.isCurrent);
 }
 
 function getLocation(item: ExperienceItem): string | null {
@@ -132,7 +129,7 @@ function toRole(item: ExperienceItem, courses: Course[], kind: DocumentKind): Ro
   return {
     title: getLocalizedText(item.title, language),
     subtitle: getSubtitle(item, courses),
-    period: getPeriodLabel(item, kind),
+    period: getPeriodLabel(item),
     supervisor: isTeaching(item) ? (item.supervisor ?? null) : null,
     bullets: getBullets(item, kind),
   };
@@ -145,7 +142,7 @@ function experienceSection(title: string, items: ExperienceItem[], courses: Cour
     return {
       name: getOrgName(roles[0].organization, language),
       location: getLocation(roles[0]),
-      period: entry.type === "group" ? getGroupRange(entry.items, kind) : null,
+      period: entry.type === "group" ? getGroupRange(entry.items) : null,
       roles: roles.map((item) => toRole(item, courses, kind)),
     };
   });
