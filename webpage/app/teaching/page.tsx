@@ -2,15 +2,15 @@
 
 import { useTeaching, useCourses } from "@/hooks/useApiData"
 import { useHashNavigation } from "@/hooks/useHashNavigation"
+import { ExternalLink } from "lucide-react"
 import { TeachingItem } from "./components/teaching-item"
 import { TeachingLoadingSkeleton } from "./components/teaching-loading-skeleton"
 import { PageHeader } from "@/components/page-header"
 import { TimelineLayout } from "@/components/timeline-layout"
 import { OrganizationIcon } from "@/components/organization-icon"
 import { GreenButton } from "@/components/green-button"
-import { generateSlug } from "@/utils/slug"
-import { ExternalLink } from "lucide-react"
 import type { Teaching } from "@/types/teaching"
+import { useTranslation } from "@/hooks/useTranslation"
 
 const LOS_ESTUDIANTES_URL = "https://losestudiantes.com/uniandes/professors/federico-melo-barrero"
 
@@ -18,6 +18,7 @@ export default function TeachingPage() {
   const { data: teaching, loading: teachingLoading, error: teachingError } = useTeaching()
   const { data: courses, loading: coursesLoading } = useCourses()
   const targetHash = useHashNavigation()
+  const t = useTranslation()
 
   const loading = teachingLoading || coursesLoading
   const error = teachingError
@@ -28,8 +29,7 @@ export default function TeachingPage() {
   const undergraduateTeaching = teaching.filter(t => t.type === "undergraduate")
 
   const renderTeachingItem = (experience: Teaching) => {
-    const slug = generateSlug(experience.title)
-    const shouldExpand = slug === targetHash
+    const shouldExpand = experience.anchor === targetHash
     const course = courseMap.get(experience.courseCode)
     return (
       <TeachingItem
@@ -55,17 +55,20 @@ export default function TeachingPage() {
   }}>Los Estudiantes</span>
 
   const losEstudiantesButton = (
-    <GreenButton asChild tooltip="View student reviews on Los Estudiantes">
-      <a href={LOS_ESTUDIANTES_URL} target="_blank" rel="noopener noreferrer">
-        <ExternalLink className="h-4 w-4" />
-        {losEstudiantesFormattedText}
-      </a>
-    </GreenButton>
+    <div className="flex flex-wrap items-center gap-3">
+      <span className="text-muted-foreground">{t.pages.teaching.losEstudiantesPrompt}</span>
+      <GreenButton asChild tooltip={t.pages.teaching.losEstudiantesTooltip}>
+        <a href={LOS_ESTUDIANTES_URL} target="_blank" rel="noopener noreferrer">
+          <ExternalLink className="h-4 w-4" />
+          {losEstudiantesFormattedText}
+        </a>
+      </GreenButton>
+    </div>
   )
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
-      <PageHeader title="Teaching" customButtons={losEstudiantesButton} />
+      <PageHeader title={t.pages.teaching.title} customButtons={losEstudiantesButton} />
 
       <TimelineLayout
         items={professionalTeaching}
@@ -74,12 +77,12 @@ export default function TeachingPage() {
         renderItem={renderTeachingItem}
         getIcon={getTeachingIcon}
         LoadingSkeleton={TeachingLoadingSkeleton}
-        pageName="professional teaching experience"
-        itemName="professional teaching experience"
+        pageName={t.itemNames.professionalTeaching}
+        itemName={t.itemNames.professionalTeaching}
       />
 
     <div className="space-y-4 md:!mt-2">
-      <h2 className="text-xl font-bold">Undergraduate Experience</h2>
+      <h2 className="text-xl font-bold">{t.pages.teaching.undergraduateSection}</h2>
 
       <TimelineLayout
         items={undergraduateTeaching}
@@ -88,8 +91,8 @@ export default function TeachingPage() {
         renderItem={renderTeachingItem}
         getIcon={getTeachingIcon}
         LoadingSkeleton={TeachingLoadingSkeleton}
-        pageName="undergraduate teaching experience"
-        itemName="undergraduate teaching experience"
+        pageName={t.itemNames.undergraduateTeaching}
+        itemName={t.itemNames.undergraduateTeaching}
       />
       </div>
     </div>
