@@ -1,0 +1,41 @@
+@property --spread-x {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --spread-y {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
+@keyframes lightExpand {
+  from {
+    --spread-x: 0%;
+    --spread-y: 0%;
+  }
+  to {
+    --spread-x: 150%;
+    --spread-y: 100%;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse var(--spread-x) var(--spread-y) at 50% 0%,
+    hsl(var(--hero-glow)),
+    hsl(var(--background))
+  );
+  /* 200ms delay so the first frame is intentionally dark before light ignites */
+  animation: lightExpand 800ms cubic-bezier(0.4, 0, 0.6, 1) 300ms both;
+  transition: opacity 400ms ease-out;
+}
+
+.fading {
+  opacity: 0;
+}
