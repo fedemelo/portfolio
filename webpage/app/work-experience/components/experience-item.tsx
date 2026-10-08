@@ -5,9 +5,9 @@ import { ContextInfo } from "@/components/context-info"
 import { DescriptionAndBullets } from "@/components/description-and-bullets"
 import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon"
 import { AccordionItem } from "@/components/accordion-item"
-import { generateSlug } from "@/utils/slug"
-import { formatDate } from "@/utils/date"
+import { formatDateRange } from "@/utils/date"
 import { getOrgName } from "@/types/organization"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface ExperienceItemProps {
   experience: WorkExperience
@@ -15,15 +15,12 @@ interface ExperienceItemProps {
 }
 
 export function ExperienceItem({ experience, defaultExpanded }: ExperienceItemProps) {
-  const dateRange = experience.endDate 
-    ? `${formatDate(experience.startDate)} - ${formatDate(experience.endDate)}`
-    : `${formatDate(experience.startDate)} - Present`
-  
-  const slug = generateSlug(experience.title)
+  const t = useTranslation()
+  const dateRange = formatDateRange(experience.startDate, experience.endDate, t.locale, t.common.present)
 
   return (
     <AccordionItem
-      id={slug}
+      id={experience.anchor}
       defaultExpanded={defaultExpanded}
       header={
         <div className="space-y-1">
@@ -51,7 +48,7 @@ export function ExperienceItem({ experience, defaultExpanded }: ExperienceItemPr
           <WorkDetailsTags workMode={experience.workMode} employmentType={experience.employmentType} />
         </div>
 
-        <DescriptionAndBullets description={experience.description} achievements={experience.achievements} />
+        <DescriptionAndBullets achievements={experience.details} />
 
         <TechnologiesTags technologies={experience.technologies} />
       </div>
@@ -59,11 +56,13 @@ export function ExperienceItem({ experience, defaultExpanded }: ExperienceItemPr
   )
 }
 
-function WorkDetailsTags({ workMode, employmentType }: { workMode: string, employmentType: string }) {
+function WorkDetailsTags({ workMode, employmentType }: Pick<WorkExperience, "workMode" | "employmentType">) {
+  const t = useTranslation()
+
   return (
     <div className="flex items-center gap-4 text-sm text-muted-foreground">
-      <span className="px-2 py-1 bg-muted rounded-md">{workMode}</span>
-      <span className="px-2 py-1 bg-muted rounded-md">{employmentType}</span>
+      <span className="px-2 py-1 bg-muted rounded-md">{t.workModes[workMode]}</span>
+      <span className="px-2 py-1 bg-muted rounded-md">{t.employmentTypes[employmentType]}</span>
     </div>
   )
 }
