@@ -21,7 +21,7 @@ const config = {
     extend: {
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-josefin-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-playfair-display)", "Georgia", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
