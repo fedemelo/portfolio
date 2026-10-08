@@ -8,7 +8,6 @@ import { MobileNavigation } from "./mobile-navigation"
 import { ThemeToggle } from "./theme-toggle"
 import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
 import { useSlideLinkClick } from "@/hooks/useNavigateWithSlide"
-import { SPANISH_ENABLED } from "@/contexts/language-context"
 import { LanguageSwitch } from "./language-switch"
 
 export function Navigation() {
@@ -39,7 +38,7 @@ export function Navigation() {
         <MobileNavigation />
         <DesktopNavigation />
         <div className="flex-1" />
-        {SPANISH_ENABLED && <LanguageSwitch />}
+        <LanguageSwitch />
         <ThemeToggle />
       </nav>
     </div>

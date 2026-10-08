@@ -8,9 +8,6 @@ interface LanguageContextType {
   setLanguage: (language: Language) => void
 }
 
-// Off until the Spanish translations are reviewed; while off, every visitor gets English
-export const SPANISH_ENABLED = false
-
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
 function detectBrowserLanguage(): Language {
@@ -21,7 +18,7 @@ export function LanguageProvider({ children }: Readonly<{ children: ReactNode }>
   // Starts as 'en' to match the server render; the browser language is only knowable after hydration
   const [language, setLanguage] = useState<Language>('en')
 
-  useEffect(() => { if (SPANISH_ENABLED) setLanguage(detectBrowserLanguage()) }, [])
+  useEffect(() => { setLanguage(detectBrowserLanguage()) }, [])
 
   useEffect(() => { document.documentElement.lang = language }, [language])
 
