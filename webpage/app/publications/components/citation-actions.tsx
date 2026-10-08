@@ -3,6 +3,7 @@ import { useToast } from "@/hooks/use-toast"
 import { GreenButton } from "@/components/green-button"
 import { CitationGenerator } from "./citation-generator"
 import type { Publication } from "@/types"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface CitationActionsProps {
   publication: Publication
@@ -10,6 +11,7 @@ interface CitationActionsProps {
 
 export function CitationActions({ publication }: CitationActionsProps) {
   const { toast } = useToast()
+  const t = useTranslation()
   const citationGenerator = new CitationGenerator(publication)
 
   const handleCopy = async () => {
@@ -17,13 +19,13 @@ export function CitationActions({ publication }: CitationActionsProps) {
     try {
       await navigator.clipboard.writeText(bibTexCitation)
       toast({
-        title: "Copied to clipboard",
-        description: "BibTeX citation copied successfully",
+        title: t.citation.copiedTitle,
+        description: t.citation.copiedDescription,
       })
     } catch (err) {
       toast({
-        title: "Failed to copy",
-        description: "Could not copy to clipboard",
+        title: t.citation.copyFailedTitle,
+        description: t.citation.copyFailedDescription,
         variant: "destructive",
       })
     }
@@ -44,20 +46,20 @@ export function CitationActions({ publication }: CitationActionsProps) {
     URL.revokeObjectURL(url)
     
     toast({
-      title: "Downloaded",
-      description: "BibTeX file downloaded successfully",
+      title: t.citation.downloadedTitle,
+      description: t.citation.downloadedDescription,
     })
   }
 
   return (
     <div className="flex justify-center space-x-2">
-      <GreenButton onClick={handleCopy} tooltip="Copy BibTeX citation to clipboard">
+      <GreenButton onClick={handleCopy} tooltip={t.citation.copyTooltip}>
         <Copy className="mr-2 h-4 w-4" />
-        Copy
+        {t.citation.copy}
       </GreenButton>
-      <GreenButton onClick={handleDownload} tooltip="Download BibTeX citation file">
+      <GreenButton onClick={handleDownload} tooltip={t.citation.downloadTooltip}>
         <Download className="mr-2 h-4 w-4" />
-        Download
+        {t.citation.download}
       </GreenButton>
     </div>
   )
