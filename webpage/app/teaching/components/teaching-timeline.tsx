@@ -2,6 +2,7 @@ import type { Teaching } from "@/types"
 import { TeachingItem } from "./teaching-item"
 import { TeachingLoadingSkeleton } from "./teaching-loading-skeleton"
 import { TimelineLayout } from "@/components/timeline-layout"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface TeachingTimelineProps {
   teaching: Teaching[]
@@ -10,6 +11,8 @@ interface TeachingTimelineProps {
 }
 
 export function TeachingTimeline({ teaching, loading, error }: TeachingTimelineProps) {
+  const t = useTranslation()
+
   return (
     <TimelineLayout
       items={teaching}
@@ -17,8 +20,8 @@ export function TeachingTimeline({ teaching, loading, error }: TeachingTimelineP
       error={error}
       renderItem={(experience) => <TeachingItem teaching={experience} />}
       LoadingSkeleton={TeachingLoadingSkeleton}
-      pageName="teaching experience"
-      itemName="teaching experience"
+      pageName={t.itemNames.teaching}
+      itemName={t.itemNames.teaching}
     />
   )
 } 
