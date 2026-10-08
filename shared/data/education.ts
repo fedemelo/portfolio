@@ -19,6 +19,9 @@ export const EDUCATION: Education[] = [
       en: {
         full: "highest GPA in major in 40 years, highest in Engineering Faculty in 16 years",
       },
+      es: {
+        full: "el promedio más alto de la carrera en 40 años, el más alto de la Facultad de Ingeniería en 16 años",
+      },
     },
     diplomaUrl: "/education/diplomas/uniandes.png",
     certificates: ["/education/certificates/acta-grado-uniandes.png"],
@@ -38,12 +41,16 @@ export const EDUCATION: Education[] = [
         en: {
           full: "Recipient of the Quiero Estudiar scholarship (95% tuition coverage) for the duration of the degree",
         },
+        es: {
+          full: "Beneficiario de la beca Quiero Estudiar (cubre el 95 % de la matrícula) durante toda la carrera",
+        },
       },
     ],
   },
   {
     degree: {
       en: "Bachiller Académico",
+      es: "Bachiller Académico"
     },
     organization: COLEGIO_SAN_CARLOS,
     city: "Bogotá",
@@ -57,6 +64,10 @@ export const EDUCATION: Education[] = [
         en: {
           full: "Highest GPA in the 2020 cohort",
           short: "Highest GPA in 2020 cohort",
+        },
+        es: {
+          full: "Mejor promedio de la promoción 2020",
+          short: "Mejor promedio de la promoción 2020",
         },
       },
     ],
