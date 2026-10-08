@@ -1,4 +1,5 @@
 export { HeroSection } from "./hero-section"
+export { HeroDescription } from "./hero-description"
 export { SocialLinks } from "./social-links"
-export { MobileQuickNavigation } from "./mobile-quick-navigation"
-export { DesktopQuickNavigation } from "./desktop-quick-navigation" 
+export { RecruiterSection } from "./recruiter-section"
+export { StudentSection } from "./student-section"
