@@ -17,7 +17,9 @@ import type {
   PersonalInfo,
   Publication,
   Course,
+  AwardReference,
 } from '@/types'
+import { generateSlug } from '@/utils/slug'
 
 import { EDUCATION } from '../../shared/data/education'
 import { WORK_EXPERIENCE } from '../../shared/data/workExperience'
@@ -34,18 +36,46 @@ import { COURSES } from '../../shared/data/courses'
 import { 
   getLocalizedText, 
   getCVText, 
+  getOrgName,
 } from '../../shared/utils/localization'
 import type { Language as LanguageCode } from '../../shared/schemas/utils'
+import type { Organization } from '../../shared/schemas/organization'
+
+// The shared data writes every date in Colombian time (-05:00, no DST), sometimes in the evening, so its UTC day can be the next one
+const DATA_TIME_ZONE = 'America/Bogota'
 
 const dateToString = (date: Date | undefined): string | undefined => {
-  return date ? date.toISOString().split('T')[0] : undefined
+  return date ? date.toLocaleDateString('en-CA', { timeZone: DATA_TIME_ZONE }) : undefined
 }
+
+const localizeOrganization = (organization: Organization, language: LanguageCode): Organization => ({
+  ...organization,
+  name: getOrgName(organization, language),
+})
+
+// Anchors come from the English title so shared links open the same entry in every language, and links shared before the site was translated keep working
+const toAnchor = (englishTitle: string): string => generateSlug(englishTitle)
+
+// Education references awards by their English title; the website needs the title it renders to show it, and the award's anchor to link to it
+const toAwardReference = (englishTitle: string, language: LanguageCode): AwardReference => {
+  const award = AWARDS.find(award => award.title.en === englishTitle)
+  return {
+    title: award ? getLocalizedText(award.title, language) : englishTitle,
+    anchor: toAnchor(englishTitle),
+  }
+}
+
+const onlyShownInWebsite = <T extends { showInWebsite?: boolean }>(items: readonly T[]): T[] =>
+  items.filter(item => item.showInWebsite !== false)
 
 const convertEducation = (data: typeof EDUCATION, language: LanguageCode): Education[] => {
   return data.map(item => ({
     ...item,
     degree: getLocalizedText(item.degree, language),
-    details: item.details?.map(detail => getCVText(detail, language)),
+    anchor: toAnchor(item.degree.en),
+    organization: localizeOrganization(item.organization, language),
+    relatedAwards: item.relatedAwardTitles?.map(title => toAwardReference(title, language)),
+    details: item.details?.filter(d => d.showInResume !== false).map(detail => getCVText(detail, language)),
     startDate: dateToString(item.startDate),
     graduationDate: dateToString(item.graduationDate),
     trueEndDate: dateToString(item.trueEndDate),
@@ -61,11 +91,11 @@ const convertWorkExperience = (data: typeof WORK_EXPERIENCE, language: LanguageC
   return data.map(item => ({
     ...item,
     title: getLocalizedText(item.title, language),
+    anchor: toAnchor(item.title.en),
+    organization: localizeOrganization(item.organization, language),
     team: item.team ? getLocalizedText(item.team, language) : undefined,
     squad: item.squad ? getLocalizedText(item.squad, language) : undefined,
-    description: getCVText(item.description, language),
-    achievements: item.achievements?.map(achievement => getCVText(achievement, language)),
-    responsibilities: item.achievements?.map(achievement => getCVText(achievement, language)) || [getCVText(item.description, language)],
+    details: item.details?.map(detail => getCVText(detail, language)),
     startDate: dateToString(item.startDate) || '',
     endDate: dateToString(item.endDate),
   }))
@@ -75,6 +105,8 @@ const convertTeaching = (data: typeof TEACHING, language: LanguageCode): Teachin
   return data.map(item => ({
     ...item,
     title: getLocalizedText(item.title, language),
+    anchor: toAnchor(item.title.en),
+    organization: localizeOrganization(item.organization, language),
     description: item.description ? getCVText(item.description, language) : undefined,
     achievements: item.achievements?.map(achievement => getCVText(achievement, language)),
     startDate: dateToString(item.startDate) || '',
@@ -86,6 +118,7 @@ const convertCourses = (data: typeof COURSES, language: LanguageCode): Course[] 
   return data.map(item => ({
     ...item,
     name: getLocalizedText(item.name, language),
+    organization: localizeOrganization(item.organization, language),
     department: item.department ? getLocalizedText(item.department, language) : undefined,
     description: item.description ? getCVText(item.description, language) : undefined,
   }))
@@ -108,7 +141,9 @@ const convertAwards = (data: typeof AWARDS, language: LanguageCode): Award[] => 
   return data.map(item => ({
     ...item,
     title: getLocalizedText(item.title, language),
+    anchor: toAnchor(item.title.en),
     description: getCVText(item.description, language),
+    organization: localizeOrganization(item.organization, language),
     date: dateToString(item.date),
     instances: item.instances?.map(instance => ({
       ...instance,
@@ -122,6 +157,12 @@ const convertPublications = (data: typeof PUBLICATIONS, language: LanguageCode):
   return data.map(item => ({
     ...item,
     title: getLocalizedText(item.title, language),
+    anchor: toAnchor(item.title.en),
+    citation: {
+      title: item.title.en,
+      venue: item.description.en.full,
+      note: item.note?.en,
+    },
     description: getCVText(item.description, language),
     linkText: item.linkText ? getLocalizedText(item.linkText, language) : undefined,
     year: String(item.year),
@@ -158,23 +199,23 @@ const convertExtracurricular = (data: typeof EXTRACURRICULARS, language: Languag
 class StaticDataClient {
 
   getEducation = async (language: LanguageCode = 'en'): Promise<Education[]> => {
-    return convertEducation(EDUCATION, language)
+    return convertEducation(onlyShownInWebsite(EDUCATION), language)
   }
 
   getWorkExperience = async (language: LanguageCode = 'en'): Promise<WorkExperience[]> => {
-    return convertWorkExperience(WORK_EXPERIENCE, language)
+    return convertWorkExperience(onlyShownInWebsite(WORK_EXPERIENCE), language)
   }
 
   getLanguages = async (language: LanguageCode = 'en'): Promise<Language[]> => {
-    return convertLanguages(LANGUAGES, language)
+    return convertLanguages(onlyShownInWebsite(LANGUAGES), language)
   }
 
   getAwards = async (language: LanguageCode = 'en'): Promise<Award[]> => {
-    return convertAwards(AWARDS, language)
+    return convertAwards(onlyShownInWebsite(AWARDS), language)
   }
 
   getRelevantCoursework = async (language: LanguageCode = 'en'): Promise<RelevantCoursework[]> => {
-    return convertRelevantCoursework(RELEVANT_COURSEWORK, language)
+    return convertRelevantCoursework(onlyShownInWebsite(RELEVANT_COURSEWORK), language)
   }
 
   getResearchInterests = async (language: LanguageCode = 'en'): Promise<ResearchInterest[]> => {
@@ -185,11 +226,11 @@ class StaticDataClient {
   }
 
   getTeaching = async (language: LanguageCode = 'en'): Promise<Teaching[]> => {
-    return convertTeaching(TEACHING, language)
+    return convertTeaching(onlyShownInWebsite(TEACHING), language)
   }
 
   getExtracurricular = async (language: LanguageCode = 'en'): Promise<Extracurricular[]> => {
-    return convertExtracurricular(EXTRACURRICULARS, language)
+    return convertExtracurricular(onlyShownInWebsite(EXTRACURRICULARS), language)
   }
 
   getPersonalInfo = async (language: LanguageCode = 'en'): Promise<PersonalInfo[]> => {
@@ -198,11 +239,11 @@ class StaticDataClient {
   }
 
   getPublications = async (language: LanguageCode = 'en'): Promise<Publication[]> => {
-    return convertPublications(PUBLICATIONS, language)
+    return convertPublications(onlyShownInWebsite(PUBLICATIONS), language)
   }
 
   getCourses = async (language: LanguageCode = 'en'): Promise<Course[]> => {
-    return convertCourses(COURSES, language)
+    return convertCourses(onlyShownInWebsite(COURSES), language)
   }
 
   getHealth = async (): Promise<{ status: string; timestamp: string }> => {
