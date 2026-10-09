@@ -3,13 +3,13 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { navigationItems } from "./navigation-items"
-import { useNavigateWithSlide } from "@/hooks/useNavigateWithSlide"
+import { useSlideLinkClick } from "@/hooks/useNavigateWithSlide"
 import { useTranslation } from "@/hooks/useTranslation"
 import { isCurrentPath } from "@/utils/path"
 
 export function DesktopNavigation() {
   const pathname = usePathname()
-  const navigate = useNavigateWithSlide()
+  const followLink = useSlideLinkClick()
   const t = useTranslation()
 
   return (
@@ -23,7 +23,7 @@ export function DesktopNavigation() {
               ? "text-primary font-semibold"
               : "text-muted-foreground"
           }`}
-          onClick={(e) => { e.preventDefault(); navigate(item.href) }}
+          onClick={(e) => followLink(e, item.href)}
         >
           {t.nav[item.translationKey]}
         </Link>
