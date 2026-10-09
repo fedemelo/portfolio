@@ -5,7 +5,7 @@ import { Menu } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { navigationItems } from "./navigation-items"
-import { useNavigateWithSlide } from "@/hooks/useNavigateWithSlide"
+import { useSlideLinkClick } from "@/hooks/useNavigateWithSlide"
 import { useTranslation } from "@/hooks/useTranslation"
 import {
   Sheet,
@@ -18,14 +18,13 @@ import {
 
 export function MobileNavigation() {
   const pathname = usePathname()
-  const navigate = useNavigateWithSlide()
+  const followLink = useSlideLinkClick()
   const t = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
   const handleNavigationClick = (e: React.MouseEvent, href: string) => {
-    e.preventDefault()
     setIsOpen(false)
-    navigate(href)
+    followLink(e, href)
   }
 
   return (
