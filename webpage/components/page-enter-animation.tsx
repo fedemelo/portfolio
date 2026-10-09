@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef, type ReactNode } from "react"
+import { useLayoutEffect, useRef, type ReactNode } from "react"
 
 interface PageEnterAnimationProps {
   children: ReactNode
@@ -11,7 +11,7 @@ interface PageEnterAnimationProps {
 export function PageEnterAnimation({ children, direction, skip }: PageEnterAnimationProps) {
   const ref = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (skip) return
     const el = ref.current
     if (!el) return
