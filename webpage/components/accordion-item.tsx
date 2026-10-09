@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, ReactNode } from "react"
+import { useState, useEffect, ReactNode } from "react"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
 interface AccordionItemProps {
@@ -12,6 +12,10 @@ interface AccordionItemProps {
 
 export function AccordionItem({ header, children, defaultExpanded = false, id }: AccordionItemProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
+
+  useEffect(() => {
+    if (defaultExpanded) setIsExpanded(true)
+  }, [defaultExpanded])
 
   const content = (
     <div className="border rounded-lg overflow-hidden">
