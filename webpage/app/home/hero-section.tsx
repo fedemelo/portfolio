@@ -16,15 +16,12 @@ interface HeroSectionProps {
 
 export function HeroSection({ personalInfo }: HeroSectionProps) {
   const { setHomeAnimationComplete, skipHeroAnimation } = useNavigationAnimation()
-  const navigate = useNavigateWithSlide()
   const t = useTranslation()
 
-  // If navigating back to home (vs. fresh load), start content visible immediately
   const [contentVisible, setContentVisible] = useState(skipHeroAnimation)
 
   const displayName = personalInfo.name.split(" ").slice(0, 2).join(" ")
 
-  // When skipping the reveal, notify the nav bar that it can show immediately
   useEffect(() => {
     if (skipHeroAnimation) setHomeAnimationComplete()
   }, [skipHeroAnimation, setHomeAnimationComplete])
@@ -47,17 +44,7 @@ export function HeroSection({ personalInfo }: HeroSectionProps) {
           width: "100vw",
         }}
       >
-        {/* Audience CTAs — right side, vertically centered */}
-        <div
-          className={`absolute right-8 md:right-16 top-1/2 -translate-y-1/2 flex flex-col gap-4 transition-all ease-in ${
-            contentVisible
-              ? "opacity-100 translate-x-0 duration-[600ms]"
-              : "opacity-0 translate-x-8 duration-0"
-          }`}
-        >
-          <AudienceCta label={t.hero.recruiterCta} onClick={() => navigate("/work-experience")} />
-          <AudienceCta label={t.hero.studentCta} onClick={() => navigate("/teaching")} />
-        </div>
+        <AudienceCtas visible={contentVisible} />
 
         <div className="flex-1" />
 
@@ -79,6 +66,24 @@ export function HeroSection({ personalInfo }: HeroSectionProps) {
         </div>
       </section>
     </>
+  )
+}
+
+function AudienceCtas({ visible }: { visible: boolean }) {
+  const navigate = useNavigateWithSlide()
+  const t = useTranslation()
+
+  return (
+    <div
+      className={`absolute right-8 md:right-16 top-1/2 -translate-y-1/2 flex flex-col gap-4 transition-all ease-in ${
+        visible
+          ? "opacity-100 translate-x-0 duration-[600ms]"
+          : "opacity-0 translate-x-8 duration-0"
+      }`}
+    >
+      <AudienceCta label={t.hero.recruiterCta} onClick={() => navigate("/work-experience")} />
+      <AudienceCta label={t.hero.studentCta} onClick={() => navigate("/teaching")} />
+    </div>
   )
 }
 
