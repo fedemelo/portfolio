@@ -1,7 +1,6 @@
 "use client"
 
 import { Trophy, ExternalLink } from "lucide-react"
-import Link from "next/link"
 import { useTranslation } from "@/hooks/useTranslation"
 import type { AwardReference } from "@/types"
 
@@ -28,10 +27,11 @@ export function AwardReferences({ awards }: AwardReferencesProps) {
       </h4>
       <div className="flex flex-wrap gap-2">
         {uniqueAwards.map(({ title, anchor, count }) => {
+          // A plain same-page hash link fires hashchange, which Next's Link does not
           return (
-            <Link
+            <a
               key={anchor}
-              href={`/education#${anchor}`}
+              href={`#${anchor}`}
               className="group flex items-center gap-2 px-3 py-2 rounded-lg border border-border bg-background hover:border-primary hover:bg-primary/5 transition-all duration-200"
               onClick={(e) => {
                 e.stopPropagation()
@@ -45,7 +45,7 @@ export function AwardReferences({ awards }: AwardReferencesProps) {
                 </span>
               )}
               <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary flex-shrink-0 transition-colors" />
-            </Link>
+            </a>
           )
         })}
       </div>
