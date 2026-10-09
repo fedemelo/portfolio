@@ -25,8 +25,8 @@ export default function TeachingPage() {
 
   const courseMap = new Map(courses.map(course => [course.code, course]))
 
-  const professionalTeaching = teaching.filter(t => t.type === "professional")
-  const undergraduateTeaching = teaching.filter(t => t.type === "undergraduate")
+  const professionalTeaching = teaching.filter(experience => experience.type === "professional")
+  const undergraduateTeaching = teaching.filter(experience => experience.type === "undergraduate")
 
   const renderTeachingItem = (experience: Teaching) => {
     const shouldExpand = experience.anchor === targetHash
