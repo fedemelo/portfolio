@@ -31,7 +31,7 @@
     hsl(var(--hero-glow)),
     hsl(var(--background))
   );
-  /* 200ms delay so the first frame is intentionally dark before light ignites */
+  /* Starts dark so the light visibly ignites */
   animation: lightExpand 800ms cubic-bezier(0.4, 0, 0.6, 1) 300ms both;
   transition: opacity 400ms ease-out;
 }
