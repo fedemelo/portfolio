@@ -7,14 +7,14 @@ import { DesktopNavigation } from "./desktop-navigation"
 import { MobileNavigation } from "./mobile-navigation"
 import { ThemeToggle } from "./theme-toggle"
 import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
-import { useNavigateWithSlide } from "@/hooks/useNavigateWithSlide"
+import { useSlideLinkClick } from "@/hooks/useNavigateWithSlide"
 import { SPANISH_ENABLED } from "@/contexts/language-context"
 import { LanguageSwitch } from "./language-switch"
 
 export function Navigation() {
   const { shouldShowNavigation, shouldRunNavBarAnimation } = useNavigationAnimation()
   const pathname = usePathname()
-  const navigate = useNavigateWithSlide()
+  const followLink = useSlideLinkClick()
 
   let navigationAnimationClasses = 'translate-y-0 opacity-100'
   if (shouldRunNavBarAnimation) {
@@ -31,7 +31,7 @@ export function Navigation() {
         <Link
           href="/"
           className={`flex items-center transition-colors hover:text-primary ${pathname === "/" ? "text-primary" : "text-foreground"}`}
-          onClick={(e) => { e.preventDefault(); navigate("/") }}
+          onClick={(e) => followLink(e, "/")}
         >
           <House className="h-4 w-4" />
         </Link>
