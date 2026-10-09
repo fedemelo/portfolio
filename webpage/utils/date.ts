@@ -31,22 +31,3 @@ export function formatDateRange(
   const end = endDate ? formatDate(endDate, locale) : presentLabel
   return `${formatDate(startDate, locale)} - ${end}`
 }
-
-export function formatShortDate(dateInput: string | Date, locale: string): string {
-  try {
-    const date = typeof dateInput === 'string' ? new Date(dateInput) : dateInput
-    if (!isNaN(date.getTime()))
-      return date.toLocaleDateString(locale, {
-        year: "numeric",
-        month: "short",
-        timeZone: CALENDAR_DATE_TIME_ZONE,
-      })
-
-    console.warn('Invalid date provided to formatShortDate:', dateInput)
-    return dateInput as string
-
-  } catch (error) {
-    console.error('Error formatting short date:', error, dateInput)
-    return dateInput as string
-  }
-}
