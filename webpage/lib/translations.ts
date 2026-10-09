@@ -15,23 +15,6 @@ const en = {
     studentCta: "I'm a student",
     email: "Email",
   },
-  recruiter: {
-    title: "What I'm working on",
-    industryType: "Industry",
-    industryRole: "Software Engineer",
-    industryOrg: "Canals AI",
-    industryDescription: "Building the parsing pipeline.",
-    academicType: "Academic",
-    academicRole: "Lecturer",
-    academicOrg: "Universidad de los Andes",
-    academicDescription: "Teaching software engineering.",
-    workExperience: "Work Experience",
-    education: "Education",
-  },
-  student: {
-    title: "Student Resources",
-    placeholder: "Course materials coming soon.",
-  },
   pages: {
     workExperience: {
       title: "Work Experience",
