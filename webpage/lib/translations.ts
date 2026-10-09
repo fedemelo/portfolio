@@ -117,9 +117,9 @@ const en = {
   },
   common: {
     cv: "CV",
-    resume: "Resume",
+    resume: "Résumé",
     viewCvTooltip: "View my CV online",
-    viewResumeTooltip: "View my Resume online",
+    viewResumeTooltip: "View my résumé online",
     present: "Present",
     supervisor: "Supervisor",
     close: "Close",
