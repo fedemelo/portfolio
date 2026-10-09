@@ -1,7 +1,6 @@
 import type { Publication } from "@/types"
 import { removeDiacritics } from "@/utils/remove-diacritics"
 
-// Built only from language-independent fields, so the citation is the same whatever the display language
 export class CitationGenerator {
   private publication: Publication
 
