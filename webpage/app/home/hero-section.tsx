@@ -20,7 +20,7 @@ export function HeroSection({ personalInfo }: HeroSectionProps) {
   const t = useTranslation()
 
   // If navigating back to home (vs. fresh load), start content visible immediately
-  const [contentVisible, setContentVisible] = useState(() => skipHeroAnimation)
+  const [contentVisible, setContentVisible] = useState(skipHeroAnimation)
 
   const displayName = personalInfo.name.split(" ").slice(0, 2).join(" ")
 
