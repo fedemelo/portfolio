@@ -53,7 +53,7 @@ const localizeOrganization = (organization: Organization, language: LanguageCode
   name: getOrgName(organization, language),
 })
 
-// Anchors come from the English title so shared links open the same entry in every language, and links shared before the site was translated keep working
+// Anchors come from the English title so a shared link opens the same entry in every language
 const toAnchor = (englishTitle: string): string => generateSlug(englishTitle)
 
 // Education references awards by their English title; the website needs the title it renders to show it, and the award's anchor to link to it
