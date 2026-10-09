@@ -75,7 +75,7 @@ const convertEducation = (data: typeof EDUCATION, language: LanguageCode): Educa
     anchor: toAnchor(item.degree.en),
     organization: localizeOrganization(item.organization, language),
     relatedAwards: item.relatedAwardTitles?.map(title => toAwardReference(title, language)),
-    details: item.details?.filter(d => d.showInResume !== false).map(detail => getCVText(detail, language)),
+    details: item.details?.filter(d => d.showInWebsite !== false).map(detail => getCVText(detail, language)),
     startDate: dateToString(item.startDate),
     graduationDate: dateToString(item.graduationDate),
     trueEndDate: dateToString(item.trueEndDate),
