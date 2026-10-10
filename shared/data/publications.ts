@@ -23,6 +23,9 @@ export const PUBLICATIONS: Publication[] = [
       en: {
         full: "Proceedings of the World Engineering Education Forum (WEEF 2026)",
       },
+      es: {
+        full: "Memorias del World Engineering Education Forum (WEEF 2026)",
+      },
     },
     institution: "IFEES & GEDC",
     note: {
@@ -57,7 +60,8 @@ export const PUBLICATIONS: Publication[] = [
     institution: "Universidad de los Andes",
     url: "https://repositorio.uniandes.edu.co/entities/publication/26656ec1-50e7-42cd-976c-1cc0194beb5a",
     linkText: {
-      en: "Uniandes Repository"
+      en: "Uniandes Repository",
+      es: "Repositorio de Uniandes"
     },
     ...UNIANDES,
   },

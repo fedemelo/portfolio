@@ -128,5 +128,138 @@ const en = {
   },
 } as const
 
-// Spanish stays off until its translations are reviewed, so it reuses the English text for now
-export const translations = { en, es: en }
+const es = {
+  locale: "es-CO",
+  nav: {
+    experience: "Experiencia",
+    education: "Formación",
+    teaching: "Docencia",
+    menuTitle: "Navegación",
+    menuDescription: "Vaya a las distintas secciones del sitio",
+  },
+  hero: {
+    subtitle: "Trabajo en IA aplicada y de a ratos enseño algoritmos.",
+    descriptionPrefix: "Ingeniero de software en",
+    descriptionConjunction: ", profesor de cátedra en la",
+    recruiterCta: "Soy reclutador",
+    studentCta: "Soy estudiante",
+    email: "Correo",
+  },
+  languageSwitchToast: {
+    message: "Cambiamos el sitio a español.",
+    // Stays in English: whoever needs this button may not read Spanish
+    switchBack: "Back to English",
+  },
+  pages: {
+    workExperience: {
+      title: "Experiencia laboral",
+    },
+    education: {
+      title: "Formación",
+      gpa: "Promedio",
+      awardReferences: "Distinciones y premios",
+    },
+    awards: {
+      title: "Premios y reconocimientos",
+      subtitle: "Distinciones, logros y reconocimientos recibidos a lo largo de mi trayectoria académica y profesional.",
+    },
+    teaching: {
+      title: "Docencia",
+      undergraduateSection: "Experiencia durante el pregrado",
+      losEstudiantesTooltip: "Ver reseñas de estudiantes en Los Estudiantes",
+      losEstudiantesPrompt: "¿Soy el profesor indicado para usted? Vea mis reseñas:",
+      evaluationsButton: "Evaluaciones de estudiantes",
+      evaluationsTooltip: "Descargar el reporte oficial de evaluación de estudiantes",
+      credits: "créditos",
+    },
+    publications: {
+      title: "Publicaciones",
+      subtitle: "Artículos de investigación y aportes académicos.",
+      pdfTooltip: "Descargar PDF",
+      viewOnlineTooltip: "Ver la publicación en línea",
+      defaultLinkText: "DOI/Sitio",
+    },
+    course: {
+      teachingExperiences: "Experiencia docente",
+      topicsCovered: "Temas del curso",
+      notFoundTitle: "Curso no encontrado",
+      notFoundDescription: "El curso que busca no existe o fue retirado.",
+      backToTeaching: "Volver a Docencia",
+    },
+  },
+  citation: {
+    cite: "Citar",
+    citeTooltip: "Generar la cita en BibTeX",
+    dialogDescription: "Copie o descargue la cita en BibTeX de esta publicación",
+    bibTeXLabel: "Cita en BibTeX:",
+    copy: "Copiar",
+    copyTooltip: "Copiar la cita en BibTeX al portapapeles",
+    download: "Descargar",
+    downloadTooltip: "Descargar el archivo BibTeX de la cita",
+    copiedTitle: "Copiada al portapapeles",
+    copiedDescription: "La cita en BibTeX se copió correctamente",
+    copyFailedTitle: "No se pudo copiar",
+    copyFailedDescription: "No fue posible copiar al portapapeles",
+    downloadedTitle: "Descargado",
+    downloadedDescription: "El archivo BibTeX se descargó correctamente",
+  },
+  credentials: {
+    title: "Credenciales y fotos",
+    diploma: "Diploma",
+    certificate: "Certificado",
+    photo: "Foto",
+  },
+  lightbox: {
+    previous: "Imagen anterior",
+    next: "Imagen siguiente",
+    imageOf: (index: number, total: number) => `Imagen ${index} de ${total}`,
+  },
+  itemNames: {
+    personalInfo: "información personal",
+    workExperience: "experiencia laboral",
+    education: "formación",
+    awards: "premios",
+    publications: "publicaciones",
+    teaching: "experiencia docente",
+    professionalTeaching: "experiencia docente profesional",
+    undergraduateTeaching: "experiencia docente durante el pregrado",
+  },
+  states: {
+    errorLoading: (itemName: string, error: string) => `Error al cargar ${itemName}: ${error}`,
+    noItems: (itemName: string) => `Por ahora no hay ${itemName} para mostrar.`,
+  },
+  workModes: {
+    remote: "remoto",
+    onsite: "presencial",
+    hybrid: "híbrido",
+  },
+  employmentTypes: {
+    "full-time": "tiempo completo",
+    "part-time": "medio tiempo",
+    contract: "contrato",
+    internship: "práctica",
+  },
+  semesters: {
+    Spring: "1.er semestre",
+    Summer: "Intersemestral",
+    Fall: "2.º semestre",
+  },
+  countries: {
+    USA: "EE. UU.",
+    Canada: "Canadá",
+    Colombia: "Colombia",
+  },
+  common: {
+    cv: "CV",
+    resume: "Hoja de vida",
+    viewCvTooltip: "Ver mi CV en línea",
+    viewResumeTooltip: "Ver mi hoja de vida en línea",
+    present: "Actualidad",
+    supervisor: "Supervisor",
+    close: "Cerrar",
+    toggleTheme: "Cambiar tema",
+    organizationLogo: (organizationName: string) => `Logo de ${organizationName}`,
+  },
+} as const
+
+export const translations = { en, es }

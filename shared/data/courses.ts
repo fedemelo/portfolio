@@ -18,6 +18,9 @@ export const COURSES: Course[] = [
       en: {
         full: "Core upper-division undergraduate course covering dynamic programming, graph algorithms (shortest paths, flows, matching), computational complexity and P vs NP, as well as approximation, randomized, and probabilistic algorithms",
       },
+      es: {
+        full: "Curso obligatorio de pregrado de nivel avanzado sobre programación dinámica, algoritmos sobre grafos (caminos más cortos, flujos, emparejamientos), complejidad computacional y P vs. NP, además de algoritmos de aproximación, aleatorizados y probabilísticos",
+      },
     },
       teachingIds: ["isis-2112-2026-20-lecturer"],
       showInCV: true,
@@ -41,6 +44,9 @@ export const COURSES: Course[] = [
     description: {
       en: {
         full: "Fundamental course covering core procedural programming concepts including control flow, functions, data structures, matrix operations, and Python libraries (e.g., matplotlib, pandas)",
+      },
+      es: {
+        full: "Curso fundamental sobre los conceptos básicos de la programación procedimental, como flujo de control, funciones, estructuras de datos, operaciones con matrices y librerías de Python (p. ej., matplotlib, pandas)",
       },
     },
     teachingIds: ["isis-1221-2025-20-lecturer", "isis-1221-2021-10-ta"],
@@ -66,6 +72,9 @@ export const COURSES: Course[] = [
       en: {
         full: "University programming support center providing tutoring for students learning programming",
       },
+      es: {
+        full: "Centro de apoyo en programación de la universidad, que ofrece tutorías a los estudiantes que están aprendiendo a programar",
+      },
     },
     teachingIds: ["vice-3001-2022-2024-assistant"],
     hasPage: false,
@@ -89,6 +98,9 @@ export const COURSES: Course[] = [
     description: {
       en: {
         full: "University programming support center providing tutoring for students learning programming",
+      },
+      es: {
+        full: "Centro de apoyo en programación de la universidad, que ofrece tutorías a los estudiantes que están aprendiendo a programar",
       },
     },
     teachingIds: ["isis-1211-2022-10-tutor"],
@@ -114,6 +126,9 @@ export const COURSES: Course[] = [
       en: {
         full: "Advanced calculus course covering partial derivatives, double and triple integrals, line and surface integrals, vector fields, curl and divergence calculations, and the fundamental theorems (Green's, Stokes', and Gauss')",
       },
+      es: {
+        full: "Curso de cálculo avanzado sobre derivadas parciales, integrales dobles y triples, integrales de línea y de superficie, campos vectoriales, cálculo de rotacional y divergencia, y los teoremas fundamentales (de Green, de Stokes y de Gauss)",
+      },
     },
     teachingIds: ["mate-1207-2024-19-ta"],
     hasPage: false,
@@ -137,6 +152,9 @@ export const COURSES: Course[] = [
     description: {
       en: {
         full: "Fundamental calculus course covering limits, derivatives, and basic integrals, including applications to optimization problems, area between curves, and volumes of solids",
+      },
+      es: {
+        full: "Curso fundamental de cálculo sobre límites, derivadas e integrales básicas, con aplicaciones a problemas de optimización, área entre curvas y volúmenes de sólidos",
       },
     },
     teachingIds: ["mate-1203-2021-10-ta"],

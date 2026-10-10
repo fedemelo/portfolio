@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import { ArrowRight } from "lucide-react"
 import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
 import { useNavigateWithSlide } from "@/hooks/useNavigateWithSlide"
+import { useSwitchToSpanishWithUndo } from "@/hooks/useSwitchToSpanishWithUndo"
 import type { PersonalInfo } from "@/types"
 import { useTranslation } from "@/hooks/useTranslation"
 import { HeroDescription } from "./hero-description"
@@ -71,6 +72,7 @@ export function HeroSection({ personalInfo }: HeroSectionProps) {
 
 function AudienceCtas({ visible }: { visible: boolean }) {
   const navigate = useNavigateWithSlide()
+  const switchToSpanish = useSwitchToSpanishWithUndo()
   const t = useTranslation()
 
   return (
@@ -82,7 +84,7 @@ function AudienceCtas({ visible }: { visible: boolean }) {
       }`}
     >
       <AudienceCta label={t.hero.recruiterCta} onClick={() => navigate("/work-experience")} />
-      <AudienceCta label={t.hero.studentCta} onClick={() => navigate("/teaching")} />
+      <AudienceCta label={t.hero.studentCta} onClick={() => { switchToSpanish(); navigate("/teaching") }} />
     </div>
   )
 }
