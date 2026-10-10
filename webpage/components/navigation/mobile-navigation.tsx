@@ -5,7 +5,8 @@ import { Menu } from "lucide-react"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { navigationItems } from "./navigation-items"
-import { useNavigationAnimation } from "@/contexts/navigation-animation-context"
+import { useSlideLinkClick } from "@/hooks/useNavigateWithSlide"
+import { useTranslation } from "@/hooks/useTranslation"
 import {
   Sheet,
   SheetContent,
@@ -17,27 +18,26 @@ import {
 
 export function MobileNavigation() {
   const pathname = usePathname()
-  const { setNavigatedInternally } = useNavigationAnimation()
+  const followLink = useSlideLinkClick()
+  const t = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
 
-  const handleNavigationClick = () => {
-    setNavigatedInternally()
-    setIsOpen(false) // Close the sheet
+  const handleNavigationClick = (e: React.MouseEvent, href: string) => {
+    setIsOpen(false)
+    followLink(e, href)
   }
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild>
-        <button className="md:hidden p-2">
-          <Menu className="h-6 w-6" />
+        <button className="md:hidden">
+          <Menu className="h-5 w-5" />
         </button>
       </SheetTrigger>
       <SheetContent side="left" className="w-[300px] sm:w-[400px]">
         <SheetHeader>
-          <SheetTitle>Navigation Menu</SheetTitle>
-          <SheetDescription>
-            Navigate to different sections
-          </SheetDescription>
+          <SheetTitle>{t.nav.menuTitle}</SheetTitle>
+          <SheetDescription>{t.nav.menuDescription}</SheetDescription>
         </SheetHeader>
         <nav className="flex flex-col gap-4 mt-8">
           {navigationItems.map((item) => (
@@ -45,17 +45,15 @@ export function MobileNavigation() {
               key={item.href}
               href={item.href}
               className={`text-sm font-medium transition-colors hover:text-primary ${
-                pathname === item.href
-                  ? "text-primary"
-                  : "text-muted-foreground"
+                pathname === item.href ? "text-primary" : "text-muted-foreground"
               }`}
-              onClick={handleNavigationClick}
+              onClick={(e) => handleNavigationClick(e, item.href)}
             >
-              {item.label}
+              {t.nav[item.translationKey]}
             </Link>
           ))}
         </nav>
       </SheetContent>
     </Sheet>
   )
-} 
+}

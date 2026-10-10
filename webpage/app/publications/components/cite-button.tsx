@@ -14,6 +14,7 @@ import {
 import type { Publication } from "@/types"
 import { CitationDisplay } from "./citation-display"
 import { CitationActions } from "./citation-actions"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface CiteButtonProps {
   publication: Publication
@@ -21,22 +22,23 @@ interface CiteButtonProps {
 
 export function CiteButton({ publication }: CiteButtonProps) {
   const [isOpen, setIsOpen] = useState(false)
+  const t = useTranslation()
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <GreenButton asChild tooltip="Generate BibTeX citation">
+        <GreenButton asChild tooltip={t.citation.citeTooltip}>
           <button className="flex items-center">
             <SiLatex className="h-4 w-4" />
-            Cite
+            {t.citation.cite}
           </button>
         </GreenButton>
       </DialogTrigger>
       <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Cite</DialogTitle>
+          <DialogTitle>{t.citation.cite}</DialogTitle>
           <DialogDescription>
-            Copy or download the BibTeX citation for this publication
+            {t.citation.dialogDescription}
           </DialogDescription>
         </DialogHeader>
         

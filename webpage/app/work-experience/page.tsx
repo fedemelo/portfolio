@@ -7,30 +7,30 @@ import { ExperienceLoadingSkeleton } from "./components/experience-loading-skele
 import { PageHeader } from "@/components/page-header"
 import { TimelineLayout } from "@/components/timeline-layout"
 import { OrganizationIcon } from "@/components/organization-icon"
-import { generateSlug } from "@/utils/slug"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export default function WorkExperiencePage() {
   const { data: experiences, loading, error } = useWorkExperience()
   const targetHash = useHashNavigation()
+  const t = useTranslation()
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
-      <PageHeader title="Work Experience" downloadButtons />
+      <PageHeader title={t.pages.workExperience.title} downloadButtons />
       <TimelineLayout
         items={experiences}
         loading={loading}
         error={error}
         renderItem={(experience) => {
-          const slug = generateSlug(experience.title)
-          const shouldExpand = slug === targetHash
+          const shouldExpand = experience.anchor === targetHash
           return <ExperienceItem experience={experience} defaultExpanded={shouldExpand} />
         }}
         getIcon={(experience) => (
           <OrganizationIcon organization={experience.organization} />
         )}
         LoadingSkeleton={ExperienceLoadingSkeleton}
-        pageName="work experience"
-        itemName="work experience"
+        pageName={t.itemNames.workExperience}
+        itemName={t.itemNames.workExperience}
       />
     </div>
   )

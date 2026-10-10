@@ -2,6 +2,7 @@ import type { Course, Teaching } from "@/types"
 import { TimelineLayout } from "@/components/timeline-layout"
 import { OrganizationIcon } from "@/components/organization-icon"
 import { TeachingItem } from "@/app/teaching/components/teaching-item"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface CourseTeachingTimelineProps {
   course: Course
@@ -9,9 +10,11 @@ interface CourseTeachingTimelineProps {
 }
 
 export function CourseTeachingTimeline({ course, teachings }: CourseTeachingTimelineProps) {
+  const t = useTranslation()
+
   return (
     <div className="space-y-4">
-      <h2 className="text-2xl font-bold">Teaching Experiences</h2>
+      <h2 className="text-2xl font-bold">{t.pages.course.teachingExperiences}</h2>
       <TimelineLayout
         items={teachings}
         loading={false}
@@ -23,7 +26,7 @@ export function CourseTeachingTimeline({ course, teachings }: CourseTeachingTime
         )}
         LoadingSkeleton={TeachingTimelineSkeleton}
         pageName={course.name}
-        itemName="teaching experience"
+        itemName={t.itemNames.teaching}
       />
     </div>
   )

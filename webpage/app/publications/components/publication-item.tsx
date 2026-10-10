@@ -3,7 +3,6 @@ import { formatAuthors } from "../utils"
 import { PublicationButtons } from "./publication-buttons"
 import { FileText } from "lucide-react"
 import { AccordionItem } from "@/components/accordion-item"
-import { generateSlug } from "@/utils/slug"
 
 interface PublicationItemProps {
   publication: Publication
@@ -11,11 +10,9 @@ interface PublicationItemProps {
 }
 
 export function PublicationItem({ publication, defaultExpanded }: PublicationItemProps) {
-  const slug = generateSlug(publication.title)
-
   return (
     <AccordionItem
-      id={slug}
+      id={publication.anchor}
       defaultExpanded={defaultExpanded}
       header={
         <div className="flex items-start gap-3">

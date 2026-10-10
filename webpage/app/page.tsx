@@ -1,29 +1,19 @@
 "use client"
 
 import { usePersonalInfo } from "@/hooks/useApiData"
-import { useBreakpoint } from "@/hooks/use-breakpoint"
-import { HeroSection, MobileQuickNavigation, DesktopQuickNavigation } from "./home"
-import { HomeLoadingSkeleton } from "./home/home-loading-skeleton"
+import { HeroSection } from "./home"
 import { Error } from "@/components/error"
 import { NoItemsAvailable } from "@/components/no-items-available"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export default function HomePage() {
   const { data: personalInfo, loading, error } = usePersonalInfo()
-  const usePhoneAnimation = useBreakpoint(1024)
+  const t = useTranslation()
 
-  if (loading)return <HomeLoadingSkeleton />
+  // Blank rather than a skeleton: the hero has its own reveal, and a skeleton flashing before it looks broken
+  if (loading) return null
+  if (error) return <Error pageName={t.itemNames.personalInfo} error={error} />
+  if (!personalInfo || personalInfo.length === 0) return <NoItemsAvailable itemName={t.itemNames.personalInfo} />
 
-  if (error) return <Error pageName="personal information" error={error} />
-
-  if (!personalInfo || personalInfo.length === 0) return <NoItemsAvailable itemName="personal information" />
-
-  const info = personalInfo[0]
-  return (
-    <div className="max-w-4xl mx-auto">
-      <div className="space-y-8">
-        <HeroSection personalInfo={info} />
-        {usePhoneAnimation ? <MobileQuickNavigation /> : <DesktopQuickNavigation />}
-      </div>
-    </div>
-  )
+  return <HeroSection personalInfo={personalInfo[0]} />
 }

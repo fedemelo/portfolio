@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import { notFound } from "next/navigation"
 import type { Course, Teaching } from "@/types"
 import { apiClient } from "@/services/api"
+import { useLanguage } from "@/contexts/language-context"
 
 const sortTeachingsByDate = (teachings: Teaching[]) => 
   teachings.sort((a, b) => {
@@ -16,13 +17,14 @@ export function useCourseData(slug: string) {
   const [course, setCourse] = useState<Course | null>(null)
   const [teachings, setTeachings] = useState<Teaching[]>([])
   const [loading, setLoading] = useState(true)
+  const { language } = useLanguage()
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true)
         
-        const courses = await apiClient.getCourses()
+        const courses = await apiClient.getCourses(language)
         const foundCourse = courses.find(c => c.slug === slug)
         
         if (!foundCourse || !foundCourse.hasPage) {
@@ -31,7 +33,7 @@ export function useCourseData(slug: string) {
         
         setCourse(foundCourse)
         
-        const allTeachings = await apiClient.getTeaching()
+        const allTeachings = await apiClient.getTeaching(language)
         const relatedTeachings = allTeachings.filter(t => 
           foundCourse.teachingIds.includes(t.id)
         )
@@ -45,7 +47,7 @@ export function useCourseData(slug: string) {
     }
 
     fetchData()
-  }, [slug])
+  }, [slug, language])
 
   return { course, teachings, loading }
 }

@@ -4,15 +4,14 @@ import { Organization } from "./organization"
 
 export interface WorkExperience extends Location, Hideable {
   title: string
+  anchor: string
   team?: string
   squad?: string
   organization: Organization
   startDate: string
   endDate?: string
-  description: string
   technologies: string[]
-  responsibilities: string[]
-  achievements?: string[]
+  details?: string[]
   workMode: 'remote' | 'onsite' | 'hybrid'
   employmentType: 'full-time' | 'part-time' | 'contract' | 'internship'
   isCurrent?: boolean

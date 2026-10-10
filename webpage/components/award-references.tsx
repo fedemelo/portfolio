@@ -1,38 +1,37 @@
 "use client"
 
 import { Trophy, ExternalLink } from "lucide-react"
-import Link from "next/link"
-import { generateSlug } from "@/utils/slug"
+import { useTranslation } from "@/hooks/useTranslation"
+import type { AwardReference } from "@/types"
 
 interface AwardReferencesProps {
-  awardTitles: string[]
+  awards: AwardReference[]
 }
 
-export function AwardReferences({ awardTitles }: AwardReferencesProps) {
-  if (!awardTitles || awardTitles.length === 0) return null
+export function AwardReferences({ awards }: AwardReferencesProps) {
+  const t = useTranslation()
 
-  const awardCounts = awardTitles.reduce((acc, title) => {
-    acc[title] = (acc[title] || 0) + 1
+  if (!awards || awards.length === 0) return null
+
+  const uniqueAwards = awards.reduce((acc, award) => {
+    const existing = acc.find(unique => unique.anchor === award.anchor)
+    if (existing) existing.count++
+    else acc.push({ ...award, count: 1 })
     return acc
-  }, {} as Record<string, number>)
-
-  const uniqueAwards = Object.entries(awardCounts).map(([title, count]) => ({
-    title,
-    count,
-  }))
+  }, [] as (AwardReference & { count: number })[])
 
   return (
     <div className="mt-4 pt-4 border-t">
       <h4 className="text-sm font-medium text-muted-foreground mb-3">
-        Honors & Awards ({awardTitles.length})
+        {t.pages.education.awardReferences} ({awards.length})
       </h4>
       <div className="flex flex-wrap gap-2">
-        {uniqueAwards.map(({ title, count }) => {
-          const slug = generateSlug(title)
+        {uniqueAwards.map(({ title, anchor, count }) => {
+          // A plain same-page hash link fires hashchange, which Next's Link does not
           return (
-            <Link
-              key={title}
-              href={`/awards#${slug}`}
+            <a
+              key={anchor}
+              href={`#${anchor}`}
               className="group flex items-center gap-2 px-3 py-2 rounded-lg border border-border bg-background hover:border-primary hover:bg-primary/5 transition-all duration-200"
               onClick={(e) => {
                 e.stopPropagation()
@@ -46,7 +45,7 @@ export function AwardReferences({ awardTitles }: AwardReferencesProps) {
                 </span>
               )}
               <ExternalLink className="h-3.5 w-3.5 text-muted-foreground group-hover:text-primary flex-shrink-0 transition-colors" />
-            </Link>
+            </a>
           )
         })}
       </div>

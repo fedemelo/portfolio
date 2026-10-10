@@ -7,7 +7,7 @@ export function DescriptionAndBullets({ description, achievements }: { descripti
 
   return (
     <div className="space-y-1">
-      <p className="leading-relaxed text-justify">{description}</p>
+      {description && <p className="leading-relaxed text-justify">{description}</p>}
 
       {hasAchievements && (
         <div className="space-y-2">

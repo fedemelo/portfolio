@@ -62,5 +62,6 @@ export const EDUCATION: Education[] = [
     ],
     showInCV: false,
     showInResume: false,
+    showInWebsite: false,
   },
 ];

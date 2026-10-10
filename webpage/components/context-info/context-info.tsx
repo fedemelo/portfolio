@@ -2,7 +2,8 @@ import { Calendar, MapPin, Building2, Users, User, ExternalLink } from "lucide-r
 import Link from "next/link"
 import type { Location, Organization } from "@/types"
 import { getOrgName } from "@/types/organization"
-import { formatDate } from "@/utils/date"
+import { formatDate, formatDateRange } from "@/utils/date"
+import { useTranslation } from "@/hooks/useTranslation"
 
 export function ContextInfo({
   date,
@@ -53,20 +54,25 @@ export function ContextInfo({
 
 
 function SingleDateDisplay({ date }: { date: string | Date | number }) {
+  const t = useTranslation()
+
   return (
     <div className="flex items-center">
       <Calendar className="mr-1 h-4 w-4" />
-      {typeof date === "number" ? date : formatDate(date)}
+      {typeof date === "number" ? date : formatDate(date, t.locale)}
     </div>
   )
 }
 
 function DateRangeDisplay({ startDate, endDate }: { startDate: string | Date | number, endDate?: string | Date | number }) {
+  const t = useTranslation()
+
   return (
     <div className="flex items-center">
       <Calendar className="mr-1 h-4 w-4" />
-      {typeof startDate === "number" ? startDate : formatDate(startDate)}
-      {endDate ? ` - ${typeof endDate === "number" ? endDate : formatDate(endDate)}` : " - Present"}
+      {typeof startDate === "number" || typeof endDate === "number"
+        ? `${startDate} - ${endDate ?? t.common.present}`
+        : formatDateRange(startDate, endDate, t.locale, t.common.present)}
     </div>
   )
 }
@@ -81,12 +87,15 @@ function PeriodDisplay({ period }: { period: string }) {
 }
 
 function LocationDisplay({ location }: { location: Location }) {
+  const t = useTranslation()
+  const countries: Readonly<Record<string, string>> = t.countries
+
   return (
     <div className="flex items-center">
       <MapPin className="mr-1 h-4 w-4" />
       {location.city && `${location.city}, `}
       {location.state && `${location.state}, `}
-      {location.country && `${location.country}`}
+      {location.country && `${countries[location.country] ?? location.country}`}
     </div>
   )
 }
@@ -130,10 +139,12 @@ function DepartmentDisplay({ department }: { department: string }) {
 }
 
 function SupervisorDisplay({ supervisor }: { supervisor: string }) {
+  const t = useTranslation()
+
   return (
     <div className="flex items-center">
       <User className="mr-1 h-4 w-4" />
-      Supervisor: {supervisor}
+      {t.common.supervisor}: {supervisor}
     </div>
   )
 }

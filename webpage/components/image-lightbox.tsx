@@ -3,6 +3,7 @@
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import Image from "next/image"
 import { useEffect } from "react"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface ImageLightboxProps {
   images: string[]
@@ -12,6 +13,8 @@ interface ImageLightboxProps {
 }
 
 export function ImageLightbox({ images, currentIndex, onClose, onNavigate }: ImageLightboxProps) {
+  const t = useTranslation()
+
   const handlePrevious = () => {
     onNavigate(currentIndex === 0 ? images.length - 1 : currentIndex - 1)
   }
@@ -39,7 +42,7 @@ export function ImageLightbox({ images, currentIndex, onClose, onNavigate }: Ima
       <button
         className="absolute top-4 right-4 p-2 text-white hover:bg-white/10 rounded-full transition-colors"
         onClick={onClose}
-        aria-label="Close"
+        aria-label={t.common.close}
       >
         <X className="h-6 w-6" />
       </button>
@@ -52,7 +55,7 @@ export function ImageLightbox({ images, currentIndex, onClose, onNavigate }: Ima
               e.stopPropagation()
               handlePrevious()
             }}
-            aria-label="Previous image"
+            aria-label={t.lightbox.previous}
           >
             <ChevronLeft className="h-8 w-8" />
           </button>
@@ -63,7 +66,7 @@ export function ImageLightbox({ images, currentIndex, onClose, onNavigate }: Ima
               e.stopPropagation()
               handleNext()
             }}
-            aria-label="Next image"
+            aria-label={t.lightbox.next}
           >
             <ChevronRight className="h-8 w-8" />
           </button>
@@ -76,7 +79,7 @@ export function ImageLightbox({ images, currentIndex, onClose, onNavigate }: Ima
       >
         <Image
           src={images[currentIndex]}
-          alt={`Image ${currentIndex + 1} of ${images.length}`}
+          alt={t.lightbox.imageOf(currentIndex + 1, images.length)}
           width={1200}
           height={800}
           className="object-contain max-h-[90vh] w-auto h-auto"

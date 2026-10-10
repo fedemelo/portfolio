@@ -10,10 +10,11 @@ export function useHashNavigation() {
   const [targetHash, setTargetHash] = useState<string | null>(null)
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1)
-    if (hash) {
+    const followHash = () => {
+      const hash = window.location.hash.slice(1)
+      if (!hash) return
       setTargetHash(hash)
-      
+
       setTimeout(() => {
         const element = document.getElementById(hash)
         if (element) {
@@ -21,6 +22,10 @@ export function useHashNavigation() {
         }
       }, 100)  // Small delay to ensure DOM is ready
     }
+
+    followHash()
+    window.addEventListener('hashchange', followHash)
+    return () => window.removeEventListener('hashchange', followHash)
   }, [])
 
   return targetHash

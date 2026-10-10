@@ -8,8 +8,14 @@ export interface AwardInstance {
   images?: string[]
 }
 
+export interface AwardReference {
+  title: string
+  anchor: string
+}
+
 export interface Award extends Location {
   title: string
+  anchor: string
   description: string
   organization: Organization
   date?: string
