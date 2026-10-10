@@ -145,23 +145,6 @@ const es = {
     studentCta: "Soy estudiante",
     email: "Correo",
   },
-  recruiter: {
-    title: "En qué estoy trabajando",
-    industryType: "Industria",
-    industryRole: "Ingeniero de software",
-    industryOrg: "Canals AI",
-    industryDescription: "Construyendo el pipeline de parsing.",
-    academicType: "Academia",
-    academicRole: "Profesor de cátedra",
-    academicOrg: "Universidad de los Andes",
-    academicDescription: "Enseñando ingeniería de software.",
-    workExperience: "Experiencia laboral",
-    education: "Formación",
-  },
-  student: {
-    title: "Recursos para estudiantes",
-    placeholder: "Próximamente: material de los cursos.",
-  },
   languageSwitchToast: {
     message: "Cambiamos el sitio a español.",
     // Stays in English: whoever needs this button may not read Spanish
