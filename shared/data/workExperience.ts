@@ -42,11 +42,6 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
         en: {
           full: "Co-built an autonomous agent (Claude Agent SDK) that polled tickets, debugged parsing failures, and shipped prompt-level fixes for review, re-parsing each order to verify its own fix",
         }
-      },
-      {
-        en: {
-          full: "One of 4 engineers on the 10-person Parsing team (~60 engineers total) holding merge approval rights on the main branch."
-        }
       }
     ],
     technologies: [
