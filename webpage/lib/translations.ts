@@ -1,0 +1,132 @@
+const en = {
+  locale: "en-US",
+  nav: {
+    experience: "Experience",
+    education: "Education",
+    teaching: "Teaching",
+    menuTitle: "Navigation",
+    menuDescription: "Navigate to different sections",
+  },
+  hero: {
+    subtitle: "I work on applied AI and teach algorithms on the side.",
+    descriptionPrefix: "Software engineer at",
+    descriptionConjunction: ", adjunct professor at",
+    recruiterCta: "I'm a recruiter",
+    studentCta: "I'm a student",
+    email: "Email",
+  },
+  pages: {
+    workExperience: {
+      title: "Work Experience",
+    },
+    education: {
+      title: "Education",
+      gpa: "GPA",
+      awardReferences: "Honors & Awards",
+    },
+    awards: {
+      title: "Awards & Recognition",
+      subtitle: "Honors, achievements, and recognition received throughout my academic and professional career.",
+    },
+    teaching: {
+      title: "Teaching",
+      undergraduateSection: "Undergraduate Experience",
+      losEstudiantesTooltip: "View student reviews on Los Estudiantes",
+      losEstudiantesPrompt: "Am I the right professor for you? See my reviews:",
+      evaluationsButton: "Student Evaluations",
+      evaluationsTooltip: "Download official student evaluation report",
+      credits: "credits",
+    },
+    publications: {
+      title: "Publications",
+      subtitle: "Research papers and academic contributions.",
+      pdfTooltip: "Download PDF",
+      viewOnlineTooltip: "View publication online",
+      defaultLinkText: "DOI/Site",
+    },
+    course: {
+      teachingExperiences: "Teaching Experiences",
+      topicsCovered: "Topics Covered",
+      notFoundTitle: "Course Not Found",
+      notFoundDescription: "The course you're looking for doesn't exist or has been removed.",
+      backToTeaching: "Back to Teaching",
+    },
+  },
+  citation: {
+    cite: "Cite",
+    citeTooltip: "Generate BibTeX citation",
+    dialogDescription: "Copy or download the BibTeX citation for this publication",
+    bibTeXLabel: "BibTeX Citation:",
+    copy: "Copy",
+    copyTooltip: "Copy BibTeX citation to clipboard",
+    download: "Download",
+    downloadTooltip: "Download BibTeX citation file",
+    copiedTitle: "Copied to clipboard",
+    copiedDescription: "BibTeX citation copied successfully",
+    copyFailedTitle: "Failed to copy",
+    copyFailedDescription: "Could not copy to clipboard",
+    downloadedTitle: "Downloaded",
+    downloadedDescription: "BibTeX file downloaded successfully",
+  },
+  credentials: {
+    title: "Credentials & Photos",
+    diploma: "Diploma",
+    certificate: "Certificate",
+    photo: "Photo",
+  },
+  lightbox: {
+    previous: "Previous image",
+    next: "Next image",
+    imageOf: (index: number, total: number) => `Image ${index} of ${total}`,
+  },
+  itemNames: {
+    personalInfo: "personal information",
+    workExperience: "work experience",
+    education: "education",
+    awards: "awards",
+    publications: "publications",
+    teaching: "teaching experience",
+    professionalTeaching: "professional teaching experience",
+    undergraduateTeaching: "undergraduate teaching experience",
+  },
+  states: {
+    errorLoading: (itemName: string, error: string) => `Error loading ${itemName}: ${error}`,
+    noItems: (itemName: string) => `No ${itemName} available at the moment.`,
+  },
+  // Keys are the values stored in the data, so English renders them unchanged
+  workModes: {
+    remote: "remote",
+    onsite: "onsite",
+    hybrid: "hybrid",
+  },
+  employmentTypes: {
+    "full-time": "full-time",
+    "part-time": "part-time",
+    contract: "contract",
+    internship: "internship",
+  },
+  semesters: {
+    Spring: "Spring",
+    Summer: "Summer",
+    Fall: "Fall",
+  },
+  countries: {
+    USA: "USA",
+    Canada: "Canada",
+    Colombia: "Colombia",
+  },
+  common: {
+    cv: "CV",
+    resume: "Résumé",
+    viewCvTooltip: "View my CV online",
+    viewResumeTooltip: "View my résumé online",
+    present: "Present",
+    supervisor: "Supervisor",
+    close: "Close",
+    toggleTheme: "Toggle theme",
+    organizationLogo: (organizationName: string) => `${organizationName} logo`,
+  },
+} as const
+
+// Spanish stays off until its translations are reviewed, so it reuses the English text for now
+export const translations = { en, es: en }

@@ -5,6 +5,7 @@ export const PUBLICATIONS: Publication[] = [
   {
     showInCV: true,
     showInResume: true,
+    type: "conferencePaper",
     title: {
       en: "Centralizing the Student Lens: Design and Evaluation of a Learning Analytics Dashboard for Academic Advising in Higher Education",
     },
@@ -34,6 +35,7 @@ export const PUBLICATIONS: Publication[] = [
   {
     showInCV: true,
     showInResume: true,
+    type: "undergraduateThesis",
     title: {
       en: "Desarrollo del Perfil del estudiante dentro de No estás solo"
     },

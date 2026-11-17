@@ -6,9 +6,9 @@ import { HeaderSubheaderWithIcon } from "@/components/header-subheader-with-icon
 import { AccordionItem } from "@/components/accordion-item"
 import { CredentialGallery } from "@/components/credential-gallery"
 import { AwardReferences } from "@/components/award-references"
-import { generateSlug } from "@/utils/slug"
 import { formatDate } from "@/utils/date"
 import { getOrgName } from "@/types/organization"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface EducationItemProps {
   education: Education
@@ -16,16 +16,15 @@ interface EducationItemProps {
 }
 
 export function EducationItem({ education, defaultExpanded }: EducationItemProps) {
+  const t = useTranslation()
   const endDate = education.trueEndDate || education.graduationDate
   const dateRange = endDate
-    ? `${education.startDate ? formatDate(education.startDate) + ' - ' : ''}${formatDate(endDate)}`
-    : education.startDate ? formatDate(education.startDate) : ''
-
-  const slug = generateSlug(education.degree)
+    ? `${education.startDate ? formatDate(education.startDate, t.locale) + ' - ' : ''}${formatDate(endDate, t.locale)}`
+    : education.startDate ? formatDate(education.startDate, t.locale) : ''
 
   return (
     <AccordionItem
-      id={slug}
+      id={education.anchor}
       defaultExpanded={defaultExpanded}
       header={
         <div className="space-y-1">
@@ -55,7 +54,7 @@ export function EducationItem({ education, defaultExpanded }: EducationItemProps
 
         <DescriptionAndBullets achievements={education.details} />
 
-        <AwardReferences awardTitles={education.relatedAwardTitles || []} />
+        <AwardReferences awards={education.relatedAwards || []} />
 
         <CredentialGallery
           type="education"
@@ -69,12 +68,14 @@ export function EducationItem({ education, defaultExpanded }: EducationItemProps
 }
 
 function EducationDetails({ gpa }: { gpa?: string }) {
+  const t = useTranslation()
+
   if (!gpa) return null
 
   return (
     <div className="flex flex-col items-start md:items-end gap-2 text-sm">
       <div className="flex items-center gap-2">
-        <span className="text-muted-foreground">GPA:</span>
+        <span className="text-muted-foreground">{t.pages.education.gpa}:</span>
         <span className="font-medium">{gpa}</span>
       </div>
     </div>

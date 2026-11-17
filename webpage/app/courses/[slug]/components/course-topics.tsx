@@ -1,13 +1,17 @@
+import { useTranslation } from "@/hooks/useTranslation"
+
 interface CourseTopicsProps {
   topics?: string[]
 }
 
 export function CourseTopics({ topics }: CourseTopicsProps) {
+  const t = useTranslation()
+
   if (!topics || topics.length === 0) return null
 
   return (
     <div className="pt-4 border-t">
-      <h3 className="text-sm font-medium text-muted-foreground mb-2">Topics Covered</h3>
+      <h3 className="text-sm font-medium text-muted-foreground mb-2">{t.pages.course.topicsCovered}</h3>
       <div className="flex flex-wrap gap-2">
         {topics.map((topic, index) => (
           <span

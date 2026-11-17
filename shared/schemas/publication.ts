@@ -8,9 +8,13 @@ export const AuthorSchema = z.object({
   isUser: z.boolean().optional(),
 });
 
+// Selects the citation entry type; publications without one are cited as generic works
+export const PublicationTypeSchema = z.enum(["undergraduateThesis", "conferencePaper"]);
+
 export const PublicationSchema = z.object({
   ...HideableSchema.shape,
   ...LocationSchema.shape,
+  type: PublicationTypeSchema.optional(),
   title: SimpleLocalizedContentSchema,
   authors: z.array(AuthorSchema),
   year: z.number(),
@@ -21,4 +25,5 @@ export const PublicationSchema = z.object({
   note: SimpleLocalizedContentSchema.optional(),
 });
 
+export type PublicationType = z.infer<typeof PublicationTypeSchema>;
 export type Publication = z.infer<typeof PublicationSchema>; 

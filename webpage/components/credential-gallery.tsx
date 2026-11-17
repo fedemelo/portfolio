@@ -3,6 +3,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { ImageLightbox } from "./image-lightbox"
+import { useTranslation } from "@/hooks/useTranslation"
 
 interface CredentialImage {
   url: string
@@ -21,18 +22,20 @@ export function CredentialGallery({ diplomaUrl, certificates = [], images = [], 
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  const mainCredentialLabel = type === "award" ? "Certificate" : "Diploma"
+  const t = useTranslation()
+
+  const mainCredentialLabel = type === "award" ? t.credentials.certificate : t.credentials.diploma
 
   const credentialImages: CredentialImage[] = [
     ...(diplomaUrl ? [{ url: diplomaUrl, label: mainCredentialLabel, type: "diploma" as const }] : []),
     ...certificates.map((cert, idx) => ({ 
       url: cert, 
-      label: certificates.length > 1 ? `Certificate ${idx + 1}` : "Certificate", 
+      label: certificates.length > 1 ? `${t.credentials.certificate} ${idx + 1}` : t.credentials.certificate, 
       type: "certificate" as const 
     })),
     ...images.map((img, idx) => ({ 
       url: img, 
-      label: images.length > 1 ? `Photo ${idx + 1}` : "Photo", 
+      label: images.length > 1 ? `${t.credentials.photo} ${idx + 1}` : t.credentials.photo, 
       type: "image" as const 
     })),
   ]
@@ -49,7 +52,7 @@ export function CredentialGallery({ diplomaUrl, certificates = [], images = [], 
   return (
     <>
       <div className="mt-4 pt-4 border-t">
-        <h4 className="text-sm font-medium text-muted-foreground mb-3">Credentials & Photos</h4>
+        <h4 className="text-sm font-medium text-muted-foreground mb-3">{t.credentials.title}</h4>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
           {credentialImages.map((credential, index) => (
             <button

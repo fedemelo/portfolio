@@ -4,12 +4,16 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 import Link from "next/link"
 import type { PersonalInfo } from "@/types"
 import { LucideIcon } from "lucide-react"
+import { useTranslation } from "@/hooks/useTranslation"
+import { useOrganicHops } from "@/hooks/useOrganicHops"
 
 interface SocialLinksProps {
   personalInfo: PersonalInfo
 }
 
 export function SocialLinks({ personalInfo }: SocialLinksProps) {
+  const t = useTranslation()
+  const hopRef = useOrganicHops()
   const socialLinks = [
     {
       href: `https://www.linkedin.com/in/${personalInfo.linkedInPath}`,
@@ -27,7 +31,7 @@ export function SocialLinks({ personalInfo }: SocialLinksProps) {
     {
       href: `mailto:${personalInfo.email}`,
       icon: Mail,
-      label: "Email",
+      label: t.hero.email,
       iconClassName: "text-primary",
       isExternal: false
     }
@@ -36,9 +40,11 @@ export function SocialLinks({ personalInfo }: SocialLinksProps) {
   return (
     <div className="flex gap-4">
       <TooltipProvider delayDuration={0}>
-        {socialLinks.map(({ href, icon, label, iconClassName, isExternal }) => 
-          createSocialLink(href, icon, label, iconClassName, isExternal)
-        )}
+        {socialLinks.map(({ href, icon, label, iconClassName, isExternal }, index) => (
+          <span key={label} ref={hopRef(index)} className="inline-block">
+            {createSocialLink(href, icon, label, iconClassName, isExternal)}
+          </span>
+        ))}
       </TooltipProvider>
     </div>
   )
@@ -56,9 +62,9 @@ function createSocialLink(
     : {}
 
   return (
-    <Tooltip key={label}>
+    <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="outline" className="rounded-full w-9 h-9" asChild>
+        <Button variant="outline" className="rounded-full w-9 h-9 transition hover:scale-125" asChild>
           <Link href={href} {...linkProps}>
             <Icon className={`${iconClassName}`} />
           </Link>

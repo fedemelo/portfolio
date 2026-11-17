@@ -1,22 +1,31 @@
 "use client"
 
-import { createContext, useContext, ReactNode } from 'react'
+import { createContext, useContext, useState, useMemo, useEffect, ReactNode } from 'react'
 import type { Language } from '../../shared/schemas/utils'
 
 interface LanguageContextType {
   language: Language
-  // Future: setLanguage function for language switching
-  // setLanguage: (language: Language) => void
+  setLanguage: (language: Language) => void
 }
+
+// Off until the Spanish translations are reviewed; while off, every visitor gets English
+export const SPANISH_ENABLED = false
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const language: Language = 'en'
+function detectBrowserLanguage(): Language {
+  return navigator.language.startsWith('es') ? 'es' : 'en'
+}
 
-  const value = {
-    language,  // Future: setLanguage
-  }
+export function LanguageProvider({ children }: Readonly<{ children: ReactNode }>) {
+  // Starts as 'en' to match the server render; the browser language is only knowable after hydration
+  const [language, setLanguage] = useState<Language>('en')
+
+  useEffect(() => { if (SPANISH_ENABLED) setLanguage(detectBrowserLanguage()) }, [])
+
+  useEffect(() => { document.documentElement.lang = language }, [language])
+
+  const value = useMemo(() => ({ language, setLanguage }), [language])
 
   return (
     <LanguageContext.Provider value={value}>
@@ -31,4 +40,4 @@ export function useLanguage(): LanguageContextType {
     throw new Error('useLanguage must be used within a LanguageProvider')
   }
   return context
-} 
+}

@@ -7,6 +7,7 @@ export interface Teaching extends Hideable {
   id: string
   type: TeachingType
   title: string
+  anchor: string
   organization: Organization
   city: string
   state?: string
