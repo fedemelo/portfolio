@@ -14,6 +14,7 @@ export const PublicationSchema = z.object({
   title: SimpleLocalizedContentSchema,
   authors: z.array(AuthorSchema),
   year: z.number(),
+  kind: z.enum(["proceedings", "thesis"]),
   description: RichLocalizedContentSchema,
   institution: z.string(),
   url: z.string().optional(),
