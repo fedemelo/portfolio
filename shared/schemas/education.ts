@@ -15,6 +15,7 @@ export const EducationSchema = z.object({
   trueEndDate: z.date().optional(),
   gpa: z.string().regex(/^\d+\.\d+ \/ \d+\.\d+$/).optional(),
   gpaContext: RichLocalizedContentSchema.optional(),
+  honorsContext: RichLocalizedContentSchema.optional(),
   details: z.array(RichLocalizedContentSchema).optional(),
   course: CourseSchema.optional(),
   supervisor: z.string().optional(),
