@@ -54,13 +54,14 @@ function sectionBody(section: Section): string[] {
     case "activities":
       return section.activities.flatMap((activity) => [activity.title, ...bullets(activity.bullets, "  "), ""]);
     case "coursework":
-      return section.areas.flatMap((area) => [`${area.name}:`, area.courses.join(", "), ""]);
+      return section.areas.flatMap((area) => [`${area.name}:`, area.courses.join("; "), ""]);
     case "publications":
       return section.publications.flatMap((pub) => {
-        const authors = pub.authors.map((a) => a.name).join(", ");
+        const names = pub.authors.map((a) => a.name);
+        const authors = names.length > 1 ? `${names.slice(0, -1).join(", ")}, & ${names.at(-1)}` : names.join("");
         const note = pub.note ? ` ${pub.note}.` : "";
         const link = pub.link ? ` Available at: ${pub.link.text} (${pub.link.url})` : "";
-        return [`${authors} (${pub.year}). "${pub.title}". ${pub.description}. ${pub.institution}.${note}${link}`, ""];
+        return [`${authors} (${pub.year}). “${pub.title}.” ${pub.description} ${pub.institution}.${note}${link}`, ""];
       });
   }
 }
