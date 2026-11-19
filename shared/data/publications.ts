@@ -18,16 +18,13 @@ export const PUBLICATIONS: Publication[] = [
       { name: "Reyes, J. P." },
     ],
     year: 2026,
+    kind: "proceedings",
     description: {
       en: {
         full: "Proceedings of the World Engineering Education Forum (WEEF 2026)",
       },
     },
     institution: "IFEES & GEDC",
-    note: {
-      en: "To appear",
-      es: "En prensa",
-    },
     city: "Cartagena de Indias",
     country: "Colombia",
   },
@@ -35,7 +32,8 @@ export const PUBLICATIONS: Publication[] = [
     showInCV: true,
     showInResume: true,
     title: {
-      en: "Desarrollo del Perfil del estudiante dentro de No estás solo"
+      en: "Desarrollo del Perfil del estudiante dentro de No estás solo [Development of the Student Profile within No estás solo]",
+      es: "Desarrollo del Perfil del estudiante dentro de No estás solo",
     },
     authors: [
       {
@@ -44,9 +42,10 @@ export const PUBLICATIONS: Publication[] = [
       }
     ],
     year: 2024,
+    kind: "thesis",
     description: {
       en: {
-        full: "Undergraduate thesis",
+        full: "Undergraduate thesis, advised by Prof. Marcela Hernández Hoyos, Ph.D.",
       },
       es: {
         full: "Tesis de pregrado",
