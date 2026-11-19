@@ -10,11 +10,11 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: "Universidad de los Andes recognition for team impact on the university community. Awarded for \"No Estás Solx,\" a student-built peer-support platform serving 56,000+ active students with ~1,000 daily connections to institutional support",
-        short: "Uniandes internal impact award, for a peer-support platform serving 56,000+ students",
+        full: "Recognition by Universidad de los Andes of team impact on the university community. Awarded for “No estás solo,” a student-built peer-support platform serving 56,000+ active students with about 1,000 daily connections to institutional support",
+        short: "Uniandes internal impact award for a peer-support platform serving 56,000+ students",
       },
       es: {
-        full: "Reconocimiento de la Universidad de los Andes al impacto de equipos en la comunidad universitaria. Otorgado por \"No estás solx\", una plataforma de apoyo entre pares construida por estudiantes, con más de 56.000 estudiantes activos y ~1.000 conexiones diarias con la red de apoyo institucional",
+        full: "Reconocimiento de la Universidad de los Andes al impacto de equipos en la comunidad universitaria. Otorgado por \"No estás solo\", una plataforma de apoyo entre pares construida por estudiantes, con más de 56.000 estudiantes activos y ~1.000 conexiones diarias con la red de apoyo institucional",
         short: "Premio de la Universidad de los Andes al impacto de equipos, por una plataforma de apoyo entre pares con más de 56.000 estudiantes",
       },
     },
@@ -33,7 +33,7 @@ export const AWARDS: Award[] = [
     description: {
       en: {
         full: "Awarded to top-performing students on Colombia’s official national standardized higher-education examinations (Saber Pro and TyT)", // Ranked third nationally in my major and seventeenth nationally in engineering.
-        short: "Among the top national scores on Colombia's mandatory exit exam for university graduates",
+        short: "Among the top national scores on Colombia’s mandatory exit exam for university graduates",
       },
       es: {
         full: "Reconocimiento otorgado a los estudiantes con los mejores resultados nacionales en el año inmediatamente anterior en las Pruebas Saber Pro y TyT del nivel universitario",
@@ -51,12 +51,12 @@ export const AWARDS: Award[] = [
   },
   {
     title: {
-      en: "Summa Cum Laude",
+      en: "Summa cum laude",
     },
     description: {
       en: {
-        full: `Summa Cum Laude is the highest undergraduate academic honor. Eligibility requires a cumulative GPA within the top 1% of graduates from the faculty over the past five years, and demonstrated integral merits in an interview before a commission appointed by the Academic Council`,
-        short: "Highest undergraduate honor; top 1% cumulative GPA among graduates of the faculty",
+        full: `Summa cum laude is the highest undergraduate academic honor. Eligibility requires a cumulative GPA within the top 1% of graduates from the School of Engineering over the past five years and demonstrated integral merits in an interview before a commission appointed by the Academic Council`,
+        short: "Highest undergraduate honor; requires a top 1% GPA and selection by an Academic Council committee",
       },
     },
     date: new Date("2025-04-07T20:00:00-05:00"),
@@ -72,7 +72,7 @@ export const AWARDS: Award[] = [
     },
     description: {
       en: {
-        full: `The Athletic Career Distinction is awarded to a single student in the graduating class for exemplary leadership, commitment, and ethics in sports. Awarded citing 41 swimming medals, including 24 gold, and two years as elected team captain`,
+        full: `The Athletic Career Distinction is awarded to a single student in the graduating class for exemplary leadership, commitment, and ethics in sports. Awarded in recognition of 41 swimming medals, including 24 gold, and two years as elected team captain`,
         short: "Awarded to one graduating student university-wide for leadership and excellence in varsity athletics",
       },
     },
