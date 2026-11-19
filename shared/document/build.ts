@@ -49,6 +49,10 @@ import { groupByGroupId } from "../utils/group-by-group-id";
 
 const language: Language = DEFAULT_LANGUAGE;
 
+const SUMMA_CUM_LAUDE = "Summa cum laude";
+
+const REPETITION_LABELS: Record<number, string> = { 2: "twice", 3: "three times", 4: "four times", 5: "five times" };
+
 // filterForResume/filterForCV can't be picked by kind without losing type
 // safety, so this takes the visibility key as the parameter instead.
 function filterFor(kind: DocumentKind) {
@@ -160,21 +164,27 @@ function header(personalInfo: PersonalInfo): Header {
   };
 }
 
+function educationPeriod(edu: Education): string {
+  const range = getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate);
+  const conferredYear = edu.graduationDate?.getFullYear();
+  const isConferredLater = edu.trueEndDate && conferredYear && conferredYear !== edu.trueEndDate.getFullYear();
+  return isConferredLater ? `${range} (conferred ${conferredYear})` : range;
+}
+
 function educationSection(education: Education[], kind: DocumentKind): Section {
   const text = textFor(kind);
   const schools = filterFor(kind)(education).map((edu) => {
-    const gpa = edu.gpa ? [`GPA: ${edu.gpa.replace(" / ", "/")}`] : [];
-    const honors = edu.relatedAwardTitles?.includes("Summa Cum Laude") ? "Summa cum laude" : null;
-    const honorsLine = [honors, edu.gpaContext && text(edu.gpaContext, language)].filter(Boolean).join(", ");
+    const gpaLine = edu.gpa && [`GPA: ${edu.gpa.replace(" / ", "/")}`, edu.gpaContext && text(edu.gpaContext, language)].filter(Boolean).join(", ");
+    const honors = edu.relatedAwardTitles?.includes(SUMMA_CUM_LAUDE) ? SUMMA_CUM_LAUDE : null;
+    const honorsLine = honors && [honors, edu.honorsContext && text(edu.honorsContext, language)].filter(Boolean).join(": ");
     return {
       name: getOrgName(edu.organization, language),
       location: formatLocation({ city: edu.city, state: edu.state, country: edu.country }),
       degree: getLocalizedText(edu.degree, language),
-      honors,
-      period: getYearRange(edu.startDate, edu.trueEndDate ?? edu.graduationDate),
+      period: educationPeriod(edu),
       bullets: [
         ...(honorsLine ? [honorsLine] : []),
-        ...gpa,
+        ...(gpaLine ? [gpaLine] : []),
         ...filterFor(kind)(edu.details ?? []).map((detail) => text(detail, language)),
       ],
     };
@@ -191,29 +201,35 @@ function awardDate(award: Award): string | null {
 function awardsSection(awards: Award[], kind: DocumentKind): Section {
   const entries = filterFor(kind)(awards).map((award) => {
     const count = award.instances?.length ?? 1;
-    const countLabel = count > 1 ? `(${count} times)` : null;
+    const countLabel = count > 1 ? `(${REPETITION_LABELS[count] ?? `${count} times`})` : null;
     // A semicolon keeps the organization apart from a comma-separated list of dates.
     const bylineSeparator = count > 1 ? "; " : ", ";
     return {
       title: [getLocalizedText(award.title, language), countLabel].filter(Boolean).join(" "),
       byline: [getOrgName(award.organization, language), awardDate(award)].filter(Boolean).join(bylineSeparator),
-      description: textFor(kind)(award.description, language),
+      // The CV leads with experience, so its awards stay one line like the resume's.
+      description: getResumeText(award.description, language),
     };
   });
-  return { kind: "awards", title: "Awards & Honors", awards: entries };
+  return { kind: "awards", title: "Awards and Honors", awards: entries };
 }
 
-function skillsSection(skills: Skill[], kind: DocumentKind): Section {
-  const lines = filterFor(kind)(skills).map((category) => ({
+type LabeledLine = { label: string; text: string };
+
+function skillLines(skills: Skill[], kind: DocumentKind): LabeledLine[] {
+  return filterFor(kind)(skills).map((category) => ({
     label: getLocalizedText(category.category, language),
     text: category.skills.join(", "),
   }));
-  return { kind: "labeled-lines", title: "Technical Experience", lines };
+}
+
+function skillsSection(title: string, lines: LabeledLine[]): Section {
+  return { kind: "labeled-lines", title, lines };
 }
 
 function researchInterestsSections(researchInterests: ResearchInterest, kind: DocumentKind): Section[] {
   if (!(researchInterests.showInCV ?? true)) return [];
-  return [{ kind: "paragraph", title: "Research Interests", text: textFor(kind)(researchInterests.text, language) }];
+  return [{ kind: "paragraph", title: "Profile", text: textFor(kind)(researchInterests.text, language) }];
 }
 
 function extracurricularSection(items: Extracurricular[], kind: DocumentKind): Section {
@@ -233,12 +249,17 @@ function relevantCourseworkSection(items: RelevantCoursework[], kind: DocumentKi
   return { kind: "coursework", title: "Relevant Coursework", areas };
 }
 
+function endWithPeriod(text: string): string {
+  return text.endsWith(".") ? text : `${text}.`;
+}
+
 function publicationsSection(publications: Publication[], kind: DocumentKind): Section {
   const entries = filterFor(kind)(publications).map((pub) => ({
     authors: pub.authors.map((a) => ({ name: a.name, isUser: a.isUser ?? false })),
     year: pub.year,
+    kind: pub.kind,
     title: getLocalizedText(pub.title, language),
-    description: textFor(kind)(pub.description, language),
+    description: endWithPeriod(textFor(kind)(pub.description, language)),
     institution: pub.institution,
     note: pub.note ? getLocalizedText(pub.note, language) : null,
     link: pub.url && pub.linkText ? { text: getLocalizedText(pub.linkText, language), url: pub.url } : null,
@@ -246,7 +267,7 @@ function publicationsSection(publications: Publication[], kind: DocumentKind): S
   return { kind: "publications", title: "Publications", publications: entries };
 }
 
-function additionalInfoSection(languages: LanguageEntry[], kind: DocumentKind): Section {
+function languagesLine(languages: LanguageEntry[], kind: DocumentKind): LabeledLine {
   const formatLanguage = (lang: LanguageEntry) => {
     const cert = lang.certifications?.find((c) => c.showInCV !== false);
     if (cert) {
@@ -256,7 +277,7 @@ function additionalInfoSection(languages: LanguageEntry[], kind: DocumentKind): 
     return `${getLocalizedText(lang.name, language)} (${getLocalizedText(lang.proficiency, language).toLowerCase()})`;
   };
   const text = filterFor(kind)(languages).map(formatLanguage).join(", ");
-  return { kind: "labeled-lines", title: "Additional Information", lines: [{ label: "Languages", text }] };
+  return { label: "Languages", text };
 }
 
 export function buildResume(): DocumentModel {
@@ -268,7 +289,7 @@ export function buildResume(): DocumentModel {
       educationSection(EDUCATION, kind),
       experienceSection("Experience", [...WORK_EXPERIENCE, ...TEACHING], COURSES, kind),
       awardsSection(AWARDS, kind),
-      skillsSection(SKILLS, kind),
+      skillsSection("Technical Skills", skillLines(SKILLS, kind)),
     ],
   };
 }
@@ -281,14 +302,13 @@ export function buildCV(): DocumentModel {
     sections: [
       ...researchInterestsSections(RESEARCH_INTERESTS, kind),
       educationSection(EDUCATION, kind),
-      awardsSection(AWARDS, kind),
       experienceSection("Work Experience", WORK_EXPERIENCE, COURSES, kind),
       experienceSection("Teaching Experience", TEACHING, COURSES, kind),
-      relevantCourseworkSection(RELEVANT_COURSEWORK, kind),
+      awardsSection(AWARDS, kind),
+      skillsSection("Skills", [languagesLine(LANGUAGES, kind), ...skillLines(SKILLS, kind)]),
       publicationsSection(PUBLICATIONS, kind),
-      skillsSection(SKILLS, kind),
+      relevantCourseworkSection(RELEVANT_COURSEWORK, kind),
       extracurricularSection(EXTRACURRICULARS, kind),
-      additionalInfoSection(LANGUAGES, kind),
     ],
   };
 }
