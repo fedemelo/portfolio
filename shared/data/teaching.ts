@@ -20,7 +20,7 @@ export const TEACHING: Teaching[] = [
     achievements: [
       {
         en: {
-          full: "Principal instructor for upper-division algorithm design course, delivering lectures and designing exams",
+          full: "Principal instructor for an upper-division algorithm design course, lecturing and designing exams",
         },
       },
       {
@@ -49,14 +49,14 @@ export const TEACHING: Teaching[] = [
     endDate: new Date("2026-05-29T12:00:00-05:00"),
     description: {
       en: {
-        full: "Principal instructor for introductory undergraduate course in procedural programming using Python",
+        full: "Principal instructor for an introductory undergraduate course in procedural programming using Python",
       },
       showInResume: true,
     },
     achievements: [
       {
         en: {
-          full: "Topics: programming fundamentals and data-processing libraries Pandas and Matplotlib",
+          full: "Topics: programming fundamentals and the data-processing libraries pandas and Matplotlib",
         },
       }
     ],
@@ -75,51 +75,55 @@ export const TEACHING: Teaching[] = [
       es: "Asistente de Investigación"
     },
     courseCode: "VICE-3001",
-    period: "Fall 2022 – Fall 2024",
+    period: "Fall 2022–Fall 2024",
     startDate: new Date("2022-08-08T12:00:00-05:00"),
     endDate: new Date("2024-12-07T12:00:00-05:00"),
     supervisor: "Prof. Eduardo Rosales, Ph.D.",
     description: {
       en: {
-        full: "Collaborated in a 7-person team under Prof. Eduardo Rosales, Ph.D., to manage the university's programming support center",
+        full: "Collaborated on a seven-person team to manage the university’s programming support center",
       },
     },
     achievements: [
       {
         en: {
-          full: "Oversaw the university's Coursera courses 'Programming in Python' and 'Introduction to Object Oriented Programming in Java', which have 50,000+ and 60,000+ historical enrollments respectively",
+          full: "Oversaw the university’s Coursera courses “Programming in Python” and “Introduction to Object Oriented Programming in Java,” with 50,000+ and 60,000+ historical enrollments, respectively",
           short: "Oversaw Coursera courses with 50,000+ and 60,000+ historical enrollments"
         },
       },
       {
+        showInCV: false,
         en: {
-          full: "Managed schedules for ~40 tutors and ~70 TAs each semester, overseeing a system that enabled 1,500+ students to book tutoring sessions",
-          short: "Managed schedules for ~40 tutors and ~70 TAs each semester. Oversaw system that enabled 1,500+ students to book tutoring sessions"
+          full: "Managed schedules for about 40 tutors and about 70 TAs each semester, overseeing a system that enabled 1,500+ students to book tutoring sessions",
+          short: "Managed schedules for about 40 tutors and about 70 TAs each semester. Oversaw a system that enabled 1,500+ students to book tutoring sessions"
         },
       },
       {
         en: {
-          full: "Designed and co-built CupiHorarios, a scheduling web app (FastAPI, React) leveraging Pyomo (a constraint satisfaction optimization solver) to generate  schedules that ensured full coverage during operational hours",
+          full: "Designed and co-built CupiHorarios, a scheduling web application (FastAPI, React) leveraging the Pyomo optimization modeling library to generate schedules that ensured full coverage during operating hours",
         },
       },
       {
         en: {
-          full: "Co-designed and co-built CupiFeedback, a tutoring performance analytics web app (FastAPI, React) that collected feedback from 1,500+ students and presented insights through interactive visualizations",
+          full: "Co-designed and co-built CupiFeedback, a tutoring performance analytics web application (FastAPI, React) that collected feedback from 1,500+ students and presented insights through interactive visualizations",
         },
       },
       {
+        showInCV: false,
         en: {
-          full: "Co-designed CupiMonitores, a web app that centralized TA evaluation, which was ultimately adopted university-wide",
+          full: "Co-designed CupiMonitores, a web application that centralized TA evaluation and was ultimately adopted university-wide",
         },
       },
       {
+        showInCV: false,
         en: {
-          full: "Developed automation systems including a TypeScript Discord bot for remote tutoring tracking and programming problems with automated solution verification",
+          full: "Developed automation systems, including a TypeScript Discord bot for remote tutoring tracking and programming problems with automated solution verification",
         },
       },
       {
+        showInCV: false,
         en: {
-          full: "Led tutor recruitment and training processes, conducting candidate interviews and occasionally providing coverage during tutor absences, teaching data structures and algorithms concepts",
+          full: "Led tutor recruitment and training processes, conducting candidate interviews and occasionally covering tutor absences by teaching data structures and algorithms concepts",
         },
       },
     ],
@@ -128,7 +132,7 @@ export const TEACHING: Teaching[] = [
   {
     id: "mate-1207-2024-19-ta",
     isCurrent: false,
-    showInCV: true,
+    showInCV: false,
     showInResume: false,
     type: "undergraduate",
     title: {
@@ -143,12 +147,12 @@ export const TEACHING: Teaching[] = [
     achievements: [
       {
         en: {
-          full: "Designed and graded problem sets, and conducted weekly office hours",
+          full: "Designed and graded problem sets and conducted weekly office hours",
         },
       },
       {
         en: {
-          full: "Covered partial derivatives, double and triple integrals, line and surface integrals, vector fields, curl and divergence calculations, and the fundamental theorems (Green's, Stokes', and Gauss')",
+          full: "Covered partial derivatives, double and triple integrals, line and surface integrals, vector fields, curl and divergence calculations, and the fundamental theorems (Green’s, Stokes’, and Gauss’)",
         },
       },
       {
@@ -175,7 +179,7 @@ export const TEACHING: Teaching[] = [
     achievements: [
       {
         en: {
-          full: "Conducted Python tutoring sessions, overall assisting 100+ students",
+          full: "Conducted Python tutoring sessions, assisting 100+ students in total",
         },
       },
       {
@@ -205,8 +209,8 @@ export const TEACHING: Teaching[] = [
     achievements: [
       {
         en: {
-          full: "Assisted ~25 students with fundamental procedural programming concepts (variables, control structures, functions, data structures) and matrix operations using Python-specific libraries (matplotlib, pandas)",
-          short: "Assisted ~25 students with fundamental procedural programming concepts and matrix operations using Python-specific libraries"
+          full: "Assisted about 25 students with fundamental procedural programming concepts (variables, control structures, functions, data structures) and matrix operations using Python-specific libraries (Matplotlib, pandas)",
+          short: "Assisted about 25 students with fundamental procedural programming concepts and matrix operations using Python-specific libraries"
         },
       },
       {
@@ -235,8 +239,8 @@ export const TEACHING: Teaching[] = [
     achievements: [
       {
         en: {
-          full: "Instructed ~45 students in limits, derivatives, and basic integrals, including applications to optimization problems, area between curves, and volumes of solids",
-          short: "Instructed ~45 students in limits, derivatives, and basic integrals"
+          full: "Instructed about 45 students in limits, derivatives, and basic integrals, including applications to optimization problems, area between curves, and volumes of solids",
+          short: "Instructed about 45 students in limits, derivatives, and basic integrals"
         },
       },
       {
