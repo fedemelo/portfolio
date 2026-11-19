@@ -34,7 +34,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         showInCV: true,
         showInResume: false,
         name: {
-          en: "Modeling, Simulation and Optimization",
+          en: "Modeling, Simulation, and Optimization",
           es: "Modelado, Simulación y Optimización"
         },
         originalName: "Modelado, Simulación y Optimización",
@@ -98,7 +98,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         showInCV: true,
         showInResume: false,
         name: {
-          en: "Computational Methods",
+          en: "Computational Methods (Physics)",
           es: "Métodos Computacionales"
         },
         originalName: "Métodos Computacionales",
@@ -117,10 +117,10 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
         credits: 3
       },
       {
-        showInCV: false,
+        showInCV: true,
         showInResume: false,
         name: {
-          en: "Statistics and Probability",
+          en: "Probability and Statistics",
           es: "Probabilidad y Estadística"
         },
         originalName: "Probabilidad y Estadística",
@@ -174,7 +174,7 @@ export const RELEVANT_COURSEWORK: RelevantCoursework[] = [
     ]
   },
   {
-    showInCV: true,
+    showInCV: false,
     showInResume: false,
     area: {
       en: "Software Engineering"
