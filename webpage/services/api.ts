@@ -141,8 +141,6 @@ const convertRelevantCoursework = (data: typeof RELEVANT_COURSEWORK, language: L
     courses: item.courses.map(course => ({
       ...course,
       name: getLocalizedText(course.name, language),
-      department: course.department ? getLocalizedText(course.department, language) : undefined,
-      description: course.description ? getCVText(course.description, language) : undefined,
     })),
   }))
 }
