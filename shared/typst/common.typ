@@ -79,7 +79,6 @@
 #let school-entry(school) = block(breakable: false, above: entry-gap, {
   entry-heading(school.name, school.location, school.period)
   emph(school.degree)
-  show school.honors: emph
   bullets(school.bullets)
 })
 
@@ -95,14 +94,15 @@
   bullets(activity.bullets)
 })
 
-#let coursework-line(area) = labeled-line((label: area.name, text: area.courses.join(", ")))
+#let coursework-line(area) = labeled-line((label: area.name, text: area.courses.join("; ")))
 
 #let publication-entry(publication) = {
-  let authors = publication.authors.map(a => if a.isUser { strong(a.name) } else { a.name }).join(", ")
+  let authors = publication.authors.map(a => if a.isUser { strong(a.name) } else { a.name }).join(", ", last: ", & ")
   let note = if publication.note != none [ #publication.note.]
   let available = if publication.link != none [ Available at: #link(publication.link.url, publication.link.text)]
   par(justify: false, hanging-indent: 1.5em)[
-    #authors (#publication.year). "#publication.title". #emph(publication.description). #publication.institution.#note#available
+    #let description = if publication.kind == "thesis" { publication.description } else { emph(publication.description) }
+    #authors (#publication.year). "#publication.title." #description #publication.institution.#note#available
   ]
 }
 
@@ -125,7 +125,9 @@
   #header.contacts.map(contact => link(contact.url, contact.text)).join(" | ")
 ]
 
+#let unbreakable-sections = ("awards",)
+
 #let render-sections(sections) = for section in sections {
   section-heading(section.title)
-  pad(left: base-size, section-body(section))
+  block(breakable: section.kind not in unbreakable-sections, pad(left: base-size, section-body(section)))
 }
