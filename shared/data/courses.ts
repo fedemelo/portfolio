@@ -112,7 +112,7 @@ export const COURSES: Course[] = [
     credits: 3,
     description: {
       en: {
-        full: "Advanced calculus course covering partial derivatives, double and triple integrals, line and surface integrals, vector fields, curl and divergence calculations, and the fundamental theorems (Green's, Stokes', and Gauss')",
+        full: "Advanced calculus course covering partial derivatives, double and triple integrals, line and surface integrals, vector fields, curl and divergence calculations, and the fundamental theorems (Green’s, Stokes’, and Gauss’)",
       },
     },
     teachingIds: ["mate-1207-2024-19-ta"],
