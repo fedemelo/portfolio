@@ -1,6 +1,6 @@
 import { getPeriodFromDate } from './period';
 
-export type YearRange = `${number} – ${number}` | `${number} – Present`;
+export type YearRange = `${number}–${number}` | `${number}–Present`;
 
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
                 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -12,7 +12,7 @@ function formatMonthYear(date: Date): string {
 export function formatDateRange(startDate: Date, endDate?: Date, isCurrent?: boolean): string {
   const start = formatMonthYear(startDate);
   const end = isCurrent ? 'Present' : (endDate ? formatMonthYear(endDate) : '');
-  return end ? `${start} – ${end}` : start;
+  return end ? `${start}–${end}` : start;
 }
 
 export function getYearRange(
@@ -27,12 +27,12 @@ export function getYearRange(
     return `${endDate.getFullYear()}`;
 
   if (!endDate && startDate)
-    return isCurrent ? `${startDate.getFullYear()} – Present` : `${startDate.getFullYear()}`;
+    return isCurrent ? `${startDate.getFullYear()}–Present` : `${startDate.getFullYear()}`;
 
   if (startDate!.getFullYear() === endDate!.getFullYear())
     return `${startDate!.getFullYear()}`;
 
-  return `${startDate!.getFullYear()} – ${endDate!.getFullYear()}`;
+  return `${startDate!.getFullYear()}–${endDate!.getFullYear()}`;
 }
 
 export function getYearSequence(dates: Date[]): string {
