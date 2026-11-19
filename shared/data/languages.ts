@@ -63,7 +63,7 @@ export const LANGUAGES: Language[] = [
     ],
   },
   {
-    showInCV: false,
+    showInCV: true,
     showInResume: false,
     name: {
       en: "German"
