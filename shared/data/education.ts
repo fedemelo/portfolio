@@ -7,7 +7,7 @@ export const EDUCATION: Education[] = [
     showInCV: true,
     showInResume: true,
     degree: {
-      en: "B.Sc. Systems and Computing Engineering",
+      en: "B.Sc. in Systems and Computing Engineering",
       es: "Ingeniería de Sistemas y Computación",
     },
     ...UNIANDES,
@@ -17,13 +17,19 @@ export const EDUCATION: Education[] = [
     gpa: "4.92 / 5.00",
     gpaContext: {
       en: {
-        full: "highest GPA in major in 40 years, highest in Engineering Faculty in 16 years",
+        full: "the highest in the program in 40 years and in the School of Engineering in 16 years",
+      },
+    },
+    honorsContext: {
+      en: {
+        full: "top 1% of School of Engineering graduates by GPA, selected after a committee interview",
+        short: "top 1% GPA and selected by an Academic Council committee",
       },
     },
     diplomaUrl: "/education/diplomas/uniandes.png",
     certificates: ["/education/certificates/acta-grado-uniandes.png"],
     relatedAwardTitles: [
-      "Summa Cum Laude",
+      "Summa cum laude",
       "Athletic Career Distinction",
       "Ramón de Zubiría Award",
       "Ramón de Zubiría Award",
@@ -36,7 +42,7 @@ export const EDUCATION: Education[] = [
       {
         showInResume: false,
         en: {
-          full: "Recipient of the Quiero Estudiar scholarship (95% tuition coverage) for the duration of the degree",
+          full: "Recipient of the Quiero Estudiar Scholarship (95% tuition coverage) for the duration of the degree",
         },
       },
     ],
