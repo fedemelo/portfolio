@@ -29,12 +29,11 @@
         {
           "name": "Universidad de los Andes",
           "location": "Bogotá, Colombia",
-          "degree": "B.Sc. Systems and Computing Engineering",
-          "honors": "Summa cum laude",
-          "period": "2020 – 2024",
+          "degree": "B.Sc. in Systems and Computing Engineering",
+          "period": "2020–2024 (conferred 2025)",
           "bullets": [
-            "Summa cum laude, highest GPA in major in 40 years, highest in Engineering Faculty in 16 years",
-            "GPA: 4.92/5.00"
+            "Summa cum laude: top 1% GPA and selected by an Academic Council committee",
+            "GPA: 4.92/5.00, the highest in the program in 40 years and in the School of Engineering in 16 years"
           ]
         }
       ]
@@ -45,33 +44,32 @@
       "organizations": [
         {
           "name": "Canals AI",
-          "location": "Coral Gables, FL, USA (Remote)",
-          "period": "Dec 2024 – Present",
+          "location": "Coral Gables, FL, United States (Remote)",
+          "period": "Dec 2024–Present",
           "roles": [
             {
               "title": "Software Engineer II",
               "subtitle": null,
-              "period": "Jul 2025 – Present",
+              "period": "Jul 2025–Present",
               "supervisor": null,
               "bullets": [
-                "Owned parsing services for the live voice and inquiries agent systems, as part of a pipeline that processed 20000+ orders daily across 115+ wholesale distributors and 9000+ sales reps",
-                "Built the parsing and review layers of a real-time voice service (WebSocket orchestration, speech-to-text, speaker diarization, concurrency control). Extracted ~21 products per call from live phone calls with 75%+ retained through rep review",
-                "Integrated tools (web search, spec sheet retrieval, ERP lookup, order tracking) into an inquiries AI agent that addressed customer questions on orders, materials, and logistics. Achieved 97% of answers citing a source and 80% rated positive by reps",
-                "Contributed to Canals' shared agent framework (Mastra), adding extended thinking, reasoning effort, image/PDF input, temperature, and tool concurrency. Migrated four Parsing agents off hand-rolled, unbounded loops onto bounded runs with step and token ceilings",
-                "Co-built an autonomous agent (Claude Agent SDK) that polled tickets, debugged parsing failures, and shipped prompt-level fixes for review, re-parsing each order to verify its own fix"
+                "Own the parsing services for the live voice and inquiry agent systems, part of a pipeline that processes 20,000+ orders daily across 115+ wholesale distributors and 9,000+ sales reps, and maintain a 481-case end-to-end regression suite",
+                "Built the parsing and review layers of a real-time voice service (WebSocket orchestration, speech-to-text, speaker diarization, concurrency control). Extracted about 21 products per live phone call, with 75%+ retained through rep review",
+                "Integrated tools (web search, spec sheet retrieval, ERP lookup, order tracking) into an AI inquiry agent that addressed customer questions about orders, materials, and logistics. Achieved source citations in 97% of answers and positive rep ratings on 80%",
+                "Contributed to Canals’ shared agent framework (Mastra), adding support for extended thinking, reasoning effort, image/PDF input, temperature, and tool concurrency. Migrated four parsing agents from hand-rolled, unbounded loops to bounded runs with step and token ceilings",
+                "Co-built an autonomous agent (Claude Agent SDK) that polled tickets, debugged parsing failures, and shipped prompt-level fixes, re-parsing each order to verify its own fix"
               ]
             },
             {
               "title": "Software Engineer I",
               "subtitle": null,
-              "period": "Dec 2024 – Jul 2025",
+              "period": "Dec 2024–Jul 2025",
               "supervisor": null,
               "bullets": [
-                "Maintained a parsing pipeline supporting 19 mimetypes with intricate formats (e.g., handwritten, struck-through text, blurry and fragmented photos, cross-references to other files) in a pipeline serving ~60 wholesale distributors processing 4,000+ orders daily",
-                "Abstracted OCR pipeline from single provider to support multiple providers, decoupling the implementation from Textract and enabling format-specific OCR selection, with a cache layer serving ~60% of requests in 0.07s versus 3.6–18.7s uncached",
-                "Led large-scale prompt refactors improving external QA pass rate from 85% to 89%. Involved: model selection, prompt engineering, cache handling, fine-tuning, and regression testing",
-                "Built visual highlighting systems using DOM traversal, coordinate mapping, and string comparison to map parsed products to source documents. Reduced weekly highlighting errors by 2/3",
-                "Joined as the company's 14th engineer."
+                "Maintained a parsing pipeline supporting 19 MIME types with intricate formats (e.g., handwritten and struck-through text, blurry and fragmented photos, cross-references to other files), serving about 60 wholesale distributors that processed 4,000+ orders daily",
+                "Abstracted the OCR pipeline from a single provider to support multiple providers, decoupling the implementation from Textract and enabling format-specific OCR selection across 18.2 million documents, with a cache layer serving about 60% of requests in 0.07 s versus 3.6–18.7 s uncached",
+                "Led large-scale prompt refactors spanning model selection, prompt engineering, cache handling, and regression testing, improving the external QA pass rate from 85% to 89%",
+                "Built visual highlighting systems using DOM traversal, coordinate mapping, and string comparison to map parsed products to source documents. Reduced weekly highlighting errors by two-thirds"
               ]
             }
           ]
@@ -79,7 +77,7 @@
         {
           "name": "Universidad de los Andes",
           "location": "Bogotá, Colombia",
-          "period": "Aug 2025 – Present",
+          "period": "Aug 2025–Present",
           "roles": [
             {
               "title": "Adjunct Professor",
@@ -87,7 +85,7 @@
               "period": "Fall 2026",
               "supervisor": null,
               "bullets": [
-                "Principal instructor for upper-division algorithm design course, delivering lectures and designing exams",
+                "Principal instructor for an upper-division algorithm design course, lecturing and designing exams",
                 "Topics: divide and conquer, dynamic programming, graph algorithms, NP-completeness, approximation and randomized algorithms"
               ]
             },
@@ -97,8 +95,8 @@
               "period": "Fall 2025, Spring 2026",
               "supervisor": null,
               "bullets": [
-                "Principal instructor for introductory undergraduate course in procedural programming using Python",
-                "Topics: programming fundamentals and data-processing libraries Pandas and Matplotlib"
+                "Principal instructor for an introductory undergraduate course in procedural programming using Python",
+                "Topics: programming fundamentals and the data-processing libraries pandas and Matplotlib"
               ]
             }
           ]
@@ -111,14 +109,14 @@
             {
               "title": "Full-Stack Developer",
               "subtitle": null,
-              "period": "Jan 2024 – Dec 2024",
+              "period": "Jan 2024–Dec 2024",
               "supervisor": null,
               "bullets": [
-                "Designed and built full-stack student data analytics system serving 15,000+ students and 600+ faculty, replacing an external platform and saving ~$100K USD annually",
-                "Built parallelized data processing pipeline (Python, Polars) with complex filtering and aggregations, exposed through a unified REST API (FastAPI)",
-                "Developed dynamic graphing, advanced filtering, report generation, and role-based dashboards in a React/TypeScript web app",
-                "Built early-warning system for at-risk students (academic performance, dropout indicators), alerting counselors on 1,000+ critical cases",
-                "Architected secure cross-VM communication using air-gapping and network isolation techniques to ensure compliance with student data protection requirements"
+                "Designed and built a full-stack student data analytics system serving 15,000+ students and 600+ faculty, replacing an external platform and saving about US$100,000 annually",
+                "Built a parallelized data-processing pipeline (Python, Polars) with complex filtering and aggregations, exposed through a unified REST API (FastAPI)",
+                "Developed dynamic graphing, advanced filtering, report generation, and role-based dashboards in a React/TypeScript web application",
+                "Built an early-warning system for at-risk students (academic performance, dropout indicators), alerting counselors to 1,000+ critical cases",
+                "Architected secure communication between VMs, isolating the machine holding student data on a segmented network to ensure compliance with student data protection requirements"
               ]
             }
           ]
@@ -131,13 +129,13 @@
             {
               "title": "Software Developer I",
               "subtitle": null,
-              "period": "Jan 2024 – Jul 2024",
+              "period": "Jan 2024–Jul 2024",
               "supervisor": null,
               "bullets": [
-                "Awarded June Team Award for impactful contributions as part of Data Analytics team",
                 "Developed Jupyter notebooks for financial and auditing data analysis",
-                "Optimized microservices (Java, TS) performance using AWS S3 and DynamoDB",
-                "Authored technical reports influencing team architecture decisions and best practices"
+                "Optimized microservice performance (Java, TypeScript) using Amazon S3 and DynamoDB",
+                "Authored technical reports influencing team architecture decisions and best practices",
+                "Awarded the June Team Award for impactful contributions as part of the Data Analytics team"
               ]
             }
           ]
@@ -150,10 +148,10 @@
             {
               "title": "Backend Developer",
               "subtitle": null,
-              "period": "Aug 2023 – Dec 2023",
+              "period": "Aug 2023–Dec 2023",
               "supervisor": null,
               "bullets": [
-                "Designed and implemented backend architecture for the Professors' Portfolio system (Java, Spring Boot), a web application for managing faculty academic and administrative information.",
+                "Designed and implemented the backend architecture for the Professors’ Portfolio system (Java, Spring Boot), a web application for managing faculty academic and administrative information",
                 "Built persistence, logic, and control layers with CRUD operations, custom logic, and RESTful APIs",
                 "Devised efficient data migration methods for unstructured faculty data",
                 "Collaborated on system architecture documentation and project planning roadmaps"
@@ -165,22 +163,22 @@
     },
     {
       "kind": "awards",
-      "title": "Awards & Honors",
+      "title": "Awards and Honors",
       "awards": [
         {
           "title": "Dejar Huella Award",
           "byline": "Universidad de los Andes, 2026",
-          "description": "Uniandes internal impact award, for a peer-support platform serving 56,000+ students"
+          "description": "Uniandes internal impact award for a peer-support platform serving 56,000+ students"
         },
         {
           "title": "Top Saber Pro Score Award 2024",
           "byline": "Colombian Ministry of Education, 2025",
-          "description": "Among the top national scores on Colombia's mandatory exit exam for university graduates"
+          "description": "Among the top national scores on Colombia’s mandatory exit exam for university graduates"
         },
         {
-          "title": "Summa Cum Laude",
+          "title": "Summa cum laude",
           "byline": "Universidad de los Andes, 2025",
-          "description": "Highest undergraduate honor; top 1% cumulative GPA among graduates of the faculty"
+          "description": "Highest undergraduate honor; requires a top 1% GPA and selection by an Academic Council committee"
         },
         {
           "title": "Athletic Career Distinction",
@@ -188,12 +186,12 @@
           "description": "Awarded to one graduating student university-wide for leadership and excellence in varsity athletics"
         },
         {
-          "title": "Ramón de Zubiría Award (2 times)",
+          "title": "Ramón de Zubiría Award (twice)",
           "byline": "Universidad de los Andes; 2023, 2024",
           "description": "Awarded annually to the top cumulative-GPA student in the major"
         },
         {
-          "title": "Semester Excellence Award (3 times)",
+          "title": "Semester Excellence Award (three times)",
           "byline": "Universidad de los Andes; Spring 2021, Fall 2021, Fall 2023",
           "description": "Awarded each semester to the top-GPA student in the major"
         }
@@ -201,23 +199,27 @@
     },
     {
       "kind": "labeled-lines",
-      "title": "Technical Experience",
+      "title": "Technical Skills",
       "lines": [
         {
-          "label": "AI Engineering & LLM Orchestration",
-          "text": "Anthropic / OpenAI / Gemini / Groq APIs, Claude Agent SDK, Mastra, MCP"
+          "label": "Programming Languages",
+          "text": "Python, TypeScript, Rust, Java, Bash"
         },
         {
-          "label": "Backend & Systems Architecture",
-          "text": "Python, Java, TypeScript, FastAPI, Spring Boot, WebSocket Orchestration, Concurrency Control"
+          "label": "AI Engineering and LLM Orchestration",
+          "text": "Anthropic/OpenAI/Gemini/Groq APIs, Claude Agent SDK, Mastra, MCP"
         },
         {
-          "label": "Data Engineering & Infrastructure",
-          "text": "Polars, PostgreSQL, Redis, AWS (RDS, ECS, S3, DynamoDB), Docker, GitHub CI/CD"
+          "label": "Backend and Systems Architecture",
+          "text": "FastAPI, Spring Boot, WebSocket orchestration, concurrency control"
         },
         {
-          "label": "Product & Interface",
-          "text": "React, Next.js, Svelte, Plotly, ShadCN / MUI"
+          "label": "Data Engineering and Infrastructure",
+          "text": "Polars, pandas, Matplotlib, Pyomo, PostgreSQL, Redis, AWS (RDS, ECS, S3, DynamoDB), Docker, Linux, Git, GitHub Actions (CI/CD)"
+        },
+        {
+          "label": "Product and Interface",
+          "text": "React, Next.js, Svelte, Plotly, shadcn/ui, MUI"
         }
       ]
     }
